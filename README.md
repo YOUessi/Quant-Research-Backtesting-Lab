@@ -56,3 +56,22 @@ This is an **engineering baseline**, not a tradable strategy. The first data is 
 - Python 3.12 (isolated venv), pandas 2.3.3, scikit-learn 1.9.1, LightGBM 4.7.0. pytest **9 passed**.
 - Synthetic demo, 8 fictional assets, 260 generated sessions, 156 OOS decisions, 10 bps each side of traded notional: factor RankIC +0.03999, Ridge -0.05678, LightGBM -0.01572; cumulative **net** returns: -3.53%, -20.88%, -21.91%, respectively; same-fee equal-weight benchmark -5.26%.
 - All numbers above are **synthetic engineering verification**, not real-market performance, estimates of alpha or evidence of investment value. Ridge and LightGBM did not beat the toy equal-weight benchmark. Check docs/ENGINEERING_LOG.md for observed issues.
+
+
+## Stage 2 — real historical Qlib Alpha158 research (2026-10-26)
+
+**Status: REAL DATA EXPERIMENTS VERIFIED, but no profitable strategy demonstrated.** Full report: [Real data report](docs/REAL_DATA_REPORT.md), [experiment metrics](docs/experiments/2026-10-26_real_qlib_csi300_exploratory.json), and [engineering failure/fix log](docs/ENGINEERING_LOG.md).
+
+On the Mac, with Python 3.12 and a project-only virtual environment:
+
+\`\`\`bash
+.venv/bin/python -m pip install -e '.[test,ml,qlib]'
+bash scripts/install_qlib_release.sh
+bash scripts/mac_real_qlib.sh
+\`\`\`
+
+This will verify/download the **pinned 2026-10-25** community Qlib archive (569.21 MB compressed, SHA256 from its same-release manifest), load CSI300 membership as of 2024-01-02, select a **predeclared first-12-ticker slice**, compute 158 Qlib Alpha158 + six causal handcrafted features, produce expanding purged walk-forward predictions, and compute gross/net portfolio, turnover and fee sensitivity. No source market data is ever committed to GitHub.
+
+For the exact verified experiment: 2024-01-02 to 2025-12-31 with 328 out-of-sample dates. At 10 bps traded-notional cost, the **portfolio cumulative net returns** are momentum -22.70%, Ridge -27.21%, LightGBM -28.60%, versus **same 12-name equal-weight** +13.49%. These are modeled returns on real historical *adjusted* data, **not executable investment profits**. A fixed 12-name inception cohort is not CSI300 replication; index eligibility is checked as-of each date, but price-adjustment revision, halts, actual open fills, slippage and broader universe effects are not fully modeled.
+
+The project has been tested on Mac CPU; Tang and any NVIDIA GPU remain unnecessary. **Do not state that the model achieved positive alpha or beat the benchmark.**
