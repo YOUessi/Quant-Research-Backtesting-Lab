@@ -48,6 +48,7 @@ def walk_forward(
     model_kind: str = "ridge",
     cfg: WalkForwardConfig = WalkForwardConfig(),
     feature_cols: tuple[str, ...] = BASE_FEATURES,
+    allow_missing_features: bool = False,
 ) -> tuple[pd.DataFrame, list[dict]]:
     """Choose hyperparameters on past-only validation and predict future test windows.
 
@@ -62,8 +63,10 @@ def walk_forward(
         raise ValueError("Only causal features can be used")
     if not set(feature_cols).issubset(panel.columns):
         raise ValueError("Feature columns missing")
-    if panel[list(feature_cols)].isna().any().any():
-        raise ValueError("Missing feature values: fix via past-only transforms before training")
+    if not allow_missing_features and panel[list(feature_cols)].isna().any().any():
+        raise ValueError("Missing feature values: use train-only imputation or reject the input")
+    if np.isinf(panel[list(feature_cols)].to_numpy(dtype=float)).any():
+        raise ValueError("Infinite feature values are invalid; convert to NaN before training")
     dates = sorted(pd.to_datetime(panel["date"].unique()))
     first_test = cfg.min_train + cfg.validation_days + 2
     if len(dates) <= first_test:
