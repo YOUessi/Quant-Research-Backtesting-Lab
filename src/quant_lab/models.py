@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from sklearn.impute import SimpleImputer
 from sklearn.linear_model import Ridge
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
@@ -20,7 +21,10 @@ def candidate_params(kind: str) -> tuple[float | int, ...]:
 def build_model(kind: str, param: float | int, *, seed: int = 42):
     """Construct a new estimator for each train split, preventing fitted-state reuse."""
     if kind == "ridge":
-        return make_pipeline(StandardScaler(), Ridge(alpha=float(param)))
+        return make_pipeline(
+            SimpleImputer(strategy="median", keep_empty_features=True),
+            StandardScaler(), Ridge(alpha=float(param))
+        )
     if kind == "lightgbm":
         try:
             from lightgbm import LGBMRegressor
