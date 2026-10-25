@@ -18,7 +18,7 @@ An auditable time-series factor lab aimed at AI/data/quant internships. Code, te
 ```bash
 git clone https://github.com/YOUessi/Quant-Research-Backtesting-Lab.git
 cd Quant-Research-Backtesting-Lab
-python3 -m venv .venv
+$HOME/.local/bin/python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e '.[test,ml]'
 python -m pytest -q
@@ -26,9 +26,15 @@ python -m quant_lab.cli demo --model ridge --output runs/demo_ridge
 python -m quant_lab.cli demo --model lightgbm --output runs/demo_lgbm
 ```
 
+On the connected Mac, the system python3 is 3.9.6. The existing executable $HOME/.local/bin/python3.12 is used above to create .venv. Run all three synthetic baselines with a repeatable macOS OpenMP workaround:
+
+    bash scripts/mac_verify.sh
+
+If the system LightGBM cannot load libomp.dylib, this script uses the already installed scikit-learn wheel's trusted OpenMP runtime inside the same virtual environment. This is a **local compatibility workaround**, not a permanent system install. For other systems use the platform's regular libomp installer.
+
 To analyze user-provided real, adjusted OHLCV data:
 ```bash
-python -m quant_lab.cli csv --input path/to/market.csv --model lightgbm --output runs/real001
+python -m quant_lab.cli csv --input path/to/market.csv --provenance 'vendor, adjustment, date, universe' --model lightgbm --output runs/real001
 ```
 
 CSV required columns: `date,asset,open,close,volume` (adjusted prices consistently handled, positive volumes). Date is daily session date. The v0 implementation expects a fully balanced asset/date panel, intentionally refusing missing/suspended/incomplete panels rather than silently inventing tradable returns. CSV provenance, delistings, corporate actions and a **point-in-time** universe must be documented before drawing real-world conclusions.
@@ -45,3 +51,8 @@ CSV required columns: `date,asset,open,close,volume` (adjusted prices consistent
 
 ## Honesty & limitations
 This is an **engineering baseline**, not a tradable strategy. The first data is synthetic; Qlib Alpha158 is optional and requires a real dataset and point-in-time audit. Daily open-to-open position accounting ignores market impact, halted stocks, borrow/short restrictions, taxes, exchange auction specifics and changing universe composition. Avoid investment claims. See `docs/EXPERIMENT_PROTOCOL.md`.
+
+## Actual Mac CPU verification (2026-10-26)
+- Python 3.12 (isolated venv), pandas 2.3.3, scikit-learn 1.9.1, LightGBM 4.7.0. pytest **9 passed**.
+- Synthetic demo, 8 fictional assets, 260 generated sessions, 156 OOS decisions, 10 bps each side of traded notional: factor RankIC +0.03999, Ridge -0.05678, LightGBM -0.01572; cumulative **net** returns: -3.53%, -20.88%, -21.91%, respectively; same-fee equal-weight benchmark -5.26%.
+- All numbers above are **synthetic engineering verification**, not real-market performance, estimates of alpha or evidence of investment value. Ridge and LightGBM did not beat the toy equal-weight benchmark. Check docs/ENGINEERING_LOG.md for observed issues.
