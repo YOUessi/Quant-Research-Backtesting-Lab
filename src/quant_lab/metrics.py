@@ -30,10 +30,6 @@ def _series_stats(returns: pd.Series) -> dict[str, float | None]:
 
 def summarize(predictions: pd.DataFrame, daily: pd.DataFrame) -> dict:
     score = average_rank_ic(predictions, prediction="prediction")
-    # Independent reference: baseline scores are always computed OOS.
-    benchmark_ic = average_rank_ic(
-        predictions.assign(prediction=predictions["prediction"]), prediction="prediction"
-    )
     return {
         "days": int(len(daily)),
         "assets_per_day": int(predictions.groupby("date")["asset"].nunique().median()),
