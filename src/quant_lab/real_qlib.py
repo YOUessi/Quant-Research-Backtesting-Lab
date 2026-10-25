@@ -232,11 +232,16 @@ def load_live_sample(
     # Give Alpha158's 60-session operators a warmup; make all feature values
     # t-asof and all first eligible decisions >= first_decision.
     warmup_start = (first_decision - pd.Timedelta(days=160)).strftime("%Y-%m-%d")
+    # Two real future sessions are required to settle the final decision
+    # without filtering rows on future price availability.
+    fetch_end = (end_stamp + pd.Timedelta(days=16)).strftime("%Y-%m-%d")
     calendar = pd.DatetimeIndex(
-        D.calendar(start_time=warmup_start, end_time=end, freq="day")
+        D.calendar(start_time=warmup_start, end_time=fetch_end, freq="day")
     ).normalize()
+    if len(calendar[calendar > study_calendar[-1]]) < 2:
+        raise ValueError("Fewer than two post-study trading sessions for final label settlement")
     fields = ["$open", "$close", "$volume"]
-    raw = D.features(selected, fields, start_time=warmup_start, end_time=end, freq="day")
+    raw = D.features(selected, fields, start_time=warmup_start, end_time=fetch_end, freq="day")
     if raw.empty:
         raise ValueError("No Qlib raw prices for selected inception-date basket")
     raw = raw.reset_index().rename(
@@ -245,7 +250,7 @@ def load_live_sample(
     )
     handler = Alpha158(
         instruments=selected,
-        start_time=warmup_start, end_time=end,
+        start_time=warmup_start, end_time=fetch_end,
         fit_start_time=warmup_start, fit_end_time=start,
         infer_processors=[], learn_processors=[],
     )
@@ -265,7 +270,7 @@ def load_live_sample(
         "selected_basket": list(selected),
         "experiment_start": str(first_decision.date()),
         "experiment_end": str(study_calendar[-1].date()),
-        "warmup_start": warmup_start,
+        "warmup_start": warmup_start, "label_settlement_calendar_end": str(calendar[-1].date()),
         "raw_bar_rows": len(raw), "alpha158_rows": len(alpha),
         "qlib_default_learn_processors_disabled": True,
         "qlib_default_infer_processors_disabled": True,
