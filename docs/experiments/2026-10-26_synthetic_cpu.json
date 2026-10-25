@@ -1,0 +1,162 @@
+{
+  "description": "Verbatim metrics.json parsed from Mac CPU runs; synthetic software verification only, NOT investment alpha.",
+  "verified_on": "2026-10-26",
+  "host_arch": "macOS Apple Silicon arm64, Python 3.12",
+  "repo_tested_sha": "2b7f6994e6f0aefdf7c9c4fa9bc8bc6bfbda8460",
+  "pytest": "11 passed",
+  "models": [
+    "factor",
+    "ridge",
+    "lightgbm"
+  ],
+  "dataset": {
+    "kind": "SYNTHETIC_DEMO_NOT_REAL_MARKET",
+    "source_rows": 2080,
+    "assets": 8,
+    "seed": 42,
+    "fee_bps": 10,
+    "top_k": 3,
+    "windows": {
+      "min_train": 60,
+      "validation_days": 20,
+      "test_days": 15,
+      "seed": 42
+    },
+    "source_start": "2023-01-02",
+    "source_end": "2023-12-29"
+  },
+  "metrics": {
+    "factor": {
+      "days": 156,
+      "assets_per_day": 8,
+      "out_of_sample_rank_ic": 0.039987789987789985,
+      "portfolio_net": {
+        "observations": 156,
+        "total_return": -0.03526991262983681,
+        "annualized_return": -0.05635334070267084,
+        "annualized_volatility": 0.11953889815040304,
+        "sharpe": -0.42578417429342563,
+        "max_drawdown": -0.0826463636717335
+      },
+      "portfolio_gross": {
+        "observations": 156,
+        "total_return": 0.04965810435645013,
+        "annualized_return": 0.08143493374609312,
+        "annualized_volatility": 0.12022477747747647,
+        "sharpe": 0.710999773905087,
+        "max_drawdown": -0.06898843054522719
+      },
+      "equal_weight_benchmark_net": {
+        "observations": 156,
+        "total_return": -0.05264195728940779,
+        "annualized_return": -0.08365014910755608,
+        "annualized_volatility": 0.09579091362255913,
+        "sharpe": -0.8642348322757757,
+        "max_drawdown": -0.07967639955916161
+      },
+      "equal_weight_benchmark_gross": {
+        "observations": 156,
+        "total_return": -0.051693650940349056,
+        "annualized_return": -0.08216795359934626,
+        "annualized_volatility": 0.0957744916687396,
+        "sharpe": -0.8475298661523124,
+        "max_drawdown": -0.07967639955916206
+      },
+      "mean_daily_traded_notional": 0.5405982905982905,
+      "total_transaction_cost_fractions": 0.08433333333333334,
+      "notes": [
+        "Equity/Sharpe annualize 252 sessions; estimates may be unstable for short samples.",
+        "Benchmark and strategy both include modeled trading fees.",
+        "No final liquidation fee, market impact, halts, taxes or survivorship audit."
+      ]
+    },
+    "ridge": {
+      "days": 156,
+      "assets_per_day": 8,
+      "out_of_sample_rank_ic": -0.05677655677655678,
+      "portfolio_net": {
+        "observations": 156,
+        "total_return": -0.20882449738559983,
+        "annualized_return": -0.31503008461948034,
+        "annualized_volatility": 0.13070180616551408,
+        "sharpe": -2.8278319352795216,
+        "max_drawdown": -0.2120158154257723
+      },
+      "portfolio_gross": {
+        "observations": 156,
+        "total_return": -0.07978095514550565,
+        "annualized_return": -0.12567997020413346,
+        "annualized_volatility": 0.12997357254620973,
+        "sharpe": -0.9685143541620513,
+        "max_drawdown": -0.12881050114416226
+      },
+      "equal_weight_benchmark_net": {
+        "observations": 156,
+        "total_return": -0.05264195728940779,
+        "annualized_return": -0.08365014910755608,
+        "annualized_volatility": 0.09579091362255913,
+        "sharpe": -0.8642348322757757,
+        "max_drawdown": -0.07967639955916161
+      },
+      "equal_weight_benchmark_gross": {
+        "observations": 156,
+        "total_return": -0.051693650940349056,
+        "annualized_return": -0.08216795359934626,
+        "annualized_volatility": 0.0957744916687396,
+        "sharpe": -0.8475298661523124,
+        "max_drawdown": -0.07967639955916206
+      },
+      "mean_daily_traded_notional": 0.967948717948718,
+      "total_transaction_cost_fractions": 0.151,
+      "notes": [
+        "Equity/Sharpe annualize 252 sessions; estimates may be unstable for short samples.",
+        "Benchmark and strategy both include modeled trading fees.",
+        "No final liquidation fee, market impact, halts, taxes or survivorship audit."
+      ]
+    },
+    "lightgbm": {
+      "days": 156,
+      "assets_per_day": 8,
+      "out_of_sample_rank_ic": -0.01572039072039072,
+      "portfolio_net": {
+        "observations": 156,
+        "total_return": -0.219129278042004,
+        "annualized_return": -0.32938387040555794,
+        "annualized_volatility": 0.12465218463546958,
+        "sharpe": -3.140872804421228,
+        "max_drawdown": -0.23188905239041846
+      },
+      "portfolio_gross": {
+        "observations": 156,
+        "total_return": -0.07710349596314825,
+        "annualized_return": -0.12156689643523588,
+        "annualized_volatility": 0.1256363683535525,
+        "sharpe": -0.9690107158332232,
+        "max_drawdown": -0.1324374087699568
+      },
+      "equal_weight_benchmark_net": {
+        "observations": 156,
+        "total_return": -0.05264195728940779,
+        "annualized_return": -0.08365014910755608,
+        "annualized_volatility": 0.09579091362255913,
+        "sharpe": -0.8642348322757757,
+        "max_drawdown": -0.07967639955916161
+      },
+      "equal_weight_benchmark_gross": {
+        "observations": 156,
+        "total_return": -0.051693650940349056,
+        "annualized_return": -0.08216795359934626,
+        "annualized_volatility": 0.0957744916687396,
+        "sharpe": -0.8475298661523124,
+        "max_drawdown": -0.07967639955916206
+      },
+      "mean_daily_traded_notional": 1.0705128205128203,
+      "total_transaction_cost_fractions": 0.16700000000000004,
+      "notes": [
+        "Equity/Sharpe annualize 252 sessions; estimates may be unstable for short samples.",
+        "Benchmark and strategy both include modeled trading fees.",
+        "No final liquidation fee, market impact, halts, taxes or survivorship audit."
+      ]
+    }
+  }
+}
