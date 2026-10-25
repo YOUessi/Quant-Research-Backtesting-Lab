@@ -21,8 +21,11 @@ def _dataset():
     raw["close"] = raw["open"] * 1.002
     raw["volume"] = 1000.0
     alpha = raw[["date", "asset"]].copy()
-    for i in range(140):
-        alpha[f"alpha_TEST_{i}"] = 0.1
+    alpha = pd.concat([
+        alpha,
+        pd.DataFrame(0.1, index=alpha.index,
+                     columns=[f"alpha_TEST_{i}" for i in range(140)]),
+    ], axis=1)
     intervals = pd.DataFrame(
         {"asset": symbols, "valid_from": [dates[0]] * 4, "valid_to": [dates[-1]] * 4}
     )
