@@ -1,0 +1,567 @@
+{
+  "status": "VERIFIED_EXPLORATORY_REAL_HISTORICAL_DATA__NO_TRADEABLE_ALPHA_CLAIM",
+  "verification_date": "2026-10-26",
+  "mac_python": "3.12",
+  "qlib": "0.9.7",
+  "dataset_release": {
+    "release_tag": "2026-10-25",
+    "target_trade_date": "2026-10-23",
+    "archive_size_bytes": 569210863,
+    "archive_sha256": "sha256:0a2974da97b4737e503ecddeea8bb3b2179e0e16ea0fb19fa373ff14155bf315",
+    "investment_data_commit": "b8c129b4d9b838f050eac8b1135111b3b79fc894",
+    "dolt_commit": "d0a9l39sl4n8a7l3ujceonna6ne654mi"
+  },
+  "market": "CN",
+  "basket_selection_rule": "first 12 alphabetically sorted CSI300 constituents AS OF 2024-01-02; no full CSI300 portfolio claim",
+  "data_source_details": {
+    "qlib_version": "0.9.7",
+    "index": "csi300",
+    "basket_selection_date": "2024-01-02",
+    "eligible_initial_members_total": 300,
+    "selected_basket": [
+      "SH600000",
+      "SH600009",
+      "SH600010",
+      "SH600011",
+      "SH600015",
+      "SH600016",
+      "SH600018",
+      "SH600019",
+      "SH600023",
+      "SH600025",
+      "SH600028",
+      "SH600029"
+    ],
+    "experiment_start": "2024-01-02",
+    "experiment_end": "2025-12-31",
+    "warmup_start": "2023-07-26",
+    "label_settlement_calendar_end": "2026-01-16",
+    "raw_bar_rows": 7224,
+    "alpha158_rows": 7224,
+    "qlib_default_learn_processors_disabled": true,
+    "qlib_default_infer_processors_disabled": true,
+    "qlib_kernels": 1
+  },
+  "point_in_time_and_trade_quality": {
+    "candidate_eligible_rows": 5820,
+    "future_availability_invalid": 0,
+    "observed_price_rows": 7224,
+    "total_asset_session_grid_rows": 7224,
+    "missing_or_invalid_price_rows": 0,
+    "decision_count": 485,
+    "selected_basket": [
+      "SH600000",
+      "SH600009",
+      "SH600010",
+      "SH600011",
+      "SH600015",
+      "SH600016",
+      "SH600018",
+      "SH600019",
+      "SH600023",
+      "SH600025",
+      "SH600028",
+      "SH600029"
+    ],
+    "selected_basket_size": 12,
+    "asof_member_count_min": 12,
+    "asof_member_count_max": 12,
+    "all_alpha158_columns": 158,
+    "fraction_missing_alpha_values": 0,
+    "index_member_intervals_used": true,
+    "selection_uses_only_first_date_index_membership": true,
+    "missing_prices_forward_filled": false,
+    "future_membership_filter_applied": false,
+    "future_trade_availability_filter_applied": false,
+    "note": "A fixed inception-date subset of index members is tracked with historical as-of membership. This is NOT full CSI300 replication or production execution."
+  },
+  "study_and_limitations": "Exploratory price-history study, not an executable CSI300 strategy. Price adjustment factors may be revised after the fact; open-auction fills, halts, slippage, survivorship outside the inception basket and dynamic risk exposures are not fully modeled. No claim of investable alpha.",
+  "model_summaries": {
+    "factor": {
+      "model": "factor",
+      "n_train_eligible_dates": 485,
+      "n_oos_days": 328,
+      "n_folds": 10,
+      "features_tracked": 164,
+      "metrics": {
+        "days": 328,
+        "assets_per_day": 12,
+        "out_of_sample_rank_ic": 0.0005397624275516883,
+        "portfolio_net": {
+          "observations": 328,
+          "total_return": -0.2270127552845833,
+          "annualized_return": -0.1794904928947202,
+          "annualized_volatility": 0.26459137289722323,
+          "sharpe": -0.6156302866629221,
+          "max_drawdown": -0.34499714446192564
+        },
+        "portfolio_gross": {
+          "observations": 328,
+          "total_return": -0.033157105495028594,
+          "annualized_return": -0.02557357537018945,
+          "annualized_volatility": 0.26485038161912283,
+          "sharpe": 0.03398494813540525,
+          "max_drawdown": -0.28232601664672363
+        },
+        "equal_weight_benchmark_net": {
+          "observations": 328,
+          "total_return": 0.13493478203545006,
+          "annualized_return": 0.10213233660106935,
+          "annualized_volatility": 0.20915743366313055,
+          "sharpe": 0.567109677365647,
+          "max_drawdown": -0.18675610287889566
+        },
+        "equal_weight_benchmark_gross": {
+          "observations": 328,
+          "total_return": 0.13607085288833853,
+          "annualized_return": 0.1029798461623268,
+          "annualized_volatility": 0.20916153558869194,
+          "sharpe": 0.5707794140278032,
+          "max_drawdown": -0.18675610287889577
+        },
+        "mean_daily_traded_notional": 0.6819105691056911,
+        "total_transaction_cost_fractions": 0.2236666666666667,
+        "notes": [
+          "Equity/Sharpe annualize 252 sessions; estimates may be unstable for short samples.",
+          "Benchmark and strategy both include modeled trading fees.",
+          "No final liquidation fee, market impact, halts, taxes or survivorship audit."
+        ]
+      }
+    },
+    "ridge": {
+      "model": "ridge",
+      "n_train_eligible_dates": 485,
+      "n_oos_days": 328,
+      "n_folds": 10,
+      "features_tracked": 164,
+      "metrics": {
+        "days": 328,
+        "assets_per_day": 12,
+        "out_of_sample_rank_ic": -0.004807262541108985,
+        "portfolio_net": {
+          "observations": 328,
+          "total_return": -0.2721124140300093,
+          "annualized_return": -0.2165252208278866,
+          "annualized_volatility": 0.22926229713626095,
+          "sharpe": -0.9511186786650713,
+          "max_drawdown": -0.36392805406335504
+        },
+        "portfolio_gross": {
+          "observations": 328,
+          "total_return": -0.013014793199775498,
+          "annualized_return": -0.010014328401117267,
+          "annualized_volatility": 0.22932420934872624,
+          "sharpe": 0.06879056766333004,
+          "max_drawdown": -0.18519031454690305
+        },
+        "equal_weight_benchmark_net": {
+          "observations": 328,
+          "total_return": 0.13493478203545006,
+          "annualized_return": 0.10213233660106935,
+          "annualized_volatility": 0.20915743366313055,
+          "sharpe": 0.567109677365647,
+          "max_drawdown": -0.18675610287889566
+        },
+        "equal_weight_benchmark_gross": {
+          "observations": 328,
+          "total_return": 0.13607085288833853,
+          "annualized_return": 0.1029798461623268,
+          "annualized_volatility": 0.20916153558869194,
+          "sharpe": 0.5707794140278032,
+          "max_drawdown": -0.18675610287889577
+        },
+        "mean_daily_traded_notional": 0.9278455284552845,
+        "total_transaction_cost_fractions": 0.30433333333333334,
+        "notes": [
+          "Equity/Sharpe annualize 252 sessions; estimates may be unstable for short samples.",
+          "Benchmark and strategy both include modeled trading fees.",
+          "No final liquidation fee, market impact, halts, taxes or survivorship audit."
+        ]
+      }
+    },
+    "lightgbm": {
+      "model": "lightgbm",
+      "n_train_eligible_dates": 485,
+      "n_oos_days": 328,
+      "n_folds": 10,
+      "features_tracked": 164,
+      "metrics": {
+        "days": 328,
+        "assets_per_day": 12,
+        "out_of_sample_rank_ic": -0.03602068726940851,
+        "portfolio_net": {
+          "observations": 328,
+          "total_return": -0.2860121747044648,
+          "annualized_return": -0.22804547531425845,
+          "annualized_volatility": 0.23925878722670343,
+          "sharpe": -0.9636170392649194,
+          "max_drawdown": -0.39200433333175877
+        },
+        "portfolio_gross": {
+          "observations": 328,
+          "total_return": 0.02601968216835071,
+          "annualized_return": 0.0199311044301409,
+          "annualized_volatility": 0.23957182064027063,
+          "sharpe": 0.1999393719457872,
+          "max_drawdown": -0.1989317080824019
+        },
+        "equal_weight_benchmark_net": {
+          "observations": 328,
+          "total_return": 0.13493478203545006,
+          "annualized_return": 0.10213233660106935,
+          "annualized_volatility": 0.20915743366313055,
+          "sharpe": 0.567109677365647,
+          "max_drawdown": -0.18675610287889566
+        },
+        "equal_weight_benchmark_gross": {
+          "observations": 328,
+          "total_return": 0.13607085288833853,
+          "annualized_return": 0.1029798461623268,
+          "annualized_volatility": 0.20916153558869194,
+          "sharpe": 0.5707794140278032,
+          "max_drawdown": -0.18675610287889577
+        },
+        "mean_daily_traded_notional": 1.1046747967479673,
+        "total_transaction_cost_fractions": 0.36233333333333334,
+        "notes": [
+          "Equity/Sharpe annualize 252 sessions; estimates may be unstable for short samples.",
+          "Benchmark and strategy both include modeled trading fees.",
+          "No final liquidation fee, market impact, halts, taxes or survivorship audit."
+        ]
+      }
+    }
+  },
+  "fee_sensitivity_diagnostics": {
+    "kind": "FROZEN_OOS_REAL_DATA_EXPLORATORY_FEE_SENSITIVITY",
+    "data_bundle_sha256": "sha256:0a2974da97b4737e503ecddeea8bb3b2179e0e16ea0fb19fa373ff14155bf315",
+    "prediction_files_are_gitignored": true,
+    "predictions_not_refitted_or_selected_on_test": true,
+    "same_asset_date_keys_across_models": true,
+    "cost_grid_is_descriptive_not_strategy_optimized": true,
+    "price_auction_or_point_in_time_corporate_action_audit_complete": false,
+    "n_models": 3,
+    "n_oos_decision_days": 328,
+    "models": {
+      "factor": {
+        "n_rows": 3936,
+        "fee_sensitivity": [
+          {
+            "fee_bps": 0,
+            "days": 328,
+            "mean_daily_traded_notional": 0.6819105691056911,
+            "total_return_strategy_gross": -0.033157110412884605,
+            "total_return_strategy_net": -0.033157110412884605,
+            "total_return_benchmark_net": 0.13607085084705672,
+            "strategy_sharpe_net": 0.0339849326108123,
+            "max_drawdown_net": -0.2823260183172268,
+            "out_of_sample_rank_ic": 0.0005397624275516883,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.00043803244027013484,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.0013509581868309344,
+                0.0005209363253007692
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 5,
+            "days": 328,
+            "mean_daily_traded_notional": 0.6819105691056911,
+            "total_return_strategy_gross": -0.033157110412884605,
+            "total_return_strategy_net": -0.13547866268453057,
+            "total_return_benchmark_net": 0.13550281542163334,
+            "strategy_sharpe_net": -0.290688162675906,
+            "max_drawdown_net": -0.31437000261717274,
+            "out_of_sample_rank_ic": 0.0005397624275516883,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.0007775592165174288,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.0016970392958090578,
+                0.00018662707109756837
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 10,
+            "days": 328,
+            "mean_daily_traded_notional": 0.6819105691056911,
+            "total_return_strategy_gross": -0.033157110412884605,
+            "total_return_strategy_net": -0.2270127592163913,
+            "total_return_benchmark_net": 0.13493477999621128,
+            "strategy_sharpe_net": -0.6156303045004319,
+            "max_drawdown_net": -0.34499714598655173,
+            "out_of_sample_rank_ic": 0.0005397624275516883,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.001117085992764723,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.0020436078706500983,
+                -0.00015072152174788118
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 20,
+            "days": 328,
+            "mean_daily_traded_notional": 0.6819105691056911,
+            "total_return_strategy_gross": -0.033157110412884605,
+            "total_return_strategy_net": -0.38213180671992486,
+            "total_return_benchmark_net": 0.13379870914536207,
+            "strategy_sharpe_net": -1.2656673510581675,
+            "max_drawdown_net": -0.4328095037202997,
+            "out_of_sample_rank_ic": 0.0005397624275516883,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.0017961395452593114,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.0027478532346898446,
+                -0.0008066940778376497
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          }
+        ]
+      },
+      "ridge": {
+        "n_rows": 3936,
+        "fee_sensitivity": [
+          {
+            "fee_bps": 0,
+            "days": 328,
+            "mean_daily_traded_notional": 0.9278455284552845,
+            "total_return_strategy_gross": -0.01301479369309011,
+            "total_return_strategy_net": -0.01301479369309011,
+            "total_return_benchmark_net": 0.13607085084705672,
+            "strategy_sharpe_net": 0.06879056606647654,
+            "max_drawdown_net": -0.18519031474797232,
+            "out_of_sample_rank_ic": -0.004807262541108985,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.00041114982182963665,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.000986037899272169,
+                0.00013441115199866964
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 5,
+            "days": 328,
+            "mean_daily_traded_notional": 0.9278455284552845,
+            "total_return_strategy_gross": -0.01301479369309011,
+            "total_return_strategy_net": -0.15236965317082596,
+            "total_return_benchmark_net": 0.13550281542163334,
+            "strategy_sharpe_net": -0.4411496982565915,
+            "max_drawdown_net": -0.2653182052195643,
+            "out_of_sample_rank_ic": -0.004807262541108985,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.0008735726425880429,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.0014557588507081584,
+                -0.0003331145387575826
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 10,
+            "days": 328,
+            "mean_daily_traded_notional": 0.9278455284552845,
+            "total_return_strategy_gross": -0.01301479369309011,
+            "total_return_strategy_net": -0.2721124143938203,
+            "total_return_benchmark_net": 0.13493477999621128,
+            "strategy_sharpe_net": -0.9511186794443448,
+            "max_drawdown_net": -0.36392805514077087,
+            "out_of_sample_rank_ic": -0.004807262541108985,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.001335995463346449,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.0019245004526289384,
+                -0.0007980094997528898
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 20,
+            "days": 328,
+            "mean_daily_traded_notional": 0.9278455284552845,
+            "total_return_strategy_gross": -0.01301479369309011,
+            "total_return_strategy_net": -0.4633815136972689,
+            "total_return_benchmark_net": 0.13379870914536207,
+            "strategy_sharpe_net": -1.9696321905081176,
+            "max_drawdown_net": -0.5233378400040963,
+            "out_of_sample_rank_ic": -0.004807262541108985,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.0022608411048632617,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.002850531832211454,
+                -0.0017337512868722943
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          }
+        ]
+      },
+      "lightgbm": {
+        "n_rows": 3936,
+        "fee_sensitivity": [
+          {
+            "fee_bps": 0,
+            "days": 328,
+            "mean_daily_traded_notional": 1.1046747967479673,
+            "total_return_strategy_gross": 0.026019679518014982,
+            "total_return_strategy_net": 0.026019679518014982,
+            "total_return_benchmark_net": 0.13607085084705672,
+            "strategy_sharpe_net": 0.19993936358877254,
+            "max_drawdown_net": -0.1989317080219265,
+            "out_of_sample_rank_ic": -0.03602068726940851,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.00028367166722943353,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.0009915877526927531,
+                0.000554032409114311
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 5,
+            "days": 328,
+            "mean_daily_traded_notional": 1.1046747967479673,
+            "total_return_strategy_gross": 0.026019679518014982,
+            "total_return_strategy_net": -0.14404754717459034,
+            "total_return_benchmark_net": 0.13550281542163334,
+            "strategy_sharpe_net": -0.38151342749940814,
+            "max_drawdown_net": -0.2801782465781889,
+            "out_of_sample_rank_ic": -0.03602068726940851,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.0008346315670701647,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.0015423390352016864,
+                -0.000006135967281954164
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 10,
+            "days": 328,
+            "mean_daily_traded_notional": 1.1046747967479673,
+            "total_return_strategy_gross": 0.026019679518014982,
+            "total_return_strategy_net": -0.28601217654878475,
+            "total_return_benchmark_net": 0.13493477999621128,
+            "strategy_sharpe_net": -0.9636170526276753,
+            "max_drawdown_net": -0.3920043340467566,
+            "out_of_sample_rank_ic": -0.03602068726940851,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.0013855914669108963,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.002081265251540589,
+                -0.0005657268904627849
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          },
+          {
+            "fee_bps": 20,
+            "days": 328,
+            "mean_daily_traded_notional": 1.1046747967479673,
+            "total_return_strategy_gross": 0.026019679518014982,
+            "total_return_strategy_net": -0.5033911432899105,
+            "total_return_benchmark_net": 0.13379870914536207,
+            "strategy_sharpe_net": -2.1277637938166007,
+            "max_drawdown_net": -0.5663850853578866,
+            "out_of_sample_rank_ic": -0.03602068726940851,
+            "paired_bootstrap": {
+              "n_sessions": 328,
+              "observed_mean_daily_strategy_minus_benchmark": -0.002487511266592358,
+              "bootstrap_95pct_mean_daily_diff": [
+                -0.003190668324955914,
+                -0.0016635863685908023
+              ],
+              "bootstrap_seed": 11,
+              "block_sessions": 5,
+              "bootstrap_draws": 1500,
+              "method": "paired circular moving-block bootstrap of daily arithmetic return differences",
+              "warning": "Descriptive only; dependent folds, selection of assets, survivorship, auction execution, fees, repeated model comparisons and nonstationarity preclude a formal positive-alpha significance claim."
+            }
+          }
+        ]
+      }
+    },
+    "warning": "A fixed 12-name inception-basket illustration, not full CSI300 replication. Returns depend on simplified open-to-open fills, normalized price history, no market impact, and unmodeled intraday halts and trade limits. No statistically validated market alpha is claimed."
+  },
+  "regression_tests": "15 passed on Mac after feature+PIT tests, 2026-10-26",
+  "source_data_committed_to_github": false,
+  "local_run_paths": [
+    "runs/real_csi300_2024_25_factor",
+    "runs/real_csi300_2024_25_ridge",
+    "runs/real_csi300_2024_25_lightgbm",
+    "runs/real_csi300_2024_25_comparison.json"
+  ],
+  "caveats": [
+    "Models and fee grid compared on same held-out rows; no model selection from held-out return results",
+    "Only a predefined 12-name index-inception slice; not representative of entire CSI300 and cannot infer alpha",
+    "Corporate-action adjustment and point-in-time price data not audited to production standard",
+    "Trading at next session official opening price, zero spread/slippage/impact, is a research assumption",
+    "Dependent time-series and repeated model trials limit bootstrap evidence",
+    "Qlib raw archive pinned by same-release manifest and SHA256"
+  ]
+}
