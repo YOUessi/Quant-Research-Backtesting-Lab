@@ -14,7 +14,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import numpy as np
@@ -231,10 +231,10 @@ def load_live_sample(
 
     # Give Alpha158's 60-session operators a warmup; make all feature values
     # t-asof and all first eligible decisions >= first_decision.
-    warmup_start = (first_decision - pd.Timedelta(days=160)).strftime("%Y-%m-%d")
+    warmup_start = (first_decision.to_pydatetime() - timedelta(days=160)).strftime("%Y-%m-%d")
     # Two real future sessions are required to settle the final decision
     # without filtering rows on future price availability.
-    fetch_end = (end_stamp + pd.Timedelta(days=16)).strftime("%Y-%m-%d")
+    fetch_end = (end_stamp.to_pydatetime() + timedelta(days=16)).strftime("%Y-%m-%d")
     calendar = pd.DatetimeIndex(
         D.calendar(start_time=warmup_start, end_time=fetch_end, freq="day")
     ).normalize()
