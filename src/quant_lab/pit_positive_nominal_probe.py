@@ -10,6 +10,7 @@ aftertax credit, or a historical factor-publisher vintage.
 from __future__ import annotations
 
 import argparse
+from decimal import Decimal
 import hashlib
 import json
 from pathlib import Path
@@ -78,8 +79,15 @@ def run(cash_file: Path, right_file: Path, bars_file: Path,
     exrow=next(x for x in modeled["records"] if x["date"]==EX)
     if abs(float(exrow["nominal_shares"])-shares*1.6)>1e-6:
         raise AssertionError("Incorrect corporate-action 10-to-6 shares")
-    before=shares*record
-    after=shares*1.6*exclose+shares*float(e["gross_cash_per_nominal_share"])
+    # Use exact decimal construction for issuer money/share reconciliation,
+    # not intermediate IEEE binary floats that display 453339.99999999994.
+    q=Decimal(str(shares))
+    rpx=Decimal(str(record))
+    epx=Decimal(str(exclose))
+    cash=Decimal(str(e["gross_cash_per_nominal_share"]))
+    factor=Decimal("1")+Decimal(str(r["bonus_ratio_per_nominal_share"])) + Decimal(str(r["transfer_ratio_per_nominal_share"]))
+    before=float(q*rpx)
+    after=float(q*factor*epx+q*cash)
     if abs(float(modeled["ex_close_including_gross_receivable_scenario"])-after)>1e-5:
         raise AssertionError("Nominal-price + cash payout reconciliation failed")
     output.mkdir(parents=True,exist_ok=False)
