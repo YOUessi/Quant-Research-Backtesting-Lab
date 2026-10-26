@@ -11,7 +11,7 @@ from pypdf import PdfReader
 
 from .pit_official_batch import (
     extract_cash_candidates_per_share, extract_explicit_pretax_cash_per_share,
-    strict_cash_match,
+    strict_cash_match, is_issuer_dividend_implementation,
 )
 
 
@@ -44,6 +44,17 @@ def rerate(original: dict, source_directory: Path) -> dict:
             value["status"]="PDF_CASH_MATCHED_DATES_NOT_CONFIRMED"
         rec=dict(old)
         rec.update(value)
+        if not is_issuer_dividend_implementation(old["official_announcement_title"]):
+            rec["status"]="NON_DIVIDEND_DERIVATIVE_NOTICE_EXCLUDED"
+            rec["cash_per_share_verified"]=None
+            rec["excluded_from_corporate_action_ledger"]=True
+            rec["source_note"]=(
+                "Issuer PDF may refer to equity distribution but is a "
+                "convertible-bond halt, repurchase adjustment or pricing "
+                "consequence, not the standalone dividend implementation."
+            )
+        else:
+            rec["excluded_from_corporate_action_ledger"]=False
         rec["issuer_pdf_all_cash_amount_candidates"]=all_cash
         rec["issuer_pdf_explicit_tax_inclusive_cash_candidates"]=gross
         rec["gross_amount_context_used"]=bool(gross)
@@ -56,6 +67,12 @@ def rerate(original: dict, source_directory: Path) -> dict:
         "kind":"OFFLINE_RECHECK_OF_PINNED_ISSUER_PDF_BYTES",
         "original_source":"Original 19-symbol issuer batch PDF audit; no new PDFs",
         "n_document_bytes_reverified":len(updated),
+        "n_standalone_dividend_implementation_titles":sum(
+            not x["excluded_from_corporate_action_ledger"] for x in updated
+        ),
+        "n_derivative_effect_notices_excluded_from_dividend_ledger":sum(
+            x["excluded_from_corporate_action_ledger"] for x in updated
+        ),
         "n_document_date_cash_vendor_crossmatches":sum(
             x["status"]=="PDF_CASH_MATCHED_TO_THIRDPARTY" for x in updated
         ),
