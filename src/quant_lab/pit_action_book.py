@@ -24,7 +24,7 @@ def create_event(*, symbol, announced, record, ex, cash, sha, url,
     announced, record, ex = date(announced), date(record), date(ex)
     pay = date(pay) if pay else None
     if not announced < record < ex or (pay and pay < ex):
-        raise ValueError(f"Impossible announcement/record/ex/pay dates: {symbol}")
+        raise ValueError(f"Invalid chronology for announcement/record/ex/pay dates: {symbol}")
     cash = float(cash)
     if not 0 < cash < 200:
         raise ValueError("Invalid gross cash per nominal share")
