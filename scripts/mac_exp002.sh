@@ -2,7 +2,7 @@
 # EXP-002 exact preregistered historical research, Mac CPU only.
 # WARNING: Qlib source adjustment factors are not point-in-time certified.
 set -euo pipefail
-if [[ -n "$QUANT_LAB_ROOT" ]]; then
+if [[ -n "${QUANT_LAB_ROOT:-}" ]]; then
   ROOT="$QUANT_LAB_ROOT"
 else
   ROOT="$(cd "$(dirname "$0")/.." && pwd)"
