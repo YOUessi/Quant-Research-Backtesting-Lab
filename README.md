@@ -100,3 +100,21 @@ Frozen 10bps fee result on 2021–2022: daily Top-10 momentum **−73.14%**, eve
 **What still cannot be certified:** retroactive revisions to price adjustment factors at each historical publication date, corporate-action cash/share rights, exact limit prices and opening-auction order fills, market impact, and delisting settlement. These deficits remain prominently marked; the independent period has now been evaluated and cannot be recycled as an untouched holdout.
 
 On the connected Mac, the original Git checkout remains behind GitHub due to intermittent Git network failures. Exact GitHub source files were relayed into a gitignored isolated mirror for verification; **27 tests passed** against that mirror and complete multi-strategy results reproduced exactly in a second full pipeline run. The mirror is not a git commit, and GitHub remains authoritative.
+
+
+## Stage 4 — EXP-006 issuer share rights, nominal mark & execution evidence (2026-10-27)
+
+**Verified engineering/publisher-source audit, NOT investable alpha or actual broker execution.** Read [EXP006 full results](docs/EXP006_RESULTS_2026-10-27.md), [EXP006 minimal source-hash dataset](docs/experiments/2026-10-27_EXP006_rights_order_factor_reconciliation.json) and [engineering issue log](docs/ENGINEERING_LOG.md).
+
+- 89 original-PDF-backed issuer cash events; 21 have full known share bonus/transfer status, 20 are issuer-explicit no-bonus/no-transfer, 2 include positive stock-transfer, and **68 remain incomplete**.
+- SZ300751 2022-04-14 issuer-verified cash plus 10-to-6 transfer: 1,000 old nominal shares → 1,600 on ex date, gross pre-tax dividend receivable CNY 1,500. Using independent originally unadjusted historic closes, record mark CNY 468,960 vs ex mark plus gross receivable CNY 453,340 (−3.33%); raw price-only change (−39.78%) would be misleading. No real broker fill or credit is asserted.
+- Retrospective Qlib factor jump (1.605164) aligns arithmetically with theoretical issuer cash/transfer step (1.605134) but the 2026 source snapshot **does not certify the factor's 2022 as-of availability**.
+- 40 original issuer PDF-confirmed halted stock/day keys overlaid on unchanged EXP002 orders: **zero contradictory assumed fills** in verified halt sessions, but all **16,276 legacy idealized next-open fills remain uncertified** for actual auction queue, official price limits and brokerage execution.
+- Mac CPU using exact GitHub source in a gitignored isolated mirror: **107 passed**. The offline reproduction entry point was fully rerun with unchanged results. No NVIDIA GPU used.
+
+Install optional audit dependencies alongside regular tests, and reproduce *after obtaining the same locally source-verified original PDFs and raw historical prices*:
+
+    python -m pip install -e '.[test,ml,qlib,audit]'
+    bash scripts/mac_exp006.sh
+
+This script refuses to fabricate missing prices, bypass unknown corporate-action terms, overwrite research runs or edit old model metrics. It needs the earlier local Qlib bundle, saved original issuer PDFs, and documented independent raw-price data. Sensitive/private account data is not uploaded; raw public provider datasets are gitignored. **Model improvement remains postponed** until official historical limit prices, share/cash settlement, as-of factor vintages and actual fill constraints can be verified.
