@@ -40,7 +40,7 @@ BONUS_PER_SHARE = re.compile(
     r"每股(?:派送|送)(?:红)?股([0-9]+(?:\.[0-9]+)?)股"
 )
 TRANSFER_PER_SHARE = re.compile(
-    r"每股(?:转增|转赠)([0-9]+(?:\\.[0-9]+)?)股"
+    r"每股(?:转增|转赠)([0-9]+(?:\.[0-9]+)?)股"
 )
 EXPLICIT_NO_BONUS = re.compile(r"不送(?:红)?股")
 EXPLICIT_NO_TRANSFER = re.compile(
