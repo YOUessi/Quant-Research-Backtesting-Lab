@@ -217,6 +217,21 @@ def load_dynamic_data(
         bars, relevant, calendar, symbols,
         first_test=first_test, last_test=last_test,
     )
+    # Deletion from CSI300 is not a stock delisting. Load an independent
+    # historically as-of all-listed register to classify actual delistings.
+    all_intervals = read_member_intervals(provider/"instruments"/"all.txt")
+    panel["listed_asof"] = asset_membership_mask(panel, all_intervals)
+    active_period = panel["date"].between(study[0], study[-1])
+    delist_events = all_intervals.loc[
+        all_intervals["valid_to"].between(study[0], study[-1])
+        & all_intervals["asset"].isin(symbols), ["asset", "valid_to"]
+    ].drop_duplicates()
+    audit["listing_intervals_present"] = True
+    audit["n_symbols_with_listing_end_in_window"] = int(delist_events.asset.nunique())
+    audit["n_index_member_but_not_listed_asof_day"] = int((
+        active_period & panel["index_member_asof"] & ~panel["listed_asof"]
+    ).sum())
+    audit["listing_end_dates_are_not_corporate_action_cash_settlements"] = True
     audit.update({
         "index": index, "evaluation_start": first_test,
         "evaluation_end": last_test, "warmup_start": warmup,
