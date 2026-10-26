@@ -1,0 +1,68 @@
+{
+  "stage": "PIT_EVENT_PROVENANCE_AND_EXECUTION_DATA_COVERAGE_AUDIT",
+  "validation_status": "PARTIAL_SOURCE_EVIDENCE_NOT_FULL_PORTFOLIO_PIT",
+  "period": [
+    "2021-01-04",
+    "2022-12-30"
+  ],
+  "source_pit_ticker_scope": "393 distinct CSI300 tickers present during 2021-2022; EXP002 includes 433 across 2020-06 warmup + study interval",
+  "source_corporate_action_ticker_count_requested": 393,
+  "source_corporate_action_ticker_count_downloaded": 382,
+  "source_corporate_action_ticker_count_unavailable": 11,
+  "source_corporate_action_ticker_coverage_fraction": 0.9720101781170484,
+  "eastmoney_implementation_events_with_historical_notice_calendar_day": 738,
+  "eastmoney_official_index_date_matches_for_targeted_symbols": 4,
+  "official_original_issuer_pdf_verified": 5,
+  "official_dividend_amount_and_record_ex_date_verified": 3,
+  "one_sec_official_full_day_halt_span_exchange_sessions": 10,
+  "original_halt_and_resume_pdf_dates_verified": true,
+  "independent_daily_OHLCV_confirmed_no_bars_through_halt": true,
+  "direct_nominal_share_cash_rights_1000_share_cases": [
+    {
+      "symbol": "SH600000",
+      "ex_date": "2021-07-21",
+      "pretax_cash_receivable_for_1000_shares": 480,
+      "source_verified": true,
+      "broker_cash_posting_verified": false
+    },
+    {
+      "symbol": "SH600000",
+      "ex_date": "2022-07-21",
+      "pretax_cash_receivable_for_1000_shares": 410,
+      "source_verified": true,
+      "broker_cash_posting_verified": false
+    },
+    {
+      "symbol": "SZ000001",
+      "ex_date": "2022-07-22",
+      "pretax_cash_receivable_for_1000_shares": 227.99999999999997,
+      "source_verified": true,
+      "broker_cash_posting_verified": false
+    }
+  ],
+  "source_consolidated_snapshot_has_historical_announcement_date_labels": true,
+  "source_has_historical_versioned_field_revisions": false,
+  "official_announcements_verified_for_all_implementation_events": false,
+  "official_exchange_price_limits_complete_for_393_securities": false,
+  "historical_opening_auction_depth_complete": false,
+  "historical_broker_order_fills_complete": false,
+  "actual_tradeability_certified_for_full_universe": false,
+  "point_in_time_adjustment_factors_certified": false,
+  "holdout_revaluation_recommended_now": false,
+  "blockers": [
+    "11 ticker source histories unavailable or uncertain; cannot infer zero events",
+    "735 of 738 implementation events not PDF-confirmed in the audited pinned example",
+    "latest vendor snapshot is not a series of historical publication-time snapshots",
+    "Tushare stk_limit/suspend_d/anns_d endpoints require authorized credentials/permissions; no configured token on Mac",
+    "BaoStock guest socket/API login timed out in the Mac environment",
+    "only ten SH600340 halted sessions primary/secondary corroborated",
+    "daily volume and official trading halt do not prove our order queue/fill",
+    "full shareholder cash entitlements cannot be applied to Qlib adjusted-price proxy units without double-counting"
+  ],
+  "local_evidence_file_hashes": {
+    "full_collection_summary_sha256": "23c742ffec734af3adb5fcefbf1179656118a5b14057b54e9e25ae40999e48cd",
+    "issuer_primary_report_sha256": "58dee455d8c04a490bfefbc9a1643e164ca69f50b69c4e126f0db2bfc726f6ed",
+    "nominal_rights_report_sha256": "5a8d33797c32ffd50c5179e6b67ace5e3c2a517c401f7e3abbbcb75a2557e25c"
+  },
+  "next_research_gate": "Obtain licensed full-universe as-of dividend and split implementation snapshots + official daily suspension/price limit fields + order-book or broker fill records; run independent reconciliation before re-evaluating portfolio returns. No alpha/model selection yet."
+}
