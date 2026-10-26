@@ -113,7 +113,17 @@ def strict_cash_match(candidates: list[float], thirdparty_expected: float | None
 
 
 def is_issuer_dividend_implementation(title: str) -> bool:
-    return "实施" in title and any(x in title for x in VALID_TITLE_WORDS)
+    """Require a *standalone* issuer implementation disclosure, not a bond or
+    buyback notice merely referring to a completed distribution.
+
+    Deliberately conservative. Unrecognized legitimate titles are marked for
+    manual review, not added as verified dividends.
+    """
+    clean=compact(title.replace("<em>","").replace("</em>",""))
+    return bool(re.search(
+        r"(?:权益分派|分红派息|利润分配|现金分红)实施公告$",
+        clean
+    ))
 
 
 def _get_doc(session: requests.Session, url: str, path: Path) -> tuple[bytes, str]:
