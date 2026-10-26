@@ -102,7 +102,7 @@ def simulate(
     if panel.duplicated(["asset", "date"]).any():
         raise ValueError("Non-unique ticker/date input")
     grouped = dict(tuple(panel.groupby("date", sort=True)))
-    dates = sorted(pd.to_datetime(grouped.keys()))
+    dates = sorted(pd.to_datetime(list(grouped.keys())))
     first, last = pd.Timestamp(first_test), pd.Timestamp(last_test)
     study_dates = [d for d in dates if first <= d <= last]
     if not study_dates or dates.index(study_dates[0]) < 1:
