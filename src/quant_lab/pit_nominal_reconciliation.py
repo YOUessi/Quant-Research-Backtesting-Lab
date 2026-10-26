@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import numpy as np
@@ -63,10 +63,8 @@ def reconcile(
         if not implementation_known_on(event, record_date):
             raise ValueError("Implementation announcement was not known before record-day close")
         bars, quote_source = fetch_independent_unadjusted_bars(
-            session, symbol, start=str((pd.Timestamp(record_date) -
-                                       pd.Timedelta(days=9)).date()),
-            end=str((pd.Timestamp(ex) +
-                     pd.Timedelta(days=9)).date()),
+            session, symbol, start=str((pd.Timestamp(record_date).to_pydatetime() - timedelta(days=9)).date()),
+            end=str((pd.Timestamp(ex).to_pydatetime() + timedelta(days=9)).date()),
         )
         record = bars[bars["date"] == record_date]
         ex_row = bars[bars["date"] == ex]
