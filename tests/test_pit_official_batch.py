@@ -80,3 +80,21 @@ def test_derivative_notices_are_not_independent_cash_dividends(title):
 ])
 def test_standalone_issuer_dividend_implementation_titles(title):
     assert is_issuer_dividend_implementation(title)
+
+
+
+@pytest.mark.parametrize("title", [
+    "0626阳光城2020年度权益分派实施公告（2021-123)",
+    "2020年年度权益分派A股实施公告",
+    "2021年年度权益分派A股实施公告",
+])
+def test_independent_dividend_issuer_titles_with_A_share_or_notice_number(title):
+    assert is_issuer_dividend_implementation(title)
+
+
+def test_without_vendor_multi_cash_amounts_are_flagged_ambiguous():
+    finding=strict_cash_match([0.153,0.17],None)
+    assert finding["status"]=="PDF_MULTI_AMOUNT_NEEDS_MANUAL_REVIEW"
+    assert finding["cash_per_share_verified"] is None
+    empty=strict_cash_match([],None)
+    assert empty["status"]=="PDF_NUMBER_UNEXTRACTABLE"
