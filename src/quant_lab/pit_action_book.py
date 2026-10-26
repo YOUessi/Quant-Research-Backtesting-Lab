@@ -73,14 +73,32 @@ def verified_from_crossmatched(audit, *, pdf_dir):
             continue
         if not row["issuer_pdf_ex_record_date_literals_both_present"]:
             raise ValueError("Previously crossmatched date literal is absent")
-        _read_and_verify_pdf(pdf_dir, row)
+        pdf_path=_read_and_verify_pdf(pdf_dir, row)
+        from pypdf import PdfReader
+        from .pit_original_date_recovery import issuer_implementation_dates
+        issuer_text="\\n".join(page.extract_text() or "" for page in PdfReader(pdf_path).pages[:4])
+        try:
+            original_dates=issuer_implementation_dates(issuer_text,row["symbol"])
+        except (ValueError, TypeError):
+            original_dates={}
+        proven_dates=(
+            original_dates.get("record_date")==row["thirdparty_record_date"]
+            and original_dates.get("ex_date")==row["thirdparty_ex_date"]
+        )
+        # Never derive pay day from third-party ex-date or guess the date
+        # when the issuer's own date table/prose is unparseable.
+        pay_day=original_dates.get("pay_date") if proven_dates else None
         events.append(create_event(
             symbol=row["symbol"], announced=row["official_notice_day"],
             record=row["thirdparty_record_date"], ex=row["thirdparty_ex_date"],
-            pay=None, cash=row["cash_per_share_verified"],
+            pay=pay_day, cash=row["cash_per_share_verified"],
             sha=row["issuer_pdf_sha256"], url=row["issuer_pdf_url"],
             grade="ISSUER_PDF_GROSS_CASH_AND_VENDOR_DATES_CROSSMATCHED",
-            date_proof="ISSUER_PDF_RECORD_AND_EX_DATE_LITERALS",
+            date_proof=(
+                "DIRECT_ORIGINAL_PDF_RECORD_EX_AND_PAYMENT_DATE"
+                if proven_dates and pay_day else
+                "ISSUER_PDF_RECORD_AND_EX_DATE_LITERALS_PAY_UNCONFIRMED"
+            ),
         ))
     return events
 
