@@ -59,6 +59,33 @@ def extract_cash_candidates_per_share(document_text: str) -> list[float]:
     return sorted(set(round(v, 9) for v in out if 0 <= v <= 200))
 
 
+
+# Only tax-inclusive phrases explicitly associated with a per-share/ten-share
+# gross cash amount are eligible for automatic corporate action accounting.
+# The same PDF often states a SECOND amount after "扣税后" (net of taxes); that
+# number must never be mistaken for the gross pre-tax cash entitlement.
+TAX_INCLUSIVE_PATTERNS = (
+    (re.compile(r"每股(?:派发)?现金(?:红利|股息|股利)?(?:人民币)?([0-9]+(?:\.[0-9]+)?)元.{0,10}?含税"), 1.0),
+    (re.compile(r"每10股(?:派发|派送|派现|派)?(?:现金(?:红利|股利)?|人民币)?(?:人民币)?([0-9]+(?:\.[0-9]+)?)元(?:人民币)?(?:现金)?[（(].{0,15}?含税"), .1),
+    (re.compile(r"每10股派人民币([0-9]+(?:\.[0-9]+)?)元现金[（(].{0,15}?含税"), .1),
+    (re.compile(r"每10股派发现金红利[（(]含税[）)]人民币([0-9]+(?:\.[0-9]+)?)元"), .1),
+)
+
+
+def extract_explicit_pretax_cash_per_share(document_text: str) -> list[float]:
+    """PDF-only, strict pre-tax/tax-inclusive source amount candidates.
+
+    If multiple distinct gross values remain, DO NOT silently select the
+    amount nearest to a third-party aggregator record.
+    """
+    text=compact(document_text)
+    candidates=[]
+    for rex,scale in TAX_INCLUSIVE_PATTERNS:
+        for m in rex.finditer(text):
+            candidates.append(round(float(m.group(1))*scale, 9))
+    return sorted({x for x in candidates if 0 <= x <= 200})
+
+
 def strict_cash_match(candidates: list[float], thirdparty_expected: float | None) -> dict:
     if thirdparty_expected is None:
         return {
@@ -141,10 +168,16 @@ def verify_single_document(*, doc: dict, thirdparty: list[dict],
     if not text:
         raise ValueError("Scanned/unparsable document; no OCR claim")
     candidates=extract_cash_candidates_per_share(text)
+    pretax_candidates=extract_explicit_pretax_cash_per_share(text)
     matches=[x for x in thirdparty
              if x["implementation_announcement_date"]==day]
     expected=float(matches[0]["cash_per_share_pre_tax"]) if len(matches)==1 else None
-    amount=strict_cash_match(candidates,expected)
+    # Restrict automatic matching to explicit tax-inclusive gross amounts.
+    # Only if no pre-tax context exists, fall back to the original ambiguous
+    # candidate set (which may be rejected for containing net-of-tax amounts).
+    amount=strict_cash_match(
+        pretax_candidates if pretax_candidates else candidates, expected
+    )
     if len(matches)>1:
         amount["status"]="MULTIPLE_THIRDPARTY_EVENTS_SAME_ANNOUNCEMENT_DAY"
         amount["cash_per_share_verified"]=None
@@ -172,6 +205,9 @@ def verify_single_document(*, doc: dict, thirdparty: list[dict],
         "thirdparty_ex_date":matches[0]["ex_date"] if len(matches)==1 else None,
         "thirdparty_record_date":matches[0]["record_date"] if len(matches)==1 else None,
         "thirdparty_per_share_pretax":expected,
+        "issuer_pdf_all_cash_amount_candidates":candidates,
+        "issuer_pdf_explicit_tax_inclusive_cash_candidates":pretax_candidates,
+        "gross_amount_context_used":bool(pretax_candidates),
         "issuer_pdf_ex_record_date_literals_both_present":dated_match,
         "payment_and_broker_cash_posting_certified":False,
         "publisher_adjustment_factor_historical_vintage_certified":False,
