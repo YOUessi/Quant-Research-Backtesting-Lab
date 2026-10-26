@@ -242,9 +242,6 @@ def verify_official_suspension_with_bar_calendar(
     violation = [d for d in halted if d in observed]
     if violation:
         raise ValueError("Daily bar appeared during officially halted interval")
-    if stop - pd.Timedelta(days=1) not in dates:
-        # A January holiday/weekend is possible; not a necessary check.
-        pass
     if resume not in observed:
         raise ValueError("No independent bar on official resume date")
     resumed = bars.loc[pd.to_datetime(bars.date).eq(resume)]
