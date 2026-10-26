@@ -25,7 +25,9 @@ def create_event(*, symbol, announced, record, ex, cash, sha, url,
     pay = date(pay) if pay else None
     if not announced < record < ex or (pay and pay < ex):
         raise ValueError(f"Invalid chronology for announcement/record/ex/pay dates: {symbol}")
-    cash = float(cash)
+    # Normalise source float artefacts (e.g. 0.22799999999999998) without
+    # discarding genuine issuer precision up to nine decimal places.
+    cash = round(float(cash), 9)
     if not 0 < cash < 200:
         raise ValueError("Invalid gross cash per nominal share")
     if len(sha) != 64 or not url.startswith("https://static.cninfo.com.cn/finalpage/"):
