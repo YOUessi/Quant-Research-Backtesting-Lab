@@ -88,8 +88,14 @@ def extract_explicit_pretax_cash_per_share(document_text: str) -> list[float]:
 
 def strict_cash_match(candidates: list[float], thirdparty_expected: float | None) -> dict:
     if thirdparty_expected is None:
+        if not candidates:
+            status="PDF_NUMBER_UNEXTRACTABLE"
+        elif len(candidates)>1:
+            status="PDF_MULTI_AMOUNT_NEEDS_MANUAL_REVIEW"
+        else:
+            status="OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED"
         return {
-            "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+            "status": status,
             "official_distinct_cash_per_share_candidates": candidates,
             "cash_per_share_verified": (
                 candidates[0] if len(candidates)==1 else None
@@ -120,8 +126,12 @@ def is_issuer_dividend_implementation(title: str) -> bool:
     manual review, not added as verified dividends.
     """
     clean=compact(title.replace("<em>","").replace("</em>",""))
+    # Some original issuer implementation PDF titles include a literal
+    # "A股" insertion or a trailing official announcement identifier.
+    # Strip only an identifier of the form (2021-123), not arbitrary words.
+    clean=re.sub(r"[（(]20\\d{2}[-－]\\d+[）)]$", "", clean)
     return bool(re.search(
-        r"(?:权益分派|分红派息|利润分配|现金分红)实施公告$",
+        r"(?:权益分派(?:A股)?|分红派息|利润分配|现金分红)实施公告$",
         clean
     ))
 
