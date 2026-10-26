@@ -25,7 +25,41 @@ TARGETS={
 }
 
 
-def run(ledger_file:Path, output:Path, *, shares=1000):
+def previously_collected_real_unadjusted_marks(earlier:dict, issuer_event:dict, *, shares:int):
+    """Use frozen source-provenance daily marks only; no fabricated price bars."""
+    lookup=[r for r in earlier.get("rights",[])
+            if r["symbol"]==issuer_event["symbol"] and r["ex_date"]==issuer_event["ex_date"]]
+    if len(lookup)!=1:
+        raise ValueError("Prior 2026-10-26 unadjusted source mark unavailable")
+    r=lookup[0]
+    sha=r["source_unadjusted_ohlcv"].get("response_body_sha256")
+    if (r["source_issuer_pdf_sha256"]!=issuer_event["issuer_pdf_sha256"]
+        or not sha or len(sha)!=64
+        or r["shares_registered_nominal"]!=shares
+        or abs(float(r["pre_tax_dividend_receivable"])
+               -shares*float(issuer_event["gross_cash_per_nominal_share"]))>1e-5):
+        raise ValueError("Frozen original PDF, quote hash or payout disagrees")
+    if issuer_event.get("payment_date")!=issuer_event["ex_date"]:
+        raise ValueError("Prior marks insufficient for later pay date")
+    bars=pd.DataFrame([
+        {"date":issuer_event["record_date"],
+         "close_raw":r["registered_share_nominal_price_close"]},
+        {"date":issuer_event["ex_date"],
+         "close_raw":r["ex_date_share_nominal_price_close"]},
+    ])
+    for value in bars["close_raw"]:
+        if not pd.notna(value) or float(value)<=0:
+            raise ValueError("Invalid previously sourced unadjusted day mark")
+    source={
+        **r["source_unadjusted_ohlcv"],
+        "data_reused_not_fetched_this_run":True,
+        "only_record_and_ex_close_marks_reconstructed_from_prior_audit":True,
+        "whole_response_body_not_rearchived_in_this_stage":True,
+    }
+    return bars,source
+
+
+def run(ledger_file:Path, output:Path, *, shares=1000, previous_audit:Path|None=None):
     if output.exists():
         raise FileExistsError("Prior source evidence must not be overwritten")
     book=json.loads(ledger_file.read_text("utf-8"))
@@ -35,6 +69,9 @@ def run(ledger_file:Path, output:Path, *, shares=1000):
         raise ValueError("Pinned three original issuer cash actions absent")
     output.mkdir(parents=True, exist_ok=False)
     items=[]
+    prior=json.loads(previous_audit.read_text("utf-8")) if previous_audit else None
+    if prior is not None and prior.get("stage")!="REAL_PRIMARY_PDF_AND_SECONDARY_NOMINAL_RIGHTS_RECONCILIATION":
+        raise ValueError("Wrong offline source evidence type")
     with requests.Session() as session:
         for key in sorted(TARGETS):
             e=lookup[key]
@@ -42,11 +79,16 @@ def run(ledger_file:Path, output:Path, *, shares=1000):
             ex=pd.Timestamp(e["ex_date"])
             pay=pd.Timestamp(e["payment_date"]) if e.get("payment_date") else ex
             end=max(ex,pay)+timedelta(days=4)
-            bars,source=fetch_independent_unadjusted_bars(
-                session,e["symbol"],
-                start=(rec-timedelta(days=3)).date().isoformat(),
-                end=end.date().isoformat(),
-            )
+            if prior is not None:
+                bars,source=previously_collected_real_unadjusted_marks(
+                    prior,e,shares=shares
+                )
+            else:
+                bars,source=fetch_independent_unadjusted_bars(
+                    session,e["symbol"],
+                    start=(rec-timedelta(days=3)).date().isoformat(),
+                    end=end.date().isoformat(),
+                )
             # Reuse the entire real daily bar; strictly no inferred missing
             # exchange sessions are filled and no Qlib adjusted price is used.
             mark=simulate_nominal_right(
@@ -86,6 +128,8 @@ def run(ledger_file:Path, output:Path, *, shares=1000):
             x["share_distribution_verified_zero"] for x in items
         ),
         "Qlib_adjusted_prices_not_used":True,
+        "unadjusted_day_marks_reused_from_earlier_SHA256_audit":prior is not None,
+        "network_fetch_executed_this_run":prior is None,
         "realized_trade_returns_not_tested":True,
         "real_broker_cash_credit_not_verified":True,
         "net_of_investor_specific_tax_not_claimed":True,
@@ -103,8 +147,9 @@ def main():
     p.add_argument("--ledger",type=Path,required=True)
     p.add_argument("--output",type=Path,required=True)
     p.add_argument("--shares",type=int,default=1000)
+    p.add_argument("--previous-audit",type=Path)
     args=p.parse_args()
-    run(args.ledger,args.output,shares=args.shares)
+    run(args.ledger,args.output,shares=args.shares,previous_audit=args.previous_audit)
 
 
 if __name__=="__main__":
