@@ -1,0 +1,17 @@
+{
+  "kind": "EXP002_REFERENCE_ONLY_NONINVESTABLE_CSI300_PRICE_INDEX",
+  "ticker": "SH000300",
+  "start": "2021-01-04",
+  "end": "2022-12-30",
+  "n_reference_sessions": 485,
+  "price_level_start_snapshot": 5.359964847564697,
+  "price_level_end_snapshot": 3.939427614212036,
+  "price_change_over_exact_dates": -0.26502734136364403,
+  "max_price_index_drawdown": -0.39585586293631037,
+  "source_release_sha256": "sha256:0a2974da97b4737e503ecddeea8bb3b2179e0e16ea0fb19fa373ff14155bf315",
+  "dividends_or_total_return_index_used": false,
+  "market_impact_or_transaction_costs_used": false,
+  "idealized_portfolio_covered": false,
+  "not_comparable_as_an_executable_total_return_benchmark": true,
+  "note": "Price-index level reference only, not an executable index replicating portfolio; Qlib proxy stock portfolios assume adjusted-price total-return units and synthetic next-open fills."
+}
