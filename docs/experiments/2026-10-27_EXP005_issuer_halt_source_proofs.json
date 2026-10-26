@@ -1,0 +1,78 @@
+{
+  "kind": "EXP005_ISSUER_ORIGINAL_RIGHTS_ISSUE_STOCK_HALT_PROOFS",
+  "source_qlib_missing_ticker_days": 139,
+  "issuer_notice_index_securities_checked": 17,
+  "issuer_original_pdfs_checked": 39,
+  "effective_stock_halt_start_literal_documents": 2,
+  "effective_stock_resumption_literal_documents": 6,
+  "rights_issue_stock_halt_intervals_confirmed": 5,
+  "rights_issue_stock_halt_days_confirmed": 30,
+  "prior_independently_checked_SH600340_halt_stock_days": 10,
+  "total_distinct_issuer_documented_halt_days_at_least": 40,
+  "Qlib_price_day_contradictions_in_recovered_rights_issue_intervals": 0,
+  "missing_qlib_days_not_all_halts": true,
+  "official_exchange_level2_or_actual_order_fills_available": false,
+  "issuer_original_proofs": [
+    {
+      "symbol": "SH600030",
+      "announcement_day": "2022-01-14",
+      "first_halt": "2022-01-19",
+      "last_subscription": "2022-01-25",
+      "clearing": "2022-01-26",
+      "first_resume": "2022-01-27",
+      "n_stock_halt_sessions": 6,
+      "source_pdf_sha256": "3e9f5026db1f68b35dd1a86524213ead41487c7e3bcb93c0700bc1b5a5644b99",
+      "source_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-01-14/1212175296.PDF",
+      "qlib_bar_disagreements": []
+    },
+    {
+      "symbol": "SH600958",
+      "announcement_day": "2022-04-18",
+      "first_halt": "2022-04-21",
+      "last_subscription": "2022-04-27",
+      "clearing": "2022-04-28",
+      "first_resume": "2022-04-29",
+      "n_stock_halt_sessions": 6,
+      "source_pdf_sha256": "87f0b02fdcb94793d71effae0ae20c6d12ec2c6f54c4696fa1aca846da74895b",
+      "source_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-04-18/1212951466.PDF",
+      "qlib_bar_disagreements": []
+    },
+    {
+      "symbol": "SH601236",
+      "announcement_day": "2021-07-22",
+      "first_halt": "2021-07-27",
+      "last_subscription": "2021-08-02",
+      "clearing": "2021-08-03",
+      "first_resume": "2021-08-04",
+      "n_stock_halt_sessions": 6,
+      "source_pdf_sha256": "7814814d2a34ebfa24bb3c4b22207e360051890e4576a273c75e0f3242017a8d",
+      "source_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-22/1210543904.PDF",
+      "qlib_bar_disagreements": []
+    },
+    {
+      "symbol": "SH601377",
+      "announcement_day": "2022-08-12",
+      "first_halt": "2022-08-17",
+      "last_subscription": "2022-08-23",
+      "clearing": "2022-08-24",
+      "first_resume": "2022-08-25",
+      "n_stock_halt_sessions": 6,
+      "source_pdf_sha256": "7bcac4714e90b467fdfc14fe9bed0482472005593667c8c705686842d69b279d",
+      "source_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-08-12/1214276229.PDF",
+      "qlib_bar_disagreements": []
+    },
+    {
+      "symbol": "SH601555",
+      "announcement_day": "2021-12-10",
+      "first_halt": "2021-12-15",
+      "last_subscription": "2021-12-21",
+      "clearing": "2021-12-22",
+      "first_resume": "2021-12-23",
+      "n_stock_halt_sessions": 6,
+      "source_pdf_sha256": "7d4b7714b46a201e430574b55a373686ce23752b7232eb42ab4bede75e01034f",
+      "source_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-12-10/1211866506.PDF",
+      "qlib_bar_disagreements": []
+    }
+  ],
+  "note": "Issuer-original stock notices and global exchange calendars corroborate 30 stock sessions; a separate first SH600340 event was already PDF verified for 10. They are issuer disclosures, not independent exchange trading-halt audit files or broker fill statements."
+}
