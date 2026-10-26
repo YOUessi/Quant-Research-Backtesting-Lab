@@ -28,9 +28,9 @@ def adjustment_audit(panel: pd.DataFrame, *, start: str, end: str) -> dict:
     raw_close = members["raw_close_estimate"].to_numpy(dtype=float)
     both = valid & np.isfinite(open_val) & np.isfinite(close_val)
     roundtrip_open = np.isclose(raw_open[both] * factors[both], open_val[both],
-                                rtol=1e-11, atol=1e-10)
+                                rtol=2e-7, atol=1e-8)
     roundtrip_close = np.isclose(raw_close[both] * factors[both], close_val[both],
-                                 rtol=1e-11, atol=1e-10)
+                                 rtol=2e-7, atol=1e-8)
     jumps = members["factor_step_ratio"].sub(1).abs()
     positive = jumps[np.isfinite(jumps)]
     dates_with_jumps = members.loc[jumps.gt(.01), "date"]
@@ -39,6 +39,8 @@ def adjustment_audit(panel: pd.DataFrame, *, start: str, end: str) -> dict:
         "positive_finite_factor_rows": int(valid.sum()),
         "factor_missing_or_nonpositive_rows": int((~valid).sum()),
         "source_adjusted_open_and_close_positive_rows": int(both.sum()),
+        "factor_float32_roundtrip_rtol": 2e-7,
+        "factor_float32_roundtrip_atol": 1e-8,
         "raw_price_roundtrip_errors": int(
             (~roundtrip_open).sum() + (~roundtrip_close).sum()
         ),
@@ -59,7 +61,7 @@ def adjustment_audit(panel: pd.DataFrame, *, start: str, end: str) -> dict:
         "official_exchange_limit_up_down_fields_available": False,
         "status": "AUDITED_CURRENT_SNAPSHOT_ONLY_PIT_UNVERIFIABLE",
         "decision": (
-            "PASS adjusted/nominal arithmetic-only if roundtrip_errors=0; "
+            "PASS float32-tolerant adjusted/nominal arithmetic only if roundtrip_errors=0; "
             "BLOCK any claim of historically released adjustment factors, "
             "official price-limit fills or actual split/dividend entitlements."
         ),
