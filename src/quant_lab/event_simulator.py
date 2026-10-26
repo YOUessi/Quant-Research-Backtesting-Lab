@@ -46,6 +46,8 @@ def _fillability(day: pd.DataFrame, asset: str, *, side: str,
     if asset not in day.index:
         return False, "asset_missing_on_exchange_calendar"
     x = day.loc[asset]
+    if not bool(x["listed_asof"]):
+        return False, "not_exchange_listed_asof_trade_day"
     if not _positive(x["adj_open"]) or not _positive(x["volume_adjusted"]):
         return False, "suspended_or_missing_open_or_volume"
     if cfg.price_limit_proxy:
@@ -92,6 +94,7 @@ def simulate(
     """
     required = {"asset", "date", "adj_open", "adj_close",
                 "volume_adjusted", "signal_eligible", "index_member_asof",
+                "listed_asof",
                 "momentum_5", "prior_raw_close", "raw_open_estimate",
                 "factor_step_ratio"}
     if not required.issubset(panel.columns):
@@ -140,6 +143,18 @@ def simulate(
                        "reason": "held_asset_no_price_for_open_valuation",
                        "assets": sorted(a for a in positions
                                         if price_for(a, "adj_open") is None)}
+            break
+        # The listing history is independent of index membership. Do not
+        # invent a last-close liquidation when a holding has been delisted.
+        delisted_held = sorted(a for a in positions if (
+            a not in trade_day.index or not bool(trade_day.at[a, "listed_asof"])
+        ))
+        if delisted_held:
+            stopped = {
+                "date": str(daydate.date()),
+                "reason": "DELISTING_SETTLEMENT_UNKNOWN_FAIL_CLOSED",
+                "assets": delisted_held,
+            }
             break
         trading_fee = 0.0
         equity_open = cash + sum(positions[a] * price_for(a, "adj_open")
