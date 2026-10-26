@@ -1,0 +1,963 @@
+{
+  "kind": "EXP004_INDEPENDENT_CORPORATE_ACTION_AND_MARKET_DATA_SOURCE_PROOFS",
+  "date_scope": "historical 2021–2022, fetched 2026-10-26",
+  "source_report_sha256": {
+    "original_issuer_pdf_rerate": "d6660b9d86e3fdc5e46588ed4a8bd9e0ab8d1a4f74ee7821f309c87f80b69aed",
+    "issuer_direct_date_recovery": "ade9b544af8417cbde569fb68b9d5eadf842adf7e5e0a803d8dc4895cfdbbcf0",
+    "11_missing_provider_recovery": "04cbd088c3c48df9a69c588efb1bc10757179bf43a79d874f1526fd51975877d",
+    "independent_daily_bar_crosscheck": "c640a10e93df70d7bd7f36339368d733aa08304ad22292be4e911541d87ecc3d",
+    "official_halt_order_ledger": "64311c955e5387dd88725c1db45cb693094d31a621cb589c31721e9f8d0cd20e"
+  },
+  "original_issuer_pdf_documents_hashed": 31,
+  "issuer_amount_ex_record_vendor_triple_confirmed": 19,
+  "missing_vendor_events_recovered_with_issuer_gross_and_dates": 10,
+  "missing_vendor_events_still_cash_ambiguous": 1,
+  "prior_missing_thirdparty_tickers": 11,
+  "prior_missing_with_official_impl_notices": 7,
+  "independent_market_gap_tickers": 17,
+  "independent_market_gap_member_days": 139,
+  "missed_daily_bars_found_in_independent_feed": 0,
+  "both_daily_feeds_absent_days_not_certified_halts": 139,
+  "SH600340_frozen_baseline_official_halt_attempts_blocked": 6,
+  "cash_tax_aftertax_confusion_fixed_by_explicit_gross_context": true,
+  "q_lib_adjustment_revisions_asof_certified": false,
+  "complete_393_stock_actions_officially_verified": false,
+  "complete_official_daily_limits_available": false,
+  "broker_queue_position_or_fills_observed": false,
+  "recommend_portfolio_backtest_revaluation_now": false,
+  "source_pdf_records": [
+    {
+      "symbol": "SH600068",
+      "official_announcement_day": "2021-05-14",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-05-14/1209969713.PDF",
+      "issuer_pdf_sha256": "d3eb9afb8763270ca3d455667bf9e62a99803ca37d6ed0527eddaf323d5c6d97",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.073,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.073
+      ]
+    },
+    {
+      "symbol": "SH600276",
+      "official_announcement_day": "2021-06-04",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-04/1210161820.PDF",
+      "issuer_pdf_sha256": "b731dec60e78bc92eab572ed099ec9da59fed84d6f06bb35fab605f4cb00a2f4",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.2,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2021-06-10",
+      "tax_inclusive_explicit_candidates": [
+        0.2
+      ]
+    },
+    {
+      "symbol": "SH600276",
+      "official_announcement_day": "2022-06-29",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-29/1213853521.PDF",
+      "issuer_pdf_sha256": "48b04cf9ac8bc55f84b1cfd6b91056ccc8e10760260a6501ea5de045819ef91d",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.16,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-07-05",
+      "tax_inclusive_explicit_candidates": [
+        0.16
+      ]
+    },
+    {
+      "symbol": "SH600519",
+      "official_announcement_day": "2021-06-21",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-21/1210293974.PDF",
+      "issuer_pdf_sha256": "b516194d5adb337d3ea44b81e0a22a132247b310d341dfa1fb951a385a7642cb",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 19.293,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2021-06-25",
+      "tax_inclusive_explicit_candidates": [
+        19.293
+      ]
+    },
+    {
+      "symbol": "SH600519",
+      "official_announcement_day": "2022-06-24",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-24/1213805064.PDF",
+      "issuer_pdf_sha256": "25234cfd2976a86649b9e1d15e3dc915480b2075b244e21e35bd6cb12a4daabb",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 21.675,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-06-30",
+      "tax_inclusive_explicit_candidates": [
+        21.675
+      ]
+    },
+    {
+      "symbol": "SH600705",
+      "official_announcement_day": "2021-07-28",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-28/1210580550.PDF",
+      "issuer_pdf_sha256": "02e1a0bad42ae4ed00803c9d0df58df0e50a6ce268b0dc9ddced6e6d0daa65f7",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.112,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.112
+      ]
+    },
+    {
+      "symbol": "SH600705",
+      "official_announcement_day": "2022-06-29",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-29/1213855504.PDF",
+      "issuer_pdf_sha256": "17250533a9f1da13fd3b51a2e1b19b4659300bcea42f60f3f2985fb328bd2295",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.152,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.152
+      ]
+    },
+    {
+      "symbol": "SH600837",
+      "official_announcement_day": "2021-07-21",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-21/1210527754.PDF",
+      "issuer_pdf_sha256": "6e3478c6298c354aff8223f10e4cc4ed3f6212e20f5af6dcff903ff12dffcecb",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.25,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.25
+      ]
+    },
+    {
+      "symbol": "SH600837",
+      "official_announcement_day": "2022-07-21",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-21/1214095558.PDF",
+      "issuer_pdf_sha256": "b75de432a097b23d8e2202261fdf7b1b29ba7c20835518e434b6adb4e9baf4e5",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.3,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.3
+      ]
+    },
+    {
+      "symbol": "SH600887",
+      "official_announcement_day": "2021-06-03",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-03/1210151060.PDF",
+      "issuer_pdf_sha256": "757f3b72dc33925080addf7e3ee826047066c52b10c12ed607190ed70597fbef",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.82,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2021-06-11",
+      "tax_inclusive_explicit_candidates": [
+        0.82
+      ]
+    },
+    {
+      "symbol": "SH600887",
+      "official_announcement_day": "2022-05-26",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-05-26/1213499389.PDF",
+      "issuer_pdf_sha256": "9e2789f8a0c3e4716eefaa703e838301bb9200893a64aa2724913b15e939f18b",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.96,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-06-01",
+      "tax_inclusive_explicit_candidates": [
+        0.96
+      ]
+    },
+    {
+      "symbol": "SH601198",
+      "official_announcement_day": "2021-06-30",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-30/1210363735.PDF",
+      "issuer_pdf_sha256": "52ac95e13f7fd7a6a76708212d67dff0817ce4b0cfe1b2eb6e6a6d4d60ab0ba2",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.17,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.17
+      ]
+    },
+    {
+      "symbol": "SH601198",
+      "official_announcement_day": "2022-07-21",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-21/1214096892.PDF",
+      "issuer_pdf_sha256": "80ae14e88e42947cde3155be9324da987a479fa5f20211ab6b88f95dce3ebaf4",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.26,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.26
+      ]
+    },
+    {
+      "symbol": "SH601318",
+      "official_announcement_day": "2022-06-11",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-11/1213675462.PDF",
+      "issuer_pdf_sha256": "c3c7aa1b51962b1441c6d9a2cdafe6c66264323b2f4c39a2e9b30a6c180d0bd3",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 1.5,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-06-20",
+      "tax_inclusive_explicit_candidates": [
+        1.5
+      ]
+    },
+    {
+      "symbol": "SH601318",
+      "official_announcement_day": "2022-10-13",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-10-13/1214757273.PDF",
+      "issuer_pdf_sha256": "63ba8885c1954203bd16dacb4368fd169e611b3b997756c9c702bf7a275782b8",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.92,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-10-20",
+      "tax_inclusive_explicit_candidates": [
+        0.92
+      ]
+    },
+    {
+      "symbol": "SH601398",
+      "official_announcement_day": "2022-07-05",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-05/1213940094.PDF",
+      "issuer_pdf_sha256": "0d110c491aeb0cd4e1369de00b5b9cf52f1579575bba6ceae4a41180265bf6c4",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.2933,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-07-12",
+      "tax_inclusive_explicit_candidates": [
+        0.2933
+      ]
+    },
+    {
+      "symbol": "SH601989",
+      "official_announcement_day": "2022-08-16",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-08-16/1214297517.PDF",
+      "issuer_pdf_sha256": "f8b7604ef5e05803034c8640ea87a052842228c738fb5a9016f7c1f4e1354f3e",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.003,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.003
+      ]
+    },
+    {
+      "symbol": "SZ000002",
+      "official_announcement_day": "2022-08-18",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-08-18/1214319792.PDF",
+      "issuer_pdf_sha256": "921e36012b63f60ddbad9a388e9ca86e14eb7b3a057ee80de48f266525de3f7a",
+      "status": "PDF_MULTI_AMOUNT_NEEDS_MANUAL_REVIEW",
+      "gross_per_nominal_share": null,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-08-25",
+      "tax_inclusive_explicit_candidates": [
+        0.97,
+        0.9761257
+      ]
+    },
+    {
+      "symbol": "SZ000627",
+      "official_announcement_day": "2021-05-28",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-05-28/1210116318.PDF",
+      "issuer_pdf_sha256": "4e668c80d66a9bc539c919d89edf723388bc25380b15520b6d2fb94ab53f7f02",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.01,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.01
+      ]
+    },
+    {
+      "symbol": "SZ000627",
+      "official_announcement_day": "2022-05-27",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-05-27/1213516656.PDF",
+      "issuer_pdf_sha256": "59140bd4427373cf89453c94e658a47f884d7af608af99db7495e2f8c32491e2",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": 0.005,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.005
+      ]
+    },
+    {
+      "symbol": "SZ000651",
+      "official_announcement_day": "2021-08-14",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-08-14/1210747699.PDF",
+      "issuer_pdf_sha256": "7a4ce60ae7b9b6fd4f748ff1f1e24ebdc928245239f4f20f61206ac9a364bc98",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 3,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2021-08-23",
+      "tax_inclusive_explicit_candidates": [
+        3
+      ]
+    },
+    {
+      "symbol": "SZ000651",
+      "official_announcement_day": "2022-03-31",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-03-31/1212745333.PDF",
+      "issuer_pdf_sha256": "24bb1e0a6844e04e366577ffb093b69b01b9f8f1eb83ae683d85dee669706033",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 1,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-04-08",
+      "tax_inclusive_explicit_candidates": [
+        1
+      ]
+    },
+    {
+      "symbol": "SZ000651",
+      "official_announcement_day": "2022-07-29",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-29/1214158362.PDF",
+      "issuer_pdf_sha256": "c0989a4a153a427a8d36d2abdebe8a3a69d06dee5faf690295c3c8e61ad87a3d",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 2,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-08-05",
+      "tax_inclusive_explicit_candidates": [
+        2
+      ]
+    },
+    {
+      "symbol": "SZ000671",
+      "official_announcement_day": "2021-06-26",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-26/1210341574.PDF",
+      "issuer_pdf_sha256": "047e666fde93d41623c63faf5213108d6885920e11b1e3c6286761b23f070576",
+      "status": "OFFICIAL_PDF_NUMBER_ONLY_NOT_RECONCILED",
+      "gross_per_nominal_share": null,
+      "third_party_exdate_literal_verified": false,
+      "third_party_date": null,
+      "tax_inclusive_explicit_candidates": [
+        0.3806425,
+        0.381
+      ]
+    },
+    {
+      "symbol": "SZ000858",
+      "official_announcement_day": "2022-06-22",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-22/1213776669.PDF",
+      "issuer_pdf_sha256": "938a9a8bc801ebbd1104f89756a6a11792e8aae85e6ad33c624399d51350fd18",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 3.023,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-06-29",
+      "tax_inclusive_explicit_candidates": [
+        3.023
+      ]
+    },
+    {
+      "symbol": "SZ002415",
+      "official_announcement_day": "2021-05-21",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-05-21/1210027339.PDF",
+      "issuer_pdf_sha256": "f56a3eba114fbaf0e1f62179e41f256025ab2967728329d53c0c7624134eaab7",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.8,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2021-05-28",
+      "tax_inclusive_explicit_candidates": [
+        0.8
+      ]
+    },
+    {
+      "symbol": "SZ002415",
+      "official_announcement_day": "2022-05-20",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-05-20/1213414663.PDF",
+      "issuer_pdf_sha256": "3acd8de7e6f95863e327ff0db9304a8d19c44ec02bbf0320b2f5885a9194a6a8",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.9,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-05-26",
+      "tax_inclusive_explicit_candidates": [
+        0.9
+      ]
+    },
+    {
+      "symbol": "SZ002594",
+      "official_announcement_day": "2021-07-30",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-30/1210602074.PDF",
+      "issuer_pdf_sha256": "91f2d2ddc05976df5cbc5d0786e7c57809445806f579e414ebdb8ba4f6627485",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.148,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2021-08-06",
+      "tax_inclusive_explicit_candidates": [
+        0.148
+      ]
+    },
+    {
+      "symbol": "SZ002594",
+      "official_announcement_day": "2022-07-22",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-22/1214109915.PDF",
+      "issuer_pdf_sha256": "c52b1ac80c284d4615c590553e43a25f6194353ec45aab1dc9491801143901ea",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.105,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-07-29",
+      "tax_inclusive_explicit_candidates": [
+        0.105
+      ]
+    },
+    {
+      "symbol": "SZ300750",
+      "official_announcement_day": "2021-06-28",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-28/1210356100.PDF",
+      "issuer_pdf_sha256": "39ae080646a5a6063d91fc78f25c135543adad0d7718e932e68e7344982864b6",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.240048,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2021-07-05",
+      "tax_inclusive_explicit_candidates": [
+        0.240048
+      ]
+    },
+    {
+      "symbol": "SZ300750",
+      "official_announcement_day": "2022-09-21",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-09-21/1214641129.PDF",
+      "issuer_pdf_sha256": "d406386bb71897e05f8b5265b53d838fed1b85250fbc08d6d209674d16df6cd4",
+      "status": "PDF_CASH_MATCHED_TO_THIRDPARTY",
+      "gross_per_nominal_share": 0.6528,
+      "third_party_exdate_literal_verified": true,
+      "third_party_date": "2022-09-28",
+      "tax_inclusive_explicit_candidates": [
+        0.6528
+      ]
+    }
+  ],
+  "recovered_original_issuer_events": [
+    {
+      "symbol": "SH600068",
+      "announcement_day": "2021-05-14",
+      "issuer_pdf_sha256": "d3eb9afb8763270ca3d455667bf9e62a99803ca37d6ed0527eddaf323d5c6d97",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-05-14/1209969713.PDF",
+      "record_date": "2021-05-20",
+      "ex_date": "2021-05-21",
+      "pay_date": "2021-05-21",
+      "gross_cash_per_nominal_share_verified": 0.073,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SH600705",
+      "announcement_day": "2021-07-28",
+      "issuer_pdf_sha256": "02e1a0bad42ae4ed00803c9d0df58df0e50a6ce268b0dc9ddced6e6d0daa65f7",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-28/1210580550.PDF",
+      "record_date": "2021-08-04",
+      "ex_date": "2021-08-05",
+      "pay_date": "2021-08-05",
+      "gross_cash_per_nominal_share_verified": 0.112,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SH600705",
+      "announcement_day": "2022-06-29",
+      "issuer_pdf_sha256": "17250533a9f1da13fd3b51a2e1b19b4659300bcea42f60f3f2985fb328bd2295",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-29/1213855504.PDF",
+      "record_date": "2022-07-06",
+      "ex_date": "2022-07-07",
+      "pay_date": "2022-07-07",
+      "gross_cash_per_nominal_share_verified": 0.152,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SH600837",
+      "announcement_day": "2021-07-21",
+      "issuer_pdf_sha256": "6e3478c6298c354aff8223f10e4cc4ed3f6212e20f5af6dcff903ff12dffcecb",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-21/1210527754.PDF",
+      "record_date": "2021-07-28",
+      "ex_date": "2021-07-29",
+      "pay_date": "2021-07-29",
+      "gross_cash_per_nominal_share_verified": 0.25,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SH600837",
+      "announcement_day": "2022-07-21",
+      "issuer_pdf_sha256": "b75de432a097b23d8e2202261fdf7b1b29ba7c20835518e434b6adb4e9baf4e5",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-21/1214095558.PDF",
+      "record_date": "2022-07-27",
+      "ex_date": "2022-07-28",
+      "pay_date": "2022-07-28",
+      "gross_cash_per_nominal_share_verified": 0.3,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SH601198",
+      "announcement_day": "2021-06-30",
+      "issuer_pdf_sha256": "52ac95e13f7fd7a6a76708212d67dff0817ce4b0cfe1b2eb6e6a6d4d60ab0ba2",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-30/1210363735.PDF",
+      "record_date": "2021-07-05",
+      "ex_date": "2021-07-06",
+      "pay_date": "2021-07-06",
+      "gross_cash_per_nominal_share_verified": 0.17,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SH601198",
+      "announcement_day": "2022-07-21",
+      "issuer_pdf_sha256": "80ae14e88e42947cde3155be9324da987a479fa5f20211ab6b88f95dce3ebaf4",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-21/1214096892.PDF",
+      "record_date": "2022-07-27",
+      "ex_date": "2022-07-28",
+      "pay_date": "2022-07-28",
+      "gross_cash_per_nominal_share_verified": 0.26,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SH601989",
+      "announcement_day": "2022-08-16",
+      "issuer_pdf_sha256": "f8b7604ef5e05803034c8640ea87a052842228c738fb5a9016f7c1f4e1354f3e",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-08-16/1214297517.PDF",
+      "record_date": "2022-08-22",
+      "ex_date": "2022-08-23",
+      "pay_date": "2022-08-23",
+      "gross_cash_per_nominal_share_verified": 0.003,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SZ000627",
+      "announcement_day": "2021-05-28",
+      "issuer_pdf_sha256": "4e668c80d66a9bc539c919d89edf723388bc25380b15520b6d2fb94ab53f7f02",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-05-28/1210116318.PDF",
+      "record_date": "2021-06-03",
+      "ex_date": "2021-06-04",
+      "pay_date": "2021-06-04",
+      "gross_cash_per_nominal_share_verified": 0.01,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SZ000627",
+      "announcement_day": "2022-05-27",
+      "issuer_pdf_sha256": "59140bd4427373cf89453c94e658a47f884d7af608af99db7495e2f8c32491e2",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-05-27/1213516656.PDF",
+      "record_date": "2022-06-01",
+      "ex_date": "2022-06-02",
+      "pay_date": "2022-06-02",
+      "gross_cash_per_nominal_share_verified": 0.005,
+      "status": "PDF_DATES_AND_EXPLICIT_GROSS_CASH_CONFIRMED"
+    },
+    {
+      "symbol": "SZ000671",
+      "announcement_day": "2021-06-26",
+      "issuer_pdf_sha256": "047e666fde93d41623c63faf5213108d6885920e11b1e3c6286761b23f070576",
+      "issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-26/1210341574.PDF",
+      "record_date": "2021-07-02",
+      "ex_date": "2021-07-05",
+      "pay_date": "2021-07-05",
+      "gross_cash_per_nominal_share_verified": null,
+      "status": "PDF_DATES_PRESENT_CASH_AMBIGUOUS"
+    }
+  ],
+  "independent_market_ticker_crosscheck": [
+    {
+      "symbol": "SH600009",
+      "qlib_missing_member_days": 11,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 11,
+      "independent_response_sha256": "a42133473357068419d87d399294354080cec2445680f677e10bb8616c7d65a2"
+    },
+    {
+      "symbol": "SH600030",
+      "qlib_missing_member_days": 6,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 6,
+      "independent_response_sha256": "62084031603a3b0f9162189d10671ce709a2378452e29ef50429c079f1343a8e"
+    },
+    {
+      "symbol": "SH600340",
+      "qlib_missing_member_days": 15,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 15,
+      "independent_response_sha256": "edd3aaccabe9bcfc36922265aa1ddddad132b09adfa6841f6075d32d4502709d"
+    },
+    {
+      "symbol": "SH600845",
+      "qlib_missing_member_days": 1,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 1,
+      "independent_response_sha256": "48aeb5942426e9ab43582332785fcc1d0ca2950fd10d7194536f30b94f443a5d"
+    },
+    {
+      "symbol": "SH600900",
+      "qlib_missing_member_days": 11,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 11,
+      "independent_response_sha256": "41ecc70645d65d3958b7a14ee4da6bdda7646c9d7172f17f0ede8a9b853c97a9"
+    },
+    {
+      "symbol": "SH600958",
+      "qlib_missing_member_days": 6,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 6,
+      "independent_response_sha256": "0d7b906e19aeb119c4fdff6d3c979426906e52a9dd928412b4131187f153111b"
+    },
+    {
+      "symbol": "SH601108",
+      "qlib_missing_member_days": 6,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 6,
+      "independent_response_sha256": "536804b5df2a53755465a4239c12b07c31c71fa809f948b1094f46ee2e95711c"
+    },
+    {
+      "symbol": "SH601236",
+      "qlib_missing_member_days": 6,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 6,
+      "independent_response_sha256": "963873f946097cb9859de8b00efae09d27e3970efec8a5f2ff2e9187419d6ad4"
+    },
+    {
+      "symbol": "SH601377",
+      "qlib_missing_member_days": 6,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 6,
+      "independent_response_sha256": "f9f44487b0a52427393b9f8db2f4a0b241c4890e86ad4c724d14427c704c3be4"
+    },
+    {
+      "symbol": "SH601555",
+      "qlib_missing_member_days": 6,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 6,
+      "independent_response_sha256": "3fce0ca9f30b3ec081947e23c6d489267259e9f9b2ed90681a51b2814f6c8fb7"
+    },
+    {
+      "symbol": "SZ000063",
+      "qlib_missing_member_days": 1,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 1,
+      "independent_response_sha256": "2608c04a75479f7b51586e88f02a524a2652ac904db22ea3403d4745fbbd75ca"
+    },
+    {
+      "symbol": "SZ000425",
+      "qlib_missing_member_days": 23,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 23,
+      "independent_response_sha256": "376b2156870596c4fb74935e9e30d5b9fab25550ff2cd44ed27d40b68131f9a3"
+    },
+    {
+      "symbol": "SZ001979",
+      "qlib_missing_member_days": 10,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 10,
+      "independent_response_sha256": "841006649f564692202b6aa46bc14103b9e4c6c9c6439e86a229d7d4d5204d66"
+    },
+    {
+      "symbol": "SZ002024",
+      "qlib_missing_member_days": 17,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 17,
+      "independent_response_sha256": "ab750691b60f2d21b97f499e7a94dbc7d876aae70290f677463ee2749711ce33"
+    },
+    {
+      "symbol": "SZ002142",
+      "qlib_missing_member_days": 6,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 6,
+      "independent_response_sha256": "69ddd2d9a4d0c0ff64e47a6501b26f97a661f68222a3702a00028b0d0250810d"
+    },
+    {
+      "symbol": "SZ002352",
+      "qlib_missing_member_days": 3,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 3,
+      "independent_response_sha256": "02acc8d844efa9d0f4b968a2f2eee2a6f98ce24460a7c0e1807054ba71ac1247"
+    },
+    {
+      "symbol": "SZ002812",
+      "qlib_missing_member_days": 5,
+      "independent_raw_daily_trade_present_during_qlib_missing": 0,
+      "two_daily_sources_absent_NOT_HALT_PROOF": 5,
+      "independent_response_sha256": "fb030543277fe7927ed30e271782d70f95b0c9d7515eeb51d44b60ecd0a928a1"
+    }
+  ],
+  "original_vendor_missing_gap_statuses": [
+    {
+      "symbol": "SH600068",
+      "aggregator_reason": "Eastmoney reports error for SH600068: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 1,
+      "original_pdf_metadata": [
+        {
+          "announcement_id": "1209969713",
+          "publication_calendar_date": "2021-05-14",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2021-05-14/1209969713.PDF",
+          "title": "中国葛洲坝集团股份有限公司2020年年度权益分派实施公告"
+        }
+      ],
+      "notice_pdf_verified_count": 1,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 1,
+      "status": "SOME_ORIGINAL_ISSUER_EVENTS_RECOVERED"
+    },
+    {
+      "symbol": "SH600297",
+      "aggregator_reason": "Eastmoney reports error for SH600297: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 0,
+      "original_pdf_metadata": [],
+      "notice_pdf_verified_count": 0,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 0,
+      "status": "NO_MATCH_ON_LIMITED_KEYWORDS_NOT_ZERO_ACTION_CERTIFICATE"
+    },
+    {
+      "symbol": "SH600705",
+      "aggregator_reason": "Eastmoney reports error for SH600705: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 2,
+      "original_pdf_metadata": [
+        {
+          "announcement_id": "1210580550",
+          "publication_calendar_date": "2021-07-28",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-28/1210580550.PDF",
+          "title": "中航产融2020年年度权益分派实施公告"
+        },
+        {
+          "announcement_id": "1213855504",
+          "publication_calendar_date": "2022-06-29",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-29/1213855504.PDF",
+          "title": "中航产融2021年年度权益分派实施公告"
+        }
+      ],
+      "notice_pdf_verified_count": 2,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 2,
+      "status": "SOME_ORIGINAL_ISSUER_EVENTS_RECOVERED"
+    },
+    {
+      "symbol": "SH600837",
+      "aggregator_reason": "Eastmoney reports error for SH600837: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 2,
+      "original_pdf_metadata": [
+        {
+          "announcement_id": "1210527754",
+          "publication_calendar_date": "2021-07-21",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-21/1210527754.PDF",
+          "title": "海通证券股份有限公司2020年年度权益分派实施公告"
+        },
+        {
+          "announcement_id": "1214095558",
+          "publication_calendar_date": "2022-07-21",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-21/1214095558.PDF",
+          "title": "海通证券股份有限公司2021年年度权益分派实施公告"
+        }
+      ],
+      "notice_pdf_verified_count": 2,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 2,
+      "status": "SOME_ORIGINAL_ISSUER_EVENTS_RECOVERED"
+    },
+    {
+      "symbol": "SH601198",
+      "aggregator_reason": "Eastmoney reports error for SH601198: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 2,
+      "original_pdf_metadata": [
+        {
+          "announcement_id": "1210363735",
+          "publication_calendar_date": "2021-06-30",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-30/1210363735.PDF",
+          "title": "东兴证券股份有限公司2020年年度权益分派实施公告"
+        },
+        {
+          "announcement_id": "1214096892",
+          "publication_calendar_date": "2022-07-21",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-21/1214096892.PDF",
+          "title": "东兴证券股份有限公司2021年年度权益分派实施公告"
+        }
+      ],
+      "notice_pdf_verified_count": 2,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 1,
+      "status": "SOME_ORIGINAL_ISSUER_EVENTS_RECOVERED"
+    },
+    {
+      "symbol": "SH601989",
+      "aggregator_reason": "Eastmoney reports error for SH601989: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 1,
+      "original_pdf_metadata": [
+        {
+          "announcement_id": "1214297517",
+          "publication_calendar_date": "2022-08-16",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2022-08-16/1214297517.PDF",
+          "title": "中国重工2021年年度权益分派实施公告"
+        }
+      ],
+      "notice_pdf_verified_count": 1,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 1,
+      "status": "SOME_ORIGINAL_ISSUER_EVENTS_RECOVERED"
+    },
+    {
+      "symbol": "SH688561",
+      "aggregator_reason": "Eastmoney reports error for SH688561: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 0,
+      "original_pdf_metadata": [],
+      "notice_pdf_verified_count": 0,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 0,
+      "status": "NO_MATCH_ON_LIMITED_KEYWORDS_NOT_ZERO_ACTION_CERTIFICATE"
+    },
+    {
+      "symbol": "SH688981",
+      "aggregator_reason": "Eastmoney reports error for SH688981: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 0,
+      "original_pdf_metadata": [],
+      "notice_pdf_verified_count": 0,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 0,
+      "status": "NO_MATCH_ON_LIMITED_KEYWORDS_NOT_ZERO_ACTION_CERTIFICATE"
+    },
+    {
+      "symbol": "SZ000627",
+      "aggregator_reason": "Eastmoney reports error for SZ000627: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 2,
+      "original_pdf_metadata": [
+        {
+          "announcement_id": "1210116318",
+          "publication_calendar_date": "2021-05-28",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2021-05-28/1210116318.PDF",
+          "title": "天茂集团2020年年度权益分派实施公告"
+        },
+        {
+          "announcement_id": "1213516656",
+          "publication_calendar_date": "2022-05-27",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2022-05-27/1213516656.PDF",
+          "title": "天茂集团2021年年度权益分派实施公告"
+        }
+      ],
+      "notice_pdf_verified_count": 2,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 0,
+      "status": "SOME_ORIGINAL_ISSUER_EVENTS_RECOVERED"
+    },
+    {
+      "symbol": "SZ000671",
+      "aggregator_reason": "Eastmoney reports error for SZ000671: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 1,
+      "original_pdf_metadata": [
+        {
+          "announcement_id": "1210341574",
+          "publication_calendar_date": "2021-06-26",
+          "pdf_url": "https://static.cninfo.com.cn/finalpage/2021-06-26/1210341574.PDF",
+          "title": "0626阳光城2020年度权益分派实施公告（2021-123)"
+        }
+      ],
+      "notice_pdf_verified_count": 1,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 0,
+      "status": "SOME_ORIGINAL_ISSUER_EVENTS_RECOVERED"
+    },
+    {
+      "symbol": "SZ000961",
+      "aggregator_reason": "Eastmoney reports error for SZ000961: 返回数据为空",
+      "official_index": "OFFICIAL_INDEX_SEARCH_COMPLETED",
+      "official_implementation_notices_found": 0,
+      "original_pdf_metadata": [],
+      "notice_pdf_verified_count": 0,
+      "pdf_cash_amounts_crossmatched_with_aggregator": 0,
+      "pdf_cash_amounts_verified_as_unique_number_without_aggregator": 0,
+      "status": "NO_MATCH_ON_LIMITED_KEYWORDS_NOT_ZERO_ACTION_CERTIFICATE"
+    }
+  ],
+  "official_halt_order_replay": {
+    "momentum_daily_10bps": {
+      "ticker": "SH600340",
+      "start_official_halt": "2021-01-29",
+      "resume_official_open": "2021-02-19",
+      "number_exchange_sessions_halted": 10,
+      "frozen_old_attempts_during_official_halt": 0,
+      "frozen_old_blocked_attempts_during_official_halt": 0,
+      "frozen_old_idealized_fills_conflicting_with_official_halt": 0,
+      "primary_pdf_halt_dates_certified_for_this_ticker": true,
+      "primary_issuer_snapshot_asof_history_for_whole_universe": false,
+      "full_orderbook_or_broker_execution_certified": false,
+      "no_retroactive_strategy_selection_or_return_recalculation": true,
+      "review_of_original_attempts": []
+    },
+    "momentum_every5_10bps": {
+      "ticker": "SH600340",
+      "start_official_halt": "2021-01-29",
+      "resume_official_open": "2021-02-19",
+      "number_exchange_sessions_halted": 10,
+      "frozen_old_attempts_during_official_halt": 0,
+      "frozen_old_blocked_attempts_during_official_halt": 0,
+      "frozen_old_idealized_fills_conflicting_with_official_halt": 0,
+      "primary_pdf_halt_dates_certified_for_this_ticker": true,
+      "primary_issuer_snapshot_asof_history_for_whole_universe": false,
+      "full_orderbook_or_broker_execution_certified": false,
+      "no_retroactive_strategy_selection_or_return_recalculation": true,
+      "review_of_original_attempts": []
+    },
+    "pit_members_equal_10bps": {
+      "ticker": "SH600340",
+      "start_official_halt": "2021-01-29",
+      "resume_official_open": "2021-02-19",
+      "number_exchange_sessions_halted": 10,
+      "frozen_old_attempts_during_official_halt": 6,
+      "frozen_old_blocked_attempts_during_official_halt": 6,
+      "frozen_old_idealized_fills_conflicting_with_official_halt": 0,
+      "primary_pdf_halt_dates_certified_for_this_ticker": true,
+      "primary_issuer_snapshot_asof_history_for_whole_universe": false,
+      "full_orderbook_or_broker_execution_certified": false,
+      "no_retroactive_strategy_selection_or_return_recalculation": true,
+      "review_of_original_attempts": [
+        {
+          "date": "2021-01-29",
+          "side": "buy",
+          "old_status": "suspended_or_missing_open_or_volume",
+          "new_official_evidence": "ISSUER_PDF_EFFECTIVE_FULL_SESSION_HALT"
+        },
+        {
+          "date": "2021-02-01",
+          "side": "sell",
+          "old_status": "suspended_or_missing_open_or_volume",
+          "new_official_evidence": "ISSUER_PDF_EFFECTIVE_FULL_SESSION_HALT"
+        },
+        {
+          "date": "2021-02-02",
+          "side": "sell",
+          "old_status": "suspended_or_missing_open_or_volume",
+          "new_official_evidence": "ISSUER_PDF_EFFECTIVE_FULL_SESSION_HALT"
+        },
+        {
+          "date": "2021-02-03",
+          "side": "sell",
+          "old_status": "suspended_or_missing_open_or_volume",
+          "new_official_evidence": "ISSUER_PDF_EFFECTIVE_FULL_SESSION_HALT"
+        },
+        {
+          "date": "2021-02-04",
+          "side": "sell",
+          "old_status": "suspended_or_missing_open_or_volume",
+          "new_official_evidence": "ISSUER_PDF_EFFECTIVE_FULL_SESSION_HALT"
+        },
+        {
+          "date": "2021-02-05",
+          "side": "sell",
+          "old_status": "suspended_or_missing_open_or_volume",
+          "new_official_evidence": "ISSUER_PDF_EFFECTIVE_FULL_SESSION_HALT"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Official issuer publication calendar days are not exact intraday timestamps.",
+    "31 targeted original PDFs and independent-source market days are audit examples, not a full universe company-action PIT archive.",
+    "139 missing daily bars in both vendors do not prove 139 officially suspended sessions.",
+    "Actual auction fills and volume are not inferable from end-of-day traded volume.",
+    "Historical adjustment-factor vendor vintages and payments/rights remain incomplete."
+  ]
+}
