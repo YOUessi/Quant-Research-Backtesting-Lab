@@ -129,7 +129,7 @@ def is_issuer_dividend_implementation(title: str) -> bool:
     # Some original issuer implementation PDF titles include a literal
     # "A股" insertion or a trailing official announcement identifier.
     # Strip only an identifier of the form (2021-123), not arbitrary words.
-    clean=re.sub(r"[（(]20\\d{2}[-－]\\d+[）)]$", "", clean)
+    clean=re.sub(r"[（(]20\d{2}[-－]\d+[）)]$", "", clean)
     return bool(re.search(
         r"(?:权益分派(?:A股)?|分红派息|利润分配|现金分红)实施公告$",
         clean
