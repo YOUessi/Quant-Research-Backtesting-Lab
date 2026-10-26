@@ -221,6 +221,7 @@ def load_dynamic_data(
     # historically as-of all-listed register to classify actual delistings.
     all_intervals = read_member_intervals(provider/"instruments"/"all.txt")
     panel["listed_asof"] = asset_membership_mask(panel, all_intervals)
+    panel["signal_eligible"] &= panel["listed_asof"]
     active_period = panel["date"].between(study[0], study[-1])
     delist_events = all_intervals.loc[
         all_intervals["valid_to"].between(study[0], study[-1])
