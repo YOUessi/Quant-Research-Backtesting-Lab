@@ -33,6 +33,15 @@ TRANSFER_ALTERNATE = re.compile(
     r"(?:每10股.{0,12}?)?以资本公积金向全体股东每10股转增([0-9]+(?:\.[0-9]+)?)股"
 )
 BONUS = re.compile(r"每10股(?:送|派送)([0-9]+(?:\.[0-9]+)?)股")
+# Shanghai issuer implementation PDFs can quote actual rights as each
+# original share (not each ten). These are *positive* rights statements only;
+# a boilerplate phrase "派送红股或转增股本的" carries no numeric claim.
+BONUS_PER_SHARE = re.compile(
+    r"每股(?:派送|送)(?:红)?股([0-9]+(?:\.[0-9]+)?)股"
+)
+TRANSFER_PER_SHARE = re.compile(
+    r"每股(?:转增|转赠)([0-9]+(?:\\.[0-9]+)?)股"
+)
 EXPLICIT_NO_BONUS = re.compile(r"不送(?:红)?股")
 EXPLICIT_NO_TRANSFER = re.compile(
     r"(?:不以(?:资本)?公积金?转增股本|不进行(?:资本)?公积金?转增股本|"
@@ -58,8 +67,16 @@ def extract_share_terms(text: str) -> dict:
     reconciliation to implementation PDF, even if a third-party value matches.
     """
     t = clean(text)
-    transfer = _values(t, (TRANSFER, TRANSFER_ALTERNATE))
-    bonus = _values(t, (BONUS,))
+    # Standardize both per-ten and per-one-share evidence to per-ten units.
+    # Source per-share claim 0.2 becomes 2 bonus shares per ten old shares.
+    transfer = sorted(set(
+        _values(t, (TRANSFER, TRANSFER_ALTERNATE))
+        + [round(v * 10, 9) for v in _values(t, (TRANSFER_PER_SHARE,))]
+    ))
+    bonus = sorted(set(
+        _values(t, (BONUS,))
+        + [round(v * 10, 9) for v in _values(t, (BONUS_PER_SHARE,))]
+    ))
     no_bonus = bool(EXPLICIT_NO_BONUS.search(t))
     no_transfer = bool(EXPLICIT_NO_TRANSFER.search(t))
     # A positive and a negative statement may refer to old vs amended plan.
