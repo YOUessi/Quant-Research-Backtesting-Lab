@@ -58,3 +58,25 @@ def test_after_tax_only_is_never_mislabeled_as_gross():
     assert extract_explicit_pretax_cash_per_share(
         "扣税后每10股派发现金红利18.00元。"
     ) == []
+
+
+
+@pytest.mark.parametrize("title", [
+    "关于实施2020年度权益分派后调整发行价格和股份数量的公告",
+    "南京银行关于实施2021年权益分派时南银转债转股连续停牌的提示性公告",
+    "关于实施权益分派期间恩捷转债暂停转股的公告",
+    "关于2021年度权益分派实施后调整回购股份价格上限的公告",
+    "关于实施2021年年度权益分派调整可转债价格及暂停转股的公告",
+    "2021年年度权益分派实施公告的更正公告",
+])
+def test_derivative_notices_are_not_independent_cash_dividends(title):
+    assert not is_issuer_dividend_implementation(title)
+
+
+@pytest.mark.parametrize("title", [
+    "中国葛洲坝集团股份有限公司2020年年度权益分派实施公告",
+    "上海浦东发展银行2021年度普通股分红派息实施公告",
+    "2022年利润分配实施公告",
+])
+def test_standalone_issuer_dividend_implementation_titles(title):
+    assert is_issuer_dividend_implementation(title)
