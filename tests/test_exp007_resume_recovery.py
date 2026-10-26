@@ -38,5 +38,5 @@ def test_wrong_halt_source_kind_rejected():
 def test_empty_new_target_cannot_overwrite_existing_audit(tmp_path):
     out=tmp_path/"immutable"
     out.mkdir()
-    with pytest.raises(FileExistsError, match="overwrit"):
+    with pytest.raises(FileExistsError, match="existing PDF audit output"):
         collect(original_pairing(), {"kind": "EXP005_PRIMARY_ISSUER_HALT_ANNOUNCEMENT_EXPLORATION", "results":[]}, tmp_path, output=out)
