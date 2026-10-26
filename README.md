@@ -75,3 +75,28 @@ This will verify/download the **pinned 2026-10-25** community Qlib archive (569.
 For the exact verified experiment: 2024-01-02 to 2025-12-31 with 328 out-of-sample dates. At 10 bps traded-notional cost, the **portfolio cumulative net returns** are momentum -22.70%, Ridge -27.21%, LightGBM -28.60%, versus **same 12-name equal-weight** +13.49%. These are modeled returns on real historical *adjusted* data, **not executable investment profits**. A fixed 12-name inception cohort is not CSI300 replication; index eligibility is checked as-of each date, but price-adjustment revision, halts, actual open fills, slippage and broader universe effects are not fully modeled.
 
 The project has been tested on Mac CPU; Tang and any NVIDIA GPU remain unnecessary. **Do not state that the model achieved positive alpha or beat the benchmark.**
+
+
+## Stage 3 — EXP-002 independent 2021–2022 historical-universe risk audit
+
+**Completed (Mac CPU, 2026-10-26):** Expanded from the prior 12-stock illustration to **433 distinct CSI300 historical-member symbols**, with 300 index constituents as of each evaluated date, **485 independent 2021–2022 sessions**, explicit index-vs-exchange listing histories, halt/nonfill detection, no borrowing, stop-on-unvalued delisting/held positions, float32 factor audit and a separate hypothetical opening price-limit proxy. [Read the EXP-002 results](docs/EXP002_RESULTS.md) and [pre-registered plan](docs/EXP002_PRE_REGISTRATION.md).
+
+Run the preregistered 433-symbol study with no NVIDIA GPU:
+
+\`\`\`bash
+.venv/bin/python -m pip install -e '.[test,ml,qlib]'
+bash scripts/install_qlib_release.sh
+bash scripts/mac_exp002.sh
+\`\`\`
+
+Detailed reproducible machine-readable experiment records:
+- [Full-universe and factor-quality audit](docs/experiments/2026-10-26_exp002_full_universe_audit.json)
+- [Daily vs every-five-day historical adjusted-price **PROXY** execution study](docs/experiments/2026-10-26_exp002_independent_execution_proxy.json)
+- [CSI300 price-only **REFERENCE**, not executable benchmark](docs/experiments/2026-10-26_exp002_csi300_price_index_context.json)
+- [Problems, root causes, fixes and Mac verification](docs/ENGINEERING_LOG.md)
+
+Frozen 10bps fee result on 2021–2022: daily Top-10 momentum **−73.14%**, every-five-session Top-10 **−59.64%**, each based on hypothetical filled orders and historical adjusted-price units; both strategies have negative results, while the full 300-member equalweight accounting benchmark was **CENSORED** because one held asset lacked six successive marks. The market-reference CSI300 price index changed **−26.50%**, but it is *not* a fee-adjusted executable total-return benchmark. Never advertise these proxy percentages as realized investment returns or positive alpha.
+
+**What still cannot be certified:** retroactive revisions to price adjustment factors at each historical publication date, corporate-action cash/share rights, exact limit prices and opening-auction order fills, market impact, and delisting settlement. These deficits remain prominently marked; the independent period has now been evaluated and cannot be recycled as an untouched holdout.
+
+On the connected Mac, the original Git checkout remains behind GitHub due to intermittent Git network failures. Exact GitHub source files were relayed into a gitignored isolated mirror for verification; **27 tests passed** against that mirror and complete multi-strategy results reproduced exactly in a second full pipeline run. The mirror is not a git commit, and GitHub remains authoritative.
