@@ -1,0 +1,154 @@
+{
+  "kind": "EXP002_DYNAMIC_CSI300_2021_2022_PRE_REGISTERED_EXECUTION_AUDIT",
+  "status": "PROXY_ONLY_PIT_ADJUSTMENT_UNVERIFIABLE",
+  "frozen_validation_first": "2021-01-04",
+  "frozen_validation_last": "2022-12-30",
+  "release_sha256": "sha256:0a2974da97b4737e503ecddeea8bb3b2179e0e16ea0fb19fa373ff14155bf315",
+  "historical_member_count": {
+    "n_ever_index_members": 433,
+    "hist_member_count_min": 300,
+    "hist_member_count_max": 300,
+    "n_symbols_with_listing_end_in_window": 1
+  },
+  "preregistration": "docs/EXP002_PRE_REGISTRATION.md",
+  "full_index_membership_asof_each_date": true,
+  "portfolio_price_representation": "Qlib adjusted-price entitlement proxy only",
+  "broker_orderbook_evidence_present": false,
+  "official_exchange_limit_prices_present": false,
+  "actual_delisting_payouts_present": false,
+  "independent_factor_history_snapshots_present": false,
+  "result_selection_tuned_on_holdout": false,
+  "models": {
+    "momentum_daily_10bps": {
+      "status": "COMPLETED_PROXY_WITH_STALE_MARKS",
+      "return_is_adjusted_snapshot_proxy_not_executable": true,
+      "n_sessions": 485,
+      "cum_total_return_proxy": -0.7313950254068464,
+      "max_drawdown_proxy": -0.7665240833528673,
+      "daily_mean_arithmetic_return_proxy": -0.0025456019351738674,
+      "annualized_sharpe_proxy": -2.2500200405846598,
+      "n_stale_valuation_days": 5,
+      "n_fill_assumption_events": 7057,
+      "blocked_orders": {
+        "held_open_missing_or_suspended": 5,
+        "suspended_or_missing_open_or_volume": 6
+      },
+      "unpriced_delisting_cashflow_complete": false,
+      "point_in_time_adjustment_certified": false,
+      "return_withheld": false
+    },
+    "momentum_every5_10bps": {
+      "status": "COMPLETED_ADJUSTED_PRICE_PROXY",
+      "return_is_adjusted_snapshot_proxy_not_executable": true,
+      "n_sessions": 485,
+      "cum_total_return_proxy": -0.5963728539826691,
+      "max_drawdown_proxy": -0.6554779972686717,
+      "daily_mean_arithmetic_return_proxy": -0.0016845953375576898,
+      "annualized_sharpe_proxy": -1.3906111474314586,
+      "n_stale_valuation_days": 0,
+      "n_fill_assumption_events": 1873,
+      "blocked_orders": {},
+      "unpriced_delisting_cashflow_complete": false,
+      "point_in_time_adjustment_certified": false,
+      "return_withheld": false
+    },
+    "pit_members_equal_10bps": {
+      "status": "CENSORED_UNRESOLVED_POSITION",
+      "reason": {
+        "date": "2021-02-05",
+        "reason": "unresolved_halt_or_delisting_held_position",
+        "assets": [
+          "SH600340"
+        ],
+        "stale_sessions": 6
+      },
+      "return_withheld": true
+    },
+    "momentum_daily_0bps": {
+      "status": "COMPLETED_PROXY_WITH_STALE_MARKS",
+      "return_is_adjusted_snapshot_proxy_not_executable": true,
+      "n_sessions": 485,
+      "cum_total_return_proxy": -0.5751166747188626,
+      "max_drawdown_proxy": -0.6350997281504541,
+      "daily_mean_arithmetic_return_proxy": -0.0016024220911226741,
+      "annualized_sharpe_proxy": -1.416693255477734,
+      "n_stale_valuation_days": 5,
+      "n_fill_assumption_events": 7113,
+      "blocked_orders": {
+        "held_open_missing_or_suspended": 5,
+        "suspended_or_missing_open_or_volume": 6
+      },
+      "unpriced_delisting_cashflow_complete": false,
+      "point_in_time_adjustment_certified": false,
+      "return_withheld": false
+    },
+    "momentum_every5_0bps": {
+      "status": "COMPLETED_ADJUSTED_PRICE_PROXY",
+      "return_is_adjusted_snapshot_proxy_not_executable": true,
+      "n_sessions": 485,
+      "cum_total_return_proxy": -0.5164367821948558,
+      "max_drawdown_proxy": -0.5965791569171921,
+      "daily_mean_arithmetic_return_proxy": -0.0013123164806694034,
+      "annualized_sharpe_proxy": -1.0821102832344385,
+      "n_stale_valuation_days": 0,
+      "n_fill_assumption_events": 1873,
+      "blocked_orders": {},
+      "unpriced_delisting_cashflow_complete": false,
+      "point_in_time_adjustment_certified": false,
+      "return_withheld": false
+    },
+    "momentum_daily_20bps": {
+      "status": "COMPLETED_PROXY_WITH_STALE_MARKS",
+      "return_is_adjusted_snapshot_proxy_not_executable": true,
+      "n_sessions": 485,
+      "cum_total_return_proxy": -0.8300994663722653,
+      "max_drawdown_proxy": -0.8505379510773642,
+      "daily_mean_arithmetic_return_proxy": -0.0034867011674129793,
+      "annualized_sharpe_proxy": -3.0804335821956674,
+      "n_stale_valuation_days": 5,
+      "n_fill_assumption_events": 7008,
+      "blocked_orders": {
+        "held_open_missing_or_suspended": 5,
+        "suspended_or_missing_open_or_volume": 6
+      },
+      "unpriced_delisting_cashflow_complete": false,
+      "point_in_time_adjustment_certified": false,
+      "return_withheld": false
+    },
+    "momentum_every5_20bps": {
+      "status": "COMPLETED_ADJUSTED_PRICE_PROXY",
+      "return_is_adjusted_snapshot_proxy_not_executable": true,
+      "n_sessions": 485,
+      "cum_total_return_proxy": -0.6630884070405041,
+      "max_drawdown_proxy": -0.7057731964226874,
+      "daily_mean_arithmetic_return_proxy": -0.002056138627930329,
+      "annualized_sharpe_proxy": -1.6966249568696197,
+      "n_stale_valuation_days": 0,
+      "n_fill_assumption_events": 1873,
+      "blocked_orders": {},
+      "unpriced_delisting_cashflow_complete": false,
+      "point_in_time_adjustment_certified": false,
+      "return_withheld": false
+    },
+    "momentum_every5_10bps_limit_PROXY": {
+      "status": "COMPLETED_ADJUSTED_PRICE_PROXY",
+      "return_is_adjusted_snapshot_proxy_not_executable": true,
+      "n_sessions": 485,
+      "cum_total_return_proxy": -0.5868272629355418,
+      "max_drawdown_proxy": -0.6554770046095254,
+      "daily_mean_arithmetic_return_proxy": -0.0016364060596440267,
+      "annualized_sharpe_proxy": -1.3505153845651627,
+      "n_stale_valuation_days": 0,
+      "n_fill_assumption_events": 1867,
+      "blocked_orders": {
+        "PROXY_limit_up_open_not_verified_regulatory": 3
+      },
+      "unpriced_delisting_cashflow_complete": false,
+      "point_in_time_adjustment_certified": false,
+      "return_withheld": false
+    }
+  },
+  "interpretation": "Exploratory independent period, expanded membership, halt-aware fill gate with unresolved delistings censored. Any completed portfolio returns are adjusted-series proxy valuations, never executed trade outcomes. After seeing EXP-002 results it is no longer an untouched period for further method development.",
+  "git_source_of_truth": "https://github.com/YOUessi/Quant-Research-Backtesting-Lab",
+  "actual_broker_execution_evidence": false
+}
