@@ -10,7 +10,7 @@ from quant_lab.pit_universe import build_dynamic_panel
 
 def example_panel(days=42):
     dates = pd.bdate_range("2021-01-04", periods=days)
-    symbols = ("SH600000", "SH600004", "SH600009", "SH600010")
+    symbols = tuple(f"SH600{i:03d}" for i in range(12))
     keys = pd.MultiIndex.from_product(
         [symbols, dates], names=["asset", "date"]).to_frame(index=False)
     market = keys.copy()
@@ -40,8 +40,22 @@ def test_membership_today_not_future_and_past_only_signal():
     base = panel.loc[(panel.asset == "SH600010") & (panel.date == dates[13]), "momentum_5"].iloc[0]
     altered = panel.copy()
     altered.loc[altered.date > dates[13], "adj_close"] *= 5
-    # Original time-t momentum does not incorporate future prices.
-    new = altered.loc[(altered.asset == "SH600010") & (altered.date == dates[13]), "momentum_5"].iloc[0]
+    cols = ["date", "asset", "adj_open", "adj_close", "volume_adjusted",
+            "factor", "adj_high", "adj_low"]
+    intervals = pd.DataFrame({
+        "asset": sorted(panel.asset.unique()),
+        "valid_from": dates[0],
+        "valid_to": dates[-1],
+    })
+    rebuilt, _ = build_dynamic_panel(
+        altered[cols], intervals, dates,
+        tuple(sorted(panel.asset.unique())),
+        first_test=dates[10], last_test=dates[-1],
+    )
+    new = rebuilt.loc[
+        (rebuilt.asset == "SH600010") & (rebuilt.date == dates[13]),
+        "momentum_5",
+    ].iloc[0]
     assert base == new
 
 
