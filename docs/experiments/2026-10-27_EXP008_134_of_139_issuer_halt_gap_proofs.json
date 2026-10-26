@@ -1,0 +1,201 @@
+{
+  "kind": "EXP008_2021_2022_UNRESOLVED_ORIGINAL_ISSUER_STOCK_DAY_EVIDENCE",
+  "date": "2026-10-27",
+  "source_frozen_139_missing_day_count": 139,
+  "prior_verified_days": 104,
+  "new_original_issuer_pdf_verified_days": 30,
+  "total_source_verified_days": 134,
+  "still_unverified_missing_constituent_days": 5,
+  "original_issuer_document_Sha256_pinned": true,
+  "remaining": [
+    {
+      "symbol": "SZ002024",
+      "date": "2021-06-16",
+      "reason": "NO_INDEPENDENT_ISSUER_RESUME_OR_EXPLICIT_FULL_INTERVAL_PROOF"
+    },
+    {
+      "symbol": "SZ002024",
+      "date": "2021-06-17",
+      "reason": "NO_INDEPENDENT_ISSUER_RESUME_OR_EXPLICIT_FULL_INTERVAL_PROOF"
+    },
+    {
+      "symbol": "SZ002024",
+      "date": "2021-06-18",
+      "reason": "NO_INDEPENDENT_ISSUER_RESUME_OR_EXPLICIT_FULL_INTERVAL_PROOF"
+    },
+    {
+      "symbol": "SZ002024",
+      "date": "2021-06-21",
+      "reason": "NO_INDEPENDENT_ISSUER_RESUME_OR_EXPLICIT_FULL_INTERVAL_PROOF"
+    },
+    {
+      "symbol": "SZ002024",
+      "date": "2021-06-22",
+      "reason": "NO_INDEPENDENT_ISSUER_RESUME_OR_EXPLICIT_FULL_INTERVAL_PROOF"
+    }
+  ],
+  "original_issuer_halt_evidence": [
+    {
+      "symbol": "SH601108",
+      "issuer_original_category": "ISSUER_ORIGINAL_RIGHTS_SUBSCRIPTION_CLEARING_RESUME_ONE_PDF",
+      "first_halted_exchange_day": "2022-03-31",
+      "first_resumed_exchange_day": "2022-04-12",
+      "issuer_source_docs": [
+        {
+          "sha256": "b16c7c3ebb9d44c1245b2c7c66f007b7a956b2a0fd226d399dbaaab979e7b9b1",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-03-28/1212698784.PDF",
+          "publication_calendar_day": "2022-03-28"
+        }
+      ],
+      "issuer_pdf_exact_full_session_effect_verified": true,
+      "actual_broker_execution_verified": false,
+      "n_halted_exchange_sessions": 6,
+      "issuer_confirmed_halted_days": [
+        "2022-03-31",
+        "2022-04-01",
+        "2022-04-06",
+        "2022-04-07",
+        "2022-04-08",
+        "2022-04-11"
+      ],
+      "publisher_announcement_intraday_knowledge_certified": false,
+      "trade_entry_halt_gate_certified_for_these_dates": true
+    },
+    {
+      "symbol": "SZ002142",
+      "issuer_original_category": "ISSUER_ORIGINAL_RIGHTS_SUBSCRIPTION_AND_RESULTS_TWO_PDFS",
+      "first_halted_exchange_day": "2021-11-24",
+      "first_resumed_exchange_day": "2021-12-02",
+      "issuer_source_docs": [
+        {
+          "sha256": "eeb07c5bac99234b7453815cc92b3d49fb780fd25dce2f96ae3ba36280ef9079",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-11-19/1211627064.PDF",
+          "publication_calendar_day": "2021-11-19"
+        },
+        {
+          "sha256": "4375dadafc13620b5069c538b488c4f90f41bddabd6afa71d3aa1bd42e8eff80",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-12-02/1211763892.PDF",
+          "publication_calendar_day": "2021-12-02"
+        }
+      ],
+      "issuer_pdf_exact_full_session_effect_verified": true,
+      "actual_broker_execution_verified": false,
+      "n_halted_exchange_sessions": 6,
+      "issuer_confirmed_halted_days": [
+        "2021-11-24",
+        "2021-11-25",
+        "2021-11-26",
+        "2021-11-29",
+        "2021-11-30",
+        "2021-12-01"
+      ],
+      "publisher_announcement_intraday_knowledge_certified": false,
+      "trade_entry_halt_gate_certified_for_these_dates": true
+    },
+    {
+      "symbol": "SZ000425",
+      "issuer_original_category": "ISSUER_ORIGINAL_CASH_OPTION_CONTINUOUS_HALT_AND_RESUME",
+      "first_halted_exchange_day": "2022-08-01",
+      "first_resumed_exchange_day": "2022-08-17",
+      "issuer_source_docs": [
+        {
+          "sha256": "663554d0b81e8296b7a1177fc48a1e5defa16c8ac5a307cb5add849b67ea89b7",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-07-29/1214160175.PDF",
+          "publication_calendar_day": "2022-07-29"
+        },
+        {
+          "sha256": "d65103e3dac77abbcb1aa2b32903f136ff64a1087a2dad4504ea27e43baf70d0",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-08-17/1214308336.PDF",
+          "publication_calendar_day": "2022-08-17"
+        }
+      ],
+      "issuer_pdf_exact_full_session_effect_verified": true,
+      "actual_broker_execution_verified": false,
+      "n_halted_exchange_sessions": 12,
+      "issuer_confirmed_halted_days": [
+        "2022-08-01",
+        "2022-08-02",
+        "2022-08-03",
+        "2022-08-04",
+        "2022-08-05",
+        "2022-08-08",
+        "2022-08-09",
+        "2022-08-10",
+        "2022-08-11",
+        "2022-08-12",
+        "2022-08-15",
+        "2022-08-16"
+      ],
+      "publisher_announcement_intraday_knowledge_certified": false,
+      "trade_entry_halt_gate_certified_for_these_dates": true
+    },
+    {
+      "symbol": "SZ002024",
+      "issuer_original_category": "ISSUER_ORIGINAL_ONE_FULL_DAY_ST_WARNING_HALT_AND_RESUME",
+      "first_halted_exchange_day": "2022-05-05",
+      "first_resumed_exchange_day": "2022-05-06",
+      "issuer_source_docs": [
+        {
+          "sha256": "26174d896c66d1b64ab764f5f47c6100e72a79a40769e6b55c5def3a3f4b254f",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-04-30/1213266247.PDF",
+          "publication_calendar_day": "2022-04-30"
+        }
+      ],
+      "issuer_pdf_exact_full_session_effect_verified": true,
+      "actual_broker_execution_verified": false,
+      "n_halted_exchange_sessions": 1,
+      "issuer_confirmed_halted_days": [
+        "2022-05-05"
+      ],
+      "publisher_announcement_intraday_knowledge_certified": false,
+      "trade_entry_halt_gate_certified_for_these_dates": true
+    },
+    {
+      "symbol": "SZ002812",
+      "issuer_original_category": "ISSUER_ORIGINAL_STOCK_AND_CONVERTIBLE_HALT_AND_RESUME",
+      "first_halted_exchange_day": "2021-06-16",
+      "first_resumed_exchange_day": "2021-06-23",
+      "issuer_source_docs": [
+        {
+          "sha256": "df8c1f6c754ea9196eaa2a1795f0dd4a4e6f1b0bb6a22e66a3096821cdae69fc",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-06-16/1210239096.PDF",
+          "publication_calendar_day": "2021-06-16"
+        },
+        {
+          "sha256": "ce58093d667764a694ab99bbe5e1a280e8ce41515617961913bb5199568f58e9",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-06-23/1210312708.PDF",
+          "publication_calendar_day": "2021-06-23"
+        }
+      ],
+      "issuer_pdf_exact_full_session_effect_verified": true,
+      "actual_broker_execution_verified": false,
+      "n_halted_exchange_sessions": 5,
+      "issuer_confirmed_halted_days": [
+        "2021-06-16",
+        "2021-06-17",
+        "2021-06-18",
+        "2021-06-21",
+        "2021-06-22"
+      ],
+      "publisher_announcement_intraday_knowledge_certified": false,
+      "trade_entry_halt_gate_certified_for_these_dates": true
+    }
+  ],
+  "historical_ST_rule_evidence": {
+    "symbol": "SZ002024",
+    "historical_issuer_ST_warning_announced_calendar_day": "2022-04-30",
+    "effective_risk_warning_date": "2022-05-06",
+    "issuer_stated_daily_limit_percent_after_effective_day": 5,
+    "is_precise_daily_limit_up_down_price_file": false,
+    "actual_auction_fill_certified": false
+  },
+  "not_verified": [
+    "5 SZ002024 original 2021 June days lack separate complete end-date proof; missing Qlib/independent vendor bars not treated as official complete interval",
+    "No official per-security/day up/down stock limit PRICE levels",
+    "No original brokerage fills, opening auction depth or partial executions",
+    "Other 2019–2026 trading-calendar stock statuses outside the 139 example not audited",
+    "Historical adjustment-factor publication vintages and shareholder cash settlements"
+  ],
+  "model_parameters_or_frozen_returns_changed": false,
+  "actual_trading_certified": false
+}
