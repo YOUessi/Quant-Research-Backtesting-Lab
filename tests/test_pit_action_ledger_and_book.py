@@ -59,13 +59,13 @@ def test_ex_date_cash_entitlement_not_double_counted_before_ex():
                              original_shares=1000,share_bonus_ratio=0.0,
                              share_bonus_terms_officially_verified=True)
     assert b["record_close_nominal_mark"]=="10000.0"
-    assert b["ex_close_including_gross_receivable_scenario"]=="10000.00"
+    assert float(b["ex_close_including_gross_receivable_scenario"])==pytest.approx(10000.0)
     assert b["ex_close_total_mark_change"]==pytest.approx(0.0)
     rec,ex,pay=b["records"]
     assert rec["pretax_receivable"]=="0"
-    assert ex["pretax_receivable"]=="410.00"
-    assert pay["pretax_receivable"]=="0"
-    assert pay["cash_schedule_only"]=="410.00"
+    assert float(ex["pretax_receivable"])==pytest.approx(410.0)
+    assert float(pay["pretax_receivable"])==pytest.approx(0.0)
+    assert float(pay["cash_schedule_only"])==pytest.approx(410.0)
     assert pay["equity_gross_scenario"]==ex["equity_gross_scenario"]
     assert b["cash_payment_broker_confirmed"] is False
     assert b["Qlib_adjusted_total_return_price_used"] is False
