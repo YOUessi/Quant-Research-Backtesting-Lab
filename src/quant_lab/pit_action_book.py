@@ -142,12 +142,68 @@ def canonicalize(events, *, calendar):
     }
 
 
-def load_reports(batch19, batch30, recovered, pdf19, pdf30, calendar_path):
+
+def verified_from_primary_issuer_pdfs(audit, *, pdf_dir):
+    """Include original-PDF verified pilot events independent of vendor batch."""
+    from pypdf import PdfReader
+    from .pit_original_date_recovery import issuer_implementation_dates
+    events=[]
+    for proof in audit.get("verified_documents", []):
+        if proof.get("kind") != "cash_dividend":
+            continue
+        if proof.get("cash_per_nominal_share_pre_tax_pdf_confirmed") is None:
+            continue
+        path=Path(pdf_dir)/(proof["primary_document_url"].split("/")[-1])
+        # Local primary audit persisted PDFs as <key>.pdf, not URL filenames.
+        name=next((x for x in audit["verified_documents"]
+                   if x.get("primary_document_sha256")==proof["primary_document_sha256"]), None)
+        if name is None:raise ValueError("Primary document source missing")
+        if not path.is_file():
+            # The audited filename is its fixed document identity.
+            from .pit_primary_audit import DOCUMENTS
+            key=next((x["key"] for x in DOCUMENTS
+                      if x["sha256"]==proof["primary_document_sha256"]),None)
+            if key is None:raise ValueError("Unrecognized pinned primary issuer PDF")
+            path=Path(pdf_dir)/(key+".pdf")
+        if (not path.is_file()
+            or hashlib.sha256(path.read_bytes()).hexdigest()!=proof["primary_document_sha256"]):
+            raise ValueError("Pinned original issuer PDF bytes changed")
+        text="\\n".join(p.extract_text() or "" for p in PdfReader(path).pages)
+        try:
+            dated=issuer_implementation_dates(text,proof["symbol"])
+        except ValueError:
+            dated={}
+        pay=dated.get("pay_date") if (dated.get("record_date")==proof["record_date_pdf_confirmed"]
+                and dated.get("ex_date")==proof["ex_date_pdf_confirmed"]) else None
+        event=create_event(
+            symbol=proof["symbol"],announced=proof["official_release_calendar_date"],
+            record=proof["record_date_pdf_confirmed"],
+            ex=proof["ex_date_pdf_confirmed"],pay=pay,
+            cash=proof["cash_per_nominal_share_pre_tax_pdf_confirmed"],
+            sha=proof["primary_document_sha256"],
+            url=proof["primary_document_url"],
+            grade="PINNED_ORIGINAL_ISSUER_PDF_CASH_AND_DATES_DIRECT",
+            date_proof="ISSUER_PRIMARY_PROOF_AND_INDEPENDENT_EXTRACT",
+        )
+        compact="".join(text.split())
+        event["share_bonus_and_transfer_verified_zero"]=(
+            "不送红股" in compact and "不以公积金转增股本" in compact)
+        events.append(event)
+    return events
+
+def load_reports(batch19, batch30, recovered, pdf19, pdf30, calendar_path, primary=None, primary_pdf_dir=None):
     events = []
     for report, directory in [(batch19, pdf19), (batch30, pdf30)]:
         data = json.loads(Path(report).read_text("utf-8"))
         events.extend(verified_from_crossmatched(data, pdf_dir=directory))
     rec = json.loads(Path(recovered).read_text("utf-8"))
     events.extend(verified_from_recovered(rec, pdf_dir=pdf19))
+    if (primary is None) != (primary_pdf_dir is None):
+        raise ValueError("Primary audit and PDF directory must be provided together")
+    if primary is not None:
+        record = json.loads(Path(primary).read_text("utf-8"))
+        events.extend(verified_from_primary_issuer_pdfs(
+            record, pdf_dir=primary_pdf_dir
+        ))
     calendar = pd.read_csv(calendar_path, header=None)[0].astype(str).tolist()
     return canonicalize(events, calendar=calendar)
