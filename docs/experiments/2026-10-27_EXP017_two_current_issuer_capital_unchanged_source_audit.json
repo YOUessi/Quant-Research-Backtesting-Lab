@@ -1,0 +1,65 @@
+{
+  "kind": "EXP017_TWO_CURRENT_ISSUER_NO_SHARE_CAPITAL_CHANGE_PROOFS",
+  "frozen_exp016_catalog_sha256": "60a3187bff82f4d4a0eae82b3cbb83afc0749593a1ebcd817e17145cb7eb2d9d",
+  "new_exp017_catalog_sha256": "fbe23fa6692f659c0e9990ce7aa27dabd156f818c4b91f4482e3a35fa3827eb4",
+  "archived_source_pdf_complete_sha256s_rechecked": 89,
+  "current_issuer_original_direct_proofs": 2,
+  "newly_filled_zero_categories": 4,
+  "old_complete_unknown": [
+    38,
+    51
+  ],
+  "new_complete_unknown": [
+    40,
+    49
+  ],
+  "other_original_event_rows_unchanged": 87,
+  "original_pdfs_or_frozen_catalog_modified": false,
+  "official_daily_limit_and_broker_order_fill_certified": false,
+  "intraday_release_timestamps_certified": false,
+  "actual_cash_or_new_stock_broker_credit_certified": false,
+  "historical_asof_adjustment_factors_certified": false,
+  "new_backtest_or_independent_returns_claimed": false,
+  "primary_evidence": [
+    {
+      "event_id": "5649684883755b881034232b",
+      "symbol": "SZ300142",
+      "ex_date": "2021-05-19",
+      "source_full_sha256": "d286a7ac7a16d4cd09d477d5df7e8d00ee9d766e509dafb7806997c10667af22",
+      "original_url": "https://static.cninfo.com.cn/finalpage/2021-05-12/1209958626.PDF",
+      "original_notice_day": "2021-05-12",
+      "first_next_exchange_session": "2021-05-13",
+      "record_day": "2021-05-18",
+      "ex_day": "2021-05-19",
+      "scheduled_cash_pay_day_not_broker_credit": "2021-05-19",
+      "pre_tax_cash_per_old_nominal_share": "0.05",
+      "fiscal_year_in_original_title": "2020",
+      "issuer_declared_before_and_after_total": 1566186984,
+      "issuer_exact_current_capital_claim": "本次权益分派不会导致公司总股本发生变动",
+      "source_grade": "CURRENT_ISSUER_IMPLEMENTATION_DIRECT_NO_SHARE_CAPITAL_CHANGE_EXP017",
+      "issuer_current_plan_no_stock_issuance": true,
+      "intraday_publication_or_broker_credit_proven": false,
+      "actual_sellable_shares_or_trade_executions_proven": false
+    },
+    {
+      "event_id": "c88ee5378b8bc5f72afc4147",
+      "symbol": "SZ300142",
+      "ex_date": "2022-04-26",
+      "source_full_sha256": "8589fb592fa05c8c3ac4a23c663661bc0a99541d33642eac4a95eb2007b1daa6",
+      "original_url": "https://static.cninfo.com.cn/finalpage/2022-04-20/1212978701.PDF",
+      "original_notice_day": "2022-04-20",
+      "first_next_exchange_session": "2022-04-21",
+      "record_day": "2022-04-25",
+      "ex_day": "2022-04-26",
+      "scheduled_cash_pay_day_not_broker_credit": "2022-04-26",
+      "pre_tax_cash_per_old_nominal_share": "0.027",
+      "fiscal_year_in_original_title": "2021",
+      "issuer_declared_before_and_after_total": 1601571884,
+      "issuer_exact_current_capital_claim": "本次权益分派不会导致公司总股本发生变动",
+      "source_grade": "CURRENT_ISSUER_IMPLEMENTATION_DIRECT_NO_SHARE_CAPITAL_CHANGE_EXP017",
+      "issuer_current_plan_no_stock_issuance": true,
+      "intraday_publication_or_broker_credit_proven": false,
+      "actual_sellable_shares_or_trade_executions_proven": false
+    }
+  ]
+}
