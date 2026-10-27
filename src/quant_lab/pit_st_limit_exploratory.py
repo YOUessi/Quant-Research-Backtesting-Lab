@@ -160,6 +160,14 @@ def audit(*, original_issuer_pdf:Path, independent_unadjusted_csv:Path,
     text="\n".join(page.extract_text() or "" for page in pdf.pages[:4])
     issuer=verify_original_st_rule(text)
     meta=json.loads(independent_source_meta.read_text("utf-8"))
+    # Stage-4 archived the original Eastmoney response provenance inside a
+    # multi-stock audit. Never treat the summary's own SHA as the raw HTTP
+    # response SHA; identify exactly the specified security.
+    if meta.get("kind")=="INDEPENDENT_DAILY_OHLCV_VS_QLIB_MEMBER_DAY_GAP":
+        matches=[x for x in meta.get("audits",[]) if x.get("symbol")==SYMBOL]
+        if len(matches)!=1:
+            raise ValueError("Expected one independently retrieved raw trading-day source for target ticker")
+        meta=matches[0]["independent_source"]
     if meta.get("source_response_sha256")!=QUOTE_RESPONSE_SHA:
         raise ValueError("Raw independent historical provider body SHA no longer pinned")
     if meta.get("source_url") != "https://push2his.eastmoney.com/api/qt/stock/kline/get":
