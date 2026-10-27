@@ -1,0 +1,50 @@
+{
+  "kind": "EXP021_PRIOR_ISSUER_PLAN_AND_FINAL_IMPLEMENTATION_RIGHTS_AUDIT",
+  "frozen_exp018_catalog_full_sha256": "62f50f8294adde17712136108b4e74fd84e18ddbe68ce04d3a5efb9042ba8122",
+  "derived_exp021_catalog_full_sha256": "db49d725ffb28308c718a44521be11c304bed3ae5d386cc44f718117c5e50147",
+  "primary_issuer_original_full_sha256s_verified": 89,
+  "additional_full_original_quarterly_pdf_sha256_verified": 1,
+  "before_complete_unresolved": [
+    43,
+    46
+  ],
+  "after_complete_unresolved": [
+    44,
+    45
+  ],
+  "previously_unknown_bonus_fields_resolved": 1,
+  "previously_verified_transfer_fields_unchanged": 89,
+  "other_event_rows_fully_unchanged": 88,
+  "original_pdfs_prior_catalogs_or_frozen_returns_modified": false,
+  "actual_broker_shares_cash_credit_or_execution_proven": false,
+  "as_published_factor_and_amendment_chain_proven": false,
+  "source_proof": {
+    "event_id": "4172b0cd291fcc8ead62d3fa",
+    "symbol": "SZ300751",
+    "ex_date": "2021-05-18",
+    "quarterly_source_pdf_url": "https://disc.static.szse.cn/download/disc/disk02/finalpage/2021-04-28/f26e0b8e-fed8-42cb-92dc-5567c9d13ffa.PDF",
+    "quarterly_source_pdf_full_sha256": "7875834e9055ac8914d9db533f1aa811fefeb6244c18f5c8ddfd315d3509e68f",
+    "quarterly_publication_day": "2021-04-28",
+    "quarterly_conservative_first_usable_day": "2021-04-29",
+    "final_implementation_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-05-10/1209949702.PDF",
+    "final_implementation_pdf_full_sha256": "85d4cd86d50e4740767ed517454a7a1db69994ac5b6837e74ae11b3d7cf4984d",
+    "final_implementation_notice_day": "2021-05-10",
+    "final_implementation_first_usable_day": "2021-05-11",
+    "source_grade": "TWO_PRE_EX_DATE_ORIGINAL_ISSUER_SOURCES_MATCH_IMPLEMENTATION_EXP021",
+    "prior_fiscal_plan_no_bonus_explicit": true,
+    "prior_plan_cash_per_old_share_cny": "1.5",
+    "plan_transfer_per_old_share": "0.8",
+    "preapproval_shares": 57277225,
+    "implementation_shares_before": 57278725,
+    "intervening_exercise_share_increase": 1500,
+    "current_transfer_shares": 45822980,
+    "implementation_shares_after": 103101705,
+    "bonus_per_old_share": "0",
+    "nominal_multiplier": "1.8",
+    "actual_holder_share_rounding_or_delivery_confirmed": false,
+    "actual_broker_cash_receipt_confirmed": false,
+    "as_published_price_adjustment_factor_confirmed": false,
+    "actual_exchange_auction_fill_or_sellable_shares_confirmed": false,
+    "subsequent_amendment_exhaustiveness_confirmed": false
+  }
+}
