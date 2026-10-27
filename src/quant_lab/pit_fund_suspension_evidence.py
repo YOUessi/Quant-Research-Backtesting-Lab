@@ -167,16 +167,22 @@ def verify_fund_text(first_page: str, suspended_holdings_page: str,
     # fund share position/cost/fair-value. Reconstituted line breaks are
     # normalized for layout, but other row values aren't substituted.
     row = text[start:start+420]
+    # PDF extraction collapses adjacent numeric table columns together:
+    # "6.15 1,900,511 21,036,627.41 10,623,856.49" becomes a single
+    # digit run. Match the EXPECTED independently declared fund share count,
+    # rather than using a greedy ambiguous \d+ capture that can swallow cost.
+    shares = expected["reported_shares"]
     pattern = (
         r"^002024苏宁易购2021年6月16日"
         r"(?:临时停牌|重大事项停牌)"
         r"5[.]592021年7月6日6[.]15"
-        r"([\d,]+)([\d,.]+)"
+        + re.escape(f"{shares:,}")
     )
     match = re.match(pattern, row)
     if match is None:
-        raise ValueError("Original fund table did not corroborate halt/resume and prices")
-    shares = int(match.group(1).replace(",", ""))
+        raise ValueError("Original fund table did not corroborate halt/resume, open, or shares")
+    if f"{expected['reported_stock_mark']:,.2f}" not in row[match.end():]:
+        raise ValueError("Original fund table does not report expected share valuation")
     if shares != expected["reported_shares"]:
         raise ValueError("Independent fund share count disagrees")
     implied_mark = round(shares * TARGET_MARK, 2)
@@ -255,12 +261,12 @@ def audit_sources(*, fund_root: Path, broker_file: Path,
     exchange_spec = SOURCES["exchange"]
     sha256_file(fund_root/exchange_spec["file"],exchange_spec["sha256"])
     exchange = verify_exchange_original(
-        (fund_root/exchange_spec["file"]).read_text("utf-8", errors="replace")
+        (fund_root/exchange_spec["file"]).read_bytes()
     )
     broker = SOURCES["broker"]
     sha256_file(broker_file, broker["sha256"])
     broker_proof = verify_broker_original(
-        broker_file.read_text("utf-8", errors="replace")
+        broker_file.read_bytes()
     )
     fund_proofs = []
     for key in ("fund1", "fund2"):
