@@ -118,3 +118,22 @@ Install optional audit dependencies alongside regular tests, and reproduce *afte
     bash scripts/mac_exp006.sh
 
 This script refuses to fabricate missing prices, bypass unknown corporate-action terms, overwrite research runs or edit old model metrics. It needs the earlier local Qlib bundle, saved original issuer PDFs, and documented independent raw-price data. Sensitive/private account data is not uploaded; raw public provider datasets are gitignored. **Model improvement remains postponed** until official historical limit prices, share/cash settlement, as-of factor vintages and actual fill constraints can be verified.
+
+
+## Stage 5 — EXP-009: historic halt source tiers and original ST limit sell uncertainty
+
+**Source-verified on Mac CPU (2026-10-27), not real broker execution or profitable alpha.** Read [EXP-009 complete analysis](docs/EXP009_RESULTS_2026-10-27.md), [original-source hash metrics](docs/experiments/2026-10-27_EXP009_fund_halt_and_ST_order_evidence.json) and the [engineering failure/fix log](docs/ENGINEERING_LOG.md).
+
+- 134/139 historic frozen missing ticker-day bars were already source-verified through issuer/exchange full interval documents. The remaining 5 have *retrospective* independent corroboration from two original 2021 mutual fund interim PDFs reporting SZ002024 halt 2021-06-16 to resume 2021-07-06, mark 5.59 and restart opening 6.15. **139/139 with mixed evidence grades** is NOT 139/139 original issuer-day certification. The Aug 2021 fund publications are never 2021-June as-of trade signals.
+- Original issuer 2022-04-30 PDF confirms SZ002024 resumed under **5% daily ST price-limit percentage** from 2022-05-06. Independent unadjusted historical raw OHLCV shows three real May 6/9/10 single-price-down days with nonzero daily volume (prices 3.07/2.92/2.77). Five-percent limit prices were computed from previous traded raw closes and rounded to the cent; they are **NOT independently provided original exchange daily up/down price-level files**.
+- A positive total daily trading volume never certifies a particular limit-down opening SELL order's queue position or broker execution. Our audit explicitly withholds that fill claim, preserves frozen PnL and does not claim every actual order was impossible to fill.
+- Original fund PDF, exchange/broker HTML and historical market quote data are source-hash checked and remain locally gitignored, not redistributed.
+
+From a Mac clone that already has the pinned, valid local source files:
+
+    python -m pip install -e '.[test,ml,qlib,audit]'
+    bash scripts/mac_exp009.sh
+
+The validated full offline replay ran **165 passing CPU tests**, original source SHA/table checks and all historical ST source calculations without writing over earlier experimental results. Mac git HTTPS occasionally timed out again after a normal earlier fast-forward; exact Github source can be temporarily verified from a gitignored mirror but is not described as a synced Git checkout.
+
+Further priorities remain: all-security official daily up/down PRICE levels and changing risk-warning classifications, historical auction queues and broker partial fills, delisting settlement, historic adjustment factor vintages, and complete cash/bonus entitlements. Until these are independently sourced, no trading-grade return claim.
