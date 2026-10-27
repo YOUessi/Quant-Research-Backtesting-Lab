@@ -110,12 +110,17 @@ def run(ledger_file:Path, output:Path, *, shares=1000, previous_audit:Path|None=
                 "share_distribution_verified_zero":bool(
                     e["share_bonus_and_transfer_verified_zero"]
                 ),
+                "post_ex_stock_rights_mark_censored":mark[
+                    "post_ex_stock_mark_censored_unknown_issuer_rights"],
+                "unknown_stock_rights_not_treated_as_zero":True,
                 "price_only_and_gross_cash_double_count_avoided":True,
                 "actual_trade_confirmed":False,
             }
             items.append(item)
+            pct=mark["ex_close_total_mark_change"]
             print(label,"pretax_cash",mark["pretax_entitlement"],
-                  "mark_change",round(mark["ex_close_total_mark_change"]*100,3),
+                  "mark_change",("CENSORED_INCOMPLETE_STOCK_RIGHTS" if pct is None
+                                 else round(pct*100,3)),
                   "cash_only_assumption=",not e["share_bonus_and_transfer_verified_zero"],
                   "broker_posting_verified=False",flush=True)
     result={

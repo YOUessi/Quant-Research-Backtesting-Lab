@@ -7,6 +7,9 @@ right at EX-date, not twice in the cum-dividend record-date mark.
 Issuer pay-day events are *scheduled*, not verified broker credits. Gross
 receivables therefore remain unresolved even after the issuer's scheduled pay
 day unless a separate verified broker cash-credit record is introduced.
+An incomplete issuer stock-rights term also makes the ex-date nominal stock
+mark unidentifiable: do not silently assume a zero bonus/transfer ratio.
+Verified issuer rights are *claims*, not brokerage credited sellable shares.
 A current Qlib adjusted-price series is strictly forbidden here.
 """
 from __future__ import annotations
@@ -71,7 +74,7 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
     amount = dec(event["gross_cash_per_nominal_share"],"cash")
     if amount <= 0:raise ValueError("Cash dividend must be positive")
     if share_bonus_ratio is None:
-        bonus = Decimal(0)
+        bonus = None  # UNKNOWN is NOT zero; censor all post-ex nominal stock marks.
         rights_scope = "CASH_ONLY_ASSUMPTION_STOCK_BONUS_UNVERIFIED"
     else:
         bonus = dec(share_bonus_ratio,"share bonus ratio")
@@ -97,20 +100,40 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
             actions.append("RECORD_ENTITLEMENT_KNOWN_BUT_STILL_EMBEDDED_IN_CUM_DIVIDEND_PRICE")
         if dt==ex:
             if not pending_record:raise ValueError("No record-date entitlement")
-            shares=claim_shares*(Decimal(1)+bonus)
+            # An original-PDF cash term does not prove bonus/transfer=0.
+            # The cash right is known, but the ex-date share count and its
+            # monetary mark are unknown until BOTH stock-right terms are verified.
             receivable=claim_shares*amount
-            actions.append("EX_TRANSFER_CUM_DIVIDEND_PRICE_TO_NOMINAL_SHARES_AND_PRETAX_RECEIVABLE")
+            if bonus is None:
+                shares=None
+                actions.append("EX_CASH_CLAIM_KNOWN_STOCK_RIGHTS_MARK_CENSORED")
+            else:
+                shares=claim_shares*(Decimal(1)+bonus)
+                actions.append("EX_ISSUER_SHARE_CLAIM_AND_PRETAX_CASH_RIGHT_NOT_BROKER_CREDIT")
         if pay is not None and dt>=pay and not schedule_crossed:
             schedule_crossed=True
             actions.append("ISSUER_PAYMENT_SCHEDULE_REACHED_BROKER_CREDIT_UNVERIFIED")
         # Do NOT zero gross receivable or create an actual-cash balance
         # merely because the scheduled issuer payment date was reached.
-        total=shares*px+cash+receivable
+        share_mark=shares*px if shares is not None else None
+        total=share_mark+cash+receivable if share_mark is not None else None
+        extra_shares=shares-claim_shares if shares is not None else None
         rows.append({
             "date":dt.date().isoformat(),
-            "nominal_shares":str(shares),
+            "nominal_shares":str(shares) if shares is not None else None,
             "unadjusted_nominal_close":str(px),
-            "share_mark":str(shares*px),
+            "share_mark":str(share_mark) if share_mark is not None else None,
+            "initial_record_day_shares_hypothetical":str(claim_shares),
+            "issuer_new_share_claim_uncredited":str(extra_shares) if extra_shares is not None else None,
+            "issuer_new_share_claim_price_mark":(
+                str(extra_shares*px) if extra_shares is not None else None),
+            "broker_confirmed_new_share_quantity":None,
+            "broker_confirmed_sellable_share_quantity":None,
+            "stock_rights_mark_status":(
+                "CENSORED_UNVERIFIED_ISSUER_SHARE_RIGHTS" if shares is None
+                else ("RECORD_DAY_CUM_RIGHTS_UNSEPARATED" if dt<ex
+                      else "ISSUER_SHARE_CLAIM_NOT_BROKER_CREDIT")),
+
             "pretax_receivable":str(receivable),
             "cash_schedule_only":str(cash),
             "gross_receivable_credit_status":(
@@ -119,7 +142,7 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
                 else ("GROSS_ENTITLEMENT_UNSETTLED_CREDIT_UNVERIFIED"
                       if receivable>0 else "NO_EX_DATE_ENTITLEMENT_YET")
             ),
-            "equity_gross_scenario":str(total),
+            "equity_gross_scenario":str(total) if total is not None else None,
             "events":actions,
         })
     rec = next(x for x in rows if x["date"]==str(record.date()))
@@ -136,7 +159,12 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
         "pretax_entitlement":str(claim_shares*amount),
         "record_close_nominal_mark":rec["equity_gross_scenario"],
         "ex_close_including_gross_receivable_scenario":exrow["equity_gross_scenario"],
-        "ex_close_total_mark_change":float(dec(exrow["equity_gross_scenario"],"exmark")/base-1),
+        "ex_close_total_mark_change":(
+            float(dec(exrow["equity_gross_scenario"],"exmark")/base-1)
+            if exrow["equity_gross_scenario"] is not None else None),
+        "post_ex_stock_mark_censored_unknown_issuer_rights":bonus is None,
+        "issuer_share_entitlement_is_not_broker_delivered_sellable_inventory":True,
+        "broker_sellable_share_quantity_not_available":True,
         "records":rows,
         "corporate_share_terms_status":rights_scope,
         "cash_payment_broker_confirmed":False,

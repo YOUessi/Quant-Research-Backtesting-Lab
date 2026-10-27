@@ -168,6 +168,15 @@ def audit_one(row: dict, pin: dict, *, pdf_bytes: bytes,
         or any(x["gross_receivable_credit_status"] != "ISSUER_SCHEDULE_REACHED_CREDIT_UNVERIFIED" for x in due)
         or not book["source_schedule_reached_within_quote_window"]):
         raise ValueError("Issuer schedule accidentally promoted to received broker cash")
+    exrow = next(x for x in later if x["date"] == row["ex_date"])
+    expected_new_shares = Decimal("1000") * ratio
+    if (exrow["stock_rights_mark_status"] != "ISSUER_SHARE_CLAIM_NOT_BROKER_CREDIT"
+        or Decimal(exrow["issuer_new_share_claim_uncredited"]) != expected_new_shares
+        or Decimal(exrow["nominal_shares"]) != Decimal("1000") + expected_new_shares
+        or any(x["broker_confirmed_new_share_quantity"] is not None
+               or x["broker_confirmed_sellable_share_quantity"] is not None
+               for x in book["records"])):
+        raise ValueError("Issuer share-right claim incorrectly promoted to broker inventory")
     return {
         "symbol": row["symbol"], "ex_date": row["ex_date"],
         "scheduled_issuer_payment_date": pin["pay"],
@@ -177,7 +186,9 @@ def audit_one(row: dict, pin: dict, *, pdf_bytes: bytes,
         "vendor_reported_http_response_sha256_not_raw_reverified": pin["http_response_sha256"],
         "frozen_source_quote_last_day": book["records"][-1]["date"],
         "hypothetical_initial_shares": "1000",
-        "ex_day_entitled_nominal_shares": next(x["nominal_shares"] for x in later),
+        "ex_day_entitled_nominal_shares": exrow["nominal_shares"],
+        "ex_day_issuer_new_share_claim_uncredited": exrow["issuer_new_share_claim_uncredited"],
+        "broker_confirmed_sellable_share_quantity": None,
         "gross_pretax_cash_claim_cny": str(amount),
         "gross_pretax_claim_remaining_at_final_available_quote_day_cny":
             book["records"][-1]["pretax_receivable"],
