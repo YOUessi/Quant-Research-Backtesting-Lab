@@ -137,3 +137,14 @@ From a Mac clone that already has the pinned, valid local source files:
 The validated full offline replay ran **165 passing CPU tests**, original source SHA/table checks and all historical ST source calculations without writing over earlier experimental results. Mac git HTTPS occasionally timed out again after a normal earlier fast-forward; exact Github source can be temporarily verified from a gitignored mirror but is not described as a synced Git checkout.
 
 Further priorities remain: all-security official daily up/down PRICE levels and changing risk-warning classifications, historical auction queues and broker partial fills, delisting settlement, historic adjustment factor vintages, and complete cash/bonus entitlements. Until these are independently sourced, no trading-grade return claim.
+
+
+## Current original corporate-action evidence: EXP-023 (2026-10-28)
+
+**Immediate direct execution requested by user; hourly automation disabled.** Original issuer PDFs, AGM resolutions and final implementation matched for two formerly unresolved Shanghai Pudong Development Bank (SH600000) distributions (2021-07-21 ex: CNY0.48 per old share; 2022-07-21 ex: CNY0.41). In original fiscal annual reports both explicitly labeled per-ten bonus-share and per-ten capital-transfer table entries are DASH, while the same-year cash distribution was subsequently approved by shareholders and implemented.
+
+**Share rights supported by original issuer evidence: 46/89 complete; 43 incomplete** (up from 44/89). All other 87 event records are identical. No corporate rights were inferred from Qlib adjustment factors. Original issuer exact cash totals match shares times gross cash, but historical factor publisher vintages, amendment completeness, brokerage credit, actual order fills, market-wide day-specific limit prices and investable returns remain BLOCK.
+
+[Full issuer approved-chain report](docs/EXP023_SPDB_ANNUAL_AGM_CASH_ONLY_2026-10-28.md) · [Original PDF source SHA and derived event metadata](docs/experiments/2026-10-28_EXP023_SH600000_annual_approved_cash_only_original_sources.json) · [Mac CPU offline replay](scripts/mac_exp023.sh) · [Full engineering log](docs/ENGINEERING_LOG.md).
+
+On the authorized Mac, source code matching three exact GitHub blob SHA hashes passed 498/498 tests, and complete independent fresh-path replay exited 0 after validating 10 new original PDF and 89 archived issuer-document SHA. The original divergent Mac Git checkout was not force-synchronized. No raw original PDFs or brokerage datasets were committed.
