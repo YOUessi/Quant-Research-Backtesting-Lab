@@ -66,7 +66,7 @@ def test_volume_is_positive_but_not_auction_sell_proof():
 
 
 def test_historical_day_gap_must_be_original_issuer_documented():
-    with pytest.raises(ValueError,match="publisher confirmed suspension"):
+    with pytest.raises(ValueError,match="Publisher confirmed suspension"):
         classify_auction_hypothesis(
             market_bars(),calendar=["2022-04-29","2022-05-06","2022-05-09","2022-05-10"])
 
@@ -76,7 +76,7 @@ def test_invented_tradable_market_bar_on_halt_day_rejected():
     fake.loc[len(fake)]={"date":"2022-05-05","open_raw":3.24,
                          "high_raw":3.25,"low_raw":3.23,
                          "close_raw":3.24,"volume_lots":100000}
-    with pytest.raises(ValueError,match="publisher confirmed suspension"):
+    with pytest.raises(ValueError,match="Publisher confirmed suspension"):
         classify_auction_hypothesis(fake,calendar=calendar())
 
 
