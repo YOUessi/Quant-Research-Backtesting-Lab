@@ -1,0 +1,99 @@
+{
+  "kind": "EXP022_HXB_ISSUER_PLAN_AGM_FINAL_NO_TRANSFER_SOURCE_AUDIT",
+  "frozen_exp021_source_catalog_full_sha256": "db49d725ffb28308c718a44521be11c304bed3ae5d386cc44f718117c5e50147",
+  "new_derived_exp022_catalog_full_sha256": "b29464c49a2e1abc7241d2e8148ccd00bd110e8b55b868726d6810e096873c00",
+  "primary_issuer_original_full_sha256_checked": 89,
+  "additional_issuer_hosted_original_full_sha256_checked": 6,
+  "fully_source_verified_rights_before_after": [
+    44,
+    44
+  ],
+  "unresolved_bonus_or_share_rights_before_after": [
+    45,
+    45
+  ],
+  "issuer_approved_capital_transfer_zero_newly_resolved": 2,
+  "unknown_bonus_fields_still_unknown_for_targets": 2,
+  "other_event_rows_fully_unchanged": 87,
+  "legacy_cash_publication_broker_and_model_data_modified": false,
+  "actual_broker_delivery_or_auction_fill_proven": false,
+  "historical_factor_vintage_or_complete_amendment_chain_proven": false,
+  "strict_approval_links": [
+    {
+      "symbol": "SH600015",
+      "event_id": "7c5149184e10b18b4674b13b",
+      "ex_date": "2022-06-08",
+      "source_grade": "ISSUER_PLAN_AGM_APPROVED_FINAL_IMPLEMENTATION_TRANSFER_ZERO_EXP022",
+      "original_issuer_sources": [
+        {
+          "role": "plan",
+          "original_url": "https://www.hxb.com.cn/hxb/articleFileDir/2022-05/05/ac10c9c5a7584ccaba0f26afa5e8a841.pdf",
+          "whole_pdf_sha256": "6de4f0e3c69126f32fc14b939b65c19638f1bcffd320e3d44ef7f3d6822f614f",
+          "conservative_issuer_website_listing_day": "2022-05-05",
+          "original_internal_document_date": "2022年4月30日",
+          "conservative_first_usable_trading_day": "2022-05-06"
+        },
+        {
+          "role": "agm",
+          "original_url": "https://www.hxb.com.cn/hxb/articleFileDir/2022-05/23/12240e3c2e374ced878818803057427b.pdf",
+          "whole_pdf_sha256": "f6f710ffa519ac4f712df26947e9f41a6ed84d9d55c8c7c1ee289b32bf02ab9c",
+          "conservative_issuer_website_listing_day": "2022-05-23",
+          "original_internal_document_date": "2022年5月21日",
+          "conservative_first_usable_trading_day": "2022-05-24"
+        },
+        {
+          "role": "current",
+          "original_url": "https://www.hxb.com.cn/hxb/articleFileDir/2022-05/30/a584373682d047f28ca2ad90ccaf442f.pdf",
+          "whole_pdf_sha256": "1ad0a1fc1f0f00461c6822eed4e6547e5d9f96bfe1b7b752e11d044fbaae0e98",
+          "conservative_issuer_website_listing_day": "2022-05-30",
+          "original_internal_document_date": "2022年5月30日",
+          "conservative_first_usable_trading_day": "2022-05-31"
+        }
+      ],
+      "issuer_approved_capital_transfer_per_old_share": "0",
+      "gross_cash_per_old_share_cny_unchanged": "0.338",
+      "explicit_bonus_zero_claim": false,
+      "actual_broker_credit_or_shares_sellable_verified": false,
+      "historical_factor_vintage_confirmed": false,
+      "source_amendment_exhaustiveness_verified": false
+    },
+    {
+      "symbol": "SH600015",
+      "event_id": "c36059f27517749d2dcc6218",
+      "ex_date": "2021-07-09",
+      "source_grade": "ISSUER_PLAN_AGM_APPROVED_FINAL_IMPLEMENTATION_TRANSFER_ZERO_EXP022",
+      "original_issuer_sources": [
+        {
+          "role": "plan",
+          "original_url": "https://www.hxb.com.cn/hxb/articleFileDir/2021-04/30/c4ec5c39b9ad4cffa5a725dd630fcf10.pdf",
+          "whole_pdf_sha256": "a88f3c5497bfbd082ec792a4ed4fa51c20896b50550e402cf6630c25629ea56d",
+          "conservative_issuer_website_listing_day": "2021-04-30",
+          "original_internal_document_date": "2021年4月30日",
+          "conservative_first_usable_trading_day": "2021-05-06"
+        },
+        {
+          "role": "agm",
+          "original_url": "https://www.hxb.com.cn/hxb/articleFileDir/2021-06/01/2e69e6f82ad844bb999ff9360b57d408.pdf",
+          "whole_pdf_sha256": "41e8dd72bffba80f149d81dc1a002e5b6b825516421ec4358685533ea3b1ed4b",
+          "conservative_issuer_website_listing_day": "2021-06-01",
+          "original_internal_document_date": "2021年5月29日",
+          "conservative_first_usable_trading_day": "2021-06-02"
+        },
+        {
+          "role": "current",
+          "original_url": "https://www.hxb.com.cn/hxb/articleFileDir/2021-07/05/223e61dd62cc42c281cd39598baeb49e.pdf",
+          "whole_pdf_sha256": "0f1c725e105c0531c51644a3a2050f06908aa05742ea94b0796b25d1a8ddf1fa",
+          "conservative_issuer_website_listing_day": "2021-07-05",
+          "original_internal_document_date": "2021年7月5日",
+          "conservative_first_usable_trading_day": "2021-07-06"
+        }
+      ],
+      "issuer_approved_capital_transfer_per_old_share": "0",
+      "gross_cash_per_old_share_cny_unchanged": "0.301",
+      "explicit_bonus_zero_claim": false,
+      "actual_broker_credit_or_shares_sellable_verified": false,
+      "historical_factor_vintage_confirmed": false,
+      "source_amendment_exhaustiveness_verified": false
+    }
+  ]
+}
