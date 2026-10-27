@@ -115,9 +115,8 @@ def audit_single(
     }
     if (event["payment_date"] and
         pd.Timestamp(event["payment_date"])>bars["date"].max()):
-        # Missing a later issuer scheduled pay date is fine for a *record
-        # and EX-only* mark. Never invent brokerage cash settlement.
-        event["payment_date"]=None
+        # Preserve the issuer's verified scheduled date even if the quote
+        # window ends earlier. The nominal book must not invent credit.
         payment_source_status="SCHEDULED_PAY_DATE_KNOWN_OUTSIDE_BAR_WINDOW"
     else:
         payment_source_status=(

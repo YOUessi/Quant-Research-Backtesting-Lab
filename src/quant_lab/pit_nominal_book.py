@@ -4,7 +4,9 @@ Not a trading strategy. The investor is hypothetically already holding
 nominal shares at record-date CLOSE. It deliberately books a declared cash
 right at EX-date, not twice in the cum-dividend record-date mark.
 
-Issuer pay-day events are *scheduled* payments, not verified broker credits.
+Issuer pay-day events are *scheduled*, not verified broker credits. Gross
+receivables therefore remain unresolved even after the issuer's scheduled pay
+day unless a separate verified broker cash-credit record is introduced.
 A current Qlib adjusted-price series is strictly forbidden here.
 """
 from __future__ import annotations
@@ -35,6 +37,8 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
     We do not sell or buy, and we never claim observed opening auction fills.
     The nominal share count remains unchanged unless explicit source-audited
     bonus/share-transfer terms were passed. Unknown terms => scenario-only.
+    Neither a scheduled issuer payment nor a positive traded price certifies
+    holder-level broker cash or share credit.
     """
     if event.get("earliest_usable_exchange_day") is None:
         raise ValueError("Event has no verifiable PIT public-availability day")
@@ -60,8 +64,8 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
         raise ValueError("No record-date price")
     if not (source["date"]==ex).any():
         raise ValueError("No ex-date raw price: CENSOR rather than stale mark")
-    if pay is not None and not (source["date"] >= pay).any():
-        raise ValueError("Payment date not reached in supplied price history")
+    # A scheduled issuer payment day may fall outside the observed quote
+    # window. That is NOT evidence of cash credited to the holder.
     shares = dec(original_shares,"original_shares")
     if shares <= 0:raise ValueError("Original shares must be positive")
     amount = dec(event["gross_cash_per_nominal_share"],"cash")
@@ -79,12 +83,12 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
         raise ValueError("Broker cash payment requires a separate actual credit record")
     claim_shares=shares
     receivable=Decimal(0)
-    cash=Decimal(0)
+    cash=Decimal(0)  # No actual bank/broker credit evidence was supplied.
     pending_record=False
+    schedule_crossed=False
     rows=[]
     for row in source.itertuples(index=False):
         dt=pd.Timestamp(row.date)
-        if pay is not None and dt>pay:break
         px=dec(row.close_raw,"close_raw")
         if px<=0:raise ValueError(f"Unpriceable nominal close {dt.date()}")
         actions=[]
@@ -96,10 +100,11 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
             shares=claim_shares*(Decimal(1)+bonus)
             receivable=claim_shares*amount
             actions.append("EX_TRANSFER_CUM_DIVIDEND_PRICE_TO_NOMINAL_SHARES_AND_PRETAX_RECEIVABLE")
-        if pay is not None and dt==pay:
-            cash+=receivable
-            receivable=Decimal(0)
-            actions.append("PAY_DATE_ASSUMED_PER_ISSUER_SCHEDULE_NOT_BROKER_CONFIRMED")
+        if pay is not None and dt>=pay and not schedule_crossed:
+            schedule_crossed=True
+            actions.append("ISSUER_PAYMENT_SCHEDULE_REACHED_BROKER_CREDIT_UNVERIFIED")
+        # Do NOT zero gross receivable or create an actual-cash balance
+        # merely because the scheduled issuer payment date was reached.
         total=shares*px+cash+receivable
         rows.append({
             "date":dt.date().isoformat(),
@@ -108,6 +113,12 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
             "share_mark":str(shares*px),
             "pretax_receivable":str(receivable),
             "cash_schedule_only":str(cash),
+            "gross_receivable_credit_status":(
+                "ISSUER_SCHEDULE_REACHED_CREDIT_UNVERIFIED"
+                if pay is not None and dt>=pay and receivable>0
+                else ("GROSS_ENTITLEMENT_UNSETTLED_CREDIT_UNVERIFIED"
+                      if receivable>0 else "NO_EX_DATE_ENTITLEMENT_YET")
+            ),
             "equity_gross_scenario":str(total),
             "events":actions,
         })
@@ -129,6 +140,10 @@ def simulate_nominal_right(event: dict, bars: pd.DataFrame, *,
         "records":rows,
         "corporate_share_terms_status":rights_scope,
         "cash_payment_broker_confirmed":False,
+        "issuer_payment_schedule_does_not_prove_broker_cash_credit":True,
+        "gross_receivable_retained_without_broker_credit":True,
+        "cash_credited_in_this_scenario":"0",
+        "source_schedule_reached_within_quote_window":schedule_crossed,
         "effective_cash_is_gross_before_holder_specific_taxes":True,
         "trade_fills_or_auction_orderbook_verified":False,
         "Qlib_adjusted_total_return_price_used":False,

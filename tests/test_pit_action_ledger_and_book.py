@@ -64,9 +64,12 @@ def test_ex_date_cash_entitlement_not_double_counted_before_ex():
     rec,ex,pay=b["records"]
     assert rec["pretax_receivable"]=="0"
     assert float(ex["pretax_receivable"])==pytest.approx(410.0)
-    assert float(pay["pretax_receivable"])==pytest.approx(0.0)
-    assert float(pay["cash_schedule_only"])==pytest.approx(410.0)
+    assert float(pay["pretax_receivable"])==pytest.approx(410.0)
+    assert float(pay["cash_schedule_only"])==pytest.approx(0.0)
+    assert pay["gross_receivable_credit_status"]=="ISSUER_SCHEDULE_REACHED_CREDIT_UNVERIFIED"
+    assert "ISSUER_PAYMENT_SCHEDULE_REACHED_BROKER_CREDIT_UNVERIFIED" in pay["events"]
     assert pay["equity_gross_scenario"]==ex["equity_gross_scenario"]
+    assert b["issuer_payment_schedule_does_not_prove_broker_cash_credit"] is True
     assert b["cash_payment_broker_confirmed"] is False
     assert b["Qlib_adjusted_total_return_price_used"] is False
 

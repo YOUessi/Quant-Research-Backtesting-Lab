@@ -68,3 +68,15 @@ def test_income_is_pretax_entitlement_never_actual_broker_settlement():
     assert r["pretax_dividend_receivable"]=="200.0"
     assert r["broker_dividend_cash_credit_verified"] is False
     assert r["tax_net_received_not_proven"] is True
+
+
+def test_issuer_scheduled_payment_outside_quote_window_stays_documented():
+    # The issuer's verified future payment schedule must survive a truncated
+    # observed quote window; it still cannot be booked as credited broker cash.
+    subset=bars().query('date != "2021-06-11"')
+    r=audit_single(event(),subset,response(),csv_sha256="c"*64)
+    assert r["cash_settlement_status"]=="SCHEDULED_PAY_DATE_KNOWN_OUTSIDE_BAR_WINDOW"
+    assert r["nominal_book"]["scheduled_payment_date"]=="2021-06-11"
+    assert r["nominal_book"]["source_schedule_reached_within_quote_window"] is False
+    assert r["nominal_book"]["cash_credited_in_this_scenario"]=="0"
+    assert r["nominal_book"]["records"][-1]["pretax_receivable"]=="200.0"
