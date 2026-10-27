@@ -1,0 +1,60 @@
+{
+  "kind": "EXP016_TWO_DIRECT_ISSUER_CASH_ONLY_NO_STOCK_RIGHTS_PROOFS",
+  "frozen_exp014_full_sha256": "f47b34380951ea998f9c494687d2d8f0f2355cea4bfd0ef000bf5eece6ea19d2",
+  "derived_exp016_full_sha256": "60a3187bff82f4d4a0eae82b3cbb83afc0749593a1ebcd817e17145cb7eb2d9d",
+  "original_event_pdf_sha256s_rechecked": 89,
+  "direct_current_issuer_proofs": 2,
+  "new_zero_share_categories": 4,
+  "before_complete_unresolved": [
+    36,
+    53
+  ],
+  "after_complete_unresolved": [
+    38,
+    51
+  ],
+  "original_pdf_new_downloads": 0,
+  "original_or_prior_catalog_mutation": false,
+  "independent_historical_factor_vintage_proven": false,
+  "broker_credit_or_saleable_shares_proven": false,
+  "official_daily_price_limit_or_auction_fills_proven": false,
+  "historical_portfolio_returns_validated": false,
+  "original_evidence": [
+    {
+      "event_id": "fb96a89a9571b9d377995ae5",
+      "symbol": "SH600887",
+      "ex_date": "2021-06-11",
+      "source_full_sha256": "757f3b72dc33925080addf7e3ee826047066c52b10c12ed607190ed70597fbef",
+      "original_url": "https://static.cninfo.com.cn/finalpage/2021-06-03/1210151060.PDF",
+      "original_notice_day": "2021-06-03",
+      "original_first_usable_day": "2021-06-04",
+      "original_record_day": "2021-06-10",
+      "original_ex_day": "2021-06-11",
+      "issuer_scheduled_cash_pay_day_not_broker_receipt": "2021-06-11",
+      "original_pretax_cash_per_old_share": "0.82",
+      "source_grade": "CURRENT_ISSUER_IMPLEMENTATION_EXPLICIT_NO_BONUS_NO_CAPITAL_EXP016",
+      "explicit_current_no_bonus_and_no_capital": true,
+      "intraday_publication_time_proven": false,
+      "broker_cash_share_credit_or_sellable_quantity_proven": false,
+      "exchange_daily_limit_price_or_order_execution_proven": false
+    },
+    {
+      "event_id": "d28ccb2336ff54b9253bdbc2",
+      "symbol": "SH600887",
+      "ex_date": "2022-06-01",
+      "source_full_sha256": "9e2789f8a0c3e4716eefaa703e838301bb9200893a64aa2724913b15e939f18b",
+      "original_url": "https://static.cninfo.com.cn/finalpage/2022-05-26/1213499389.PDF",
+      "original_notice_day": "2022-05-26",
+      "original_first_usable_day": "2022-05-27",
+      "original_record_day": "2022-05-31",
+      "original_ex_day": "2022-06-01",
+      "issuer_scheduled_cash_pay_day_not_broker_receipt": "2022-06-01",
+      "original_pretax_cash_per_old_share": "0.96",
+      "source_grade": "CURRENT_ISSUER_IMPLEMENTATION_EXPLICIT_NO_BONUS_NO_CAPITAL_EXP016",
+      "explicit_current_no_bonus_and_no_capital": true,
+      "intraday_publication_time_proven": false,
+      "broker_cash_share_credit_or_sellable_quantity_proven": false,
+      "exchange_daily_limit_price_or_order_execution_proven": false
+    }
+  ]
+}
