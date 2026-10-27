@@ -1,0 +1,193 @@
+{
+  "kind": "EXP009_REAL_HISTORICAL_SOURCE_GRADES_AND_ST_AUCTION_SELL_RISK",
+  "date": "2026-10-27",
+  "source_integrity_observation": "Independent originals SHA256 verified on Mac; issuer exchange HTML, two distinct fund manager original periodic PDFs, dated broker table, ST issuer PDF and archived independently-sourced unadjusted daily quotes. No original documents or vendor market data uploaded.",
+  "validation": "Mac CPU Python 3.12 -- existing + new test suites 165 PASSED; empirical real-source integration passed both probes",
+  "suning_2021_halt": {
+    "original_issuer_primary_full_interval_days": 134,
+    "additional_independent_fund_original_RETROSPECTIVE_days": 5,
+    "total_historical_missing_member_days_with_one_or_more_source_grades": 139,
+    "five_days": [
+      {
+        "symbol": "SZ002024",
+        "date": "2021-06-16",
+        "grade": "TWO_FUND_PERIODIC_ORIGINAL_DISCLOSURES_RETROSPECTIVE"
+      },
+      {
+        "symbol": "SZ002024",
+        "date": "2021-06-17",
+        "grade": "TWO_FUND_PERIODIC_ORIGINAL_DISCLOSURES_RETROSPECTIVE"
+      },
+      {
+        "symbol": "SZ002024",
+        "date": "2021-06-18",
+        "grade": "TWO_FUND_PERIODIC_ORIGINAL_DISCLOSURES_RETROSPECTIVE"
+      },
+      {
+        "symbol": "SZ002024",
+        "date": "2021-06-21",
+        "grade": "TWO_FUND_PERIODIC_ORIGINAL_DISCLOSURES_RETROSPECTIVE"
+      },
+      {
+        "symbol": "SZ002024",
+        "date": "2021-06-22",
+        "grade": "TWO_FUND_PERIODIC_ORIGINAL_DISCLOSURES_RETROSPECTIVE"
+      }
+    ],
+    "exchange": {
+      "symbol": "SZ002024",
+      "publisher": "SHENZHEN_STOCK_EXCHANGE",
+      "publication_day": "2021-06-16",
+      "initial_full_session_halt_from": "2021-06-16",
+      "resume_effective_date_given": null,
+      "evidence_grade": "PRIMARY_EXCHANGE_HALT_START_ONLY",
+      "usable_from_original_publication_day": true,
+      "exact_intraday_notice_publication_certified": false,
+      "source_url": "https://www.szse.cn/disclosure/notice/t20210616_586435.html",
+      "original_html_sha256": "52670239516bcf63914d7111ceb722985f17eba196c0e14a390cfd68a00be3d3"
+    },
+    "broker": {
+      "symbol": "SZ002024",
+      "publisher": "CINDA_SECURITIES_BROKER",
+      "publication_day": "2021-06-30",
+      "historical_halt_start": "2021-06-16",
+      "resume_time": null,
+      "evidence_grade": "SECONDARY_DATED_BROKER_NO_RESUME_TIME",
+      "does_not_establish_actual_resume_day": true,
+      "source_url": "https://www.cindasc.com/osoa/views/a/20210630/43370.html",
+      "original_html_sha256": "4c29ccffe3feeeded19247c1b0d6d153364d76f4b22928e47d078effe8c9c2ee"
+    },
+    "independent_original_fund_reports": [
+      {
+        "symbol": "SZ002024",
+        "fund_manager": "融通基金管理有限公司",
+        "fund_name": "融通深证100指数证券投资基金",
+        "original_report_publication_day": "2021-08-27",
+        "original_period_end": "2021-06-30",
+        "historical_halt_start_reported": "2021-06-16",
+        "eventual_actual_resume_reported": "2021-07-06",
+        "halted_share_mark_at_2021_06_30": 5.59,
+        "reported_resumption_open": 6.15,
+        "fund_reported_nominal_shares": 1900511,
+        "fund_reported_total_mark": 10623856.49,
+        "fund_mark_math_verified": true,
+        "retrospectively_reported_after_resume": true,
+        "not_historical_decision_day_observable": true,
+        "not_actual_order_fill": true,
+        "evidence_grade": "ORIGINAL_FUND_PERIODIC_DISCLOSURE_RETROSPECTIVE",
+        "source_url": "https://pdf.dfcfw.com/pdf/H2_AN202108271512608109_1.pdf",
+        "original_fund_pdf_sha256": "3baaf3c769ab8def9f4228019711c8704ea87776e212a3d30defa36a2c1c5322",
+        "original_report_halted_stock_table_pdf_zero_indexed_page": 28,
+        "original_fund_pdf_pages": 49
+      },
+      {
+        "symbol": "SZ002024",
+        "fund_manager": "中科沃土基金管理有限公司",
+        "fund_name": "中科沃土沃嘉灵活配置混合型证券投资基金",
+        "original_report_publication_day": "2021-08-31",
+        "original_period_end": "2021-06-30",
+        "historical_halt_start_reported": "2021-06-16",
+        "eventual_actual_resume_reported": "2021-07-06",
+        "halted_share_mark_at_2021_06_30": 5.59,
+        "reported_resumption_open": 6.15,
+        "fund_reported_nominal_shares": 31900,
+        "fund_reported_total_mark": 178321,
+        "fund_mark_math_verified": true,
+        "retrospectively_reported_after_resume": true,
+        "not_historical_decision_day_observable": true,
+        "not_actual_order_fill": true,
+        "evidence_grade": "ORIGINAL_FUND_PERIODIC_DISCLOSURE_RETROSPECTIVE",
+        "source_url": "https://pdf.dfcfw.com/pdf/H2_AN202108311513451275_1.pdf",
+        "original_fund_pdf_sha256": "3477978651fc3ec8e881c389c3c65164acaf50c10cfe3e310955748fff359f0f",
+        "original_report_halted_stock_table_pdf_zero_indexed_page": 37,
+        "original_fund_pdf_pages": 80
+      }
+    ],
+    "caveat": "Fund reports published after July 6 cannot become contemporaneous June 16–22 trading signals; first issuer reason-specific exact end remains unverified; primary original full-interval 134/139 unchanged."
+  },
+  "suning_2022_risk_warning_band": {
+    "issuer_original_verified_5pct": {
+      "symbol": "SZ002024",
+      "original_issuer_publication_day": "2022-04-30",
+      "risk_warning_effective_day": "2022-05-06",
+      "source_full_day_halt": "2022-05-05",
+      "observed_rule_fraction": "0.05",
+      "original_issuer_document_sha256": "26174d896c66d1b64ab764f5f47c6100e72a79a40769e6b55c5def3a3f4b254f",
+      "publisher_exact_intraday_release_time_known": false,
+      "actual_security_day_exchange_limit_levels_present_in_original_pdf": false
+    },
+    "issuer_original_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-04-30/1213266247.PDF",
+    "archived_independent_OHLCV_http_sha256": "ab750691b60f2d21b97f499e7a94dbc7d876aae70290f677463ee2749711ce33",
+    "archived_independent_OHLCV_CSV_sha256": "19efb785b57c2083c0532bdcffdc213e40302bc01258b4128cb5057e26f48d0c",
+    "observed_consecutive_one_price_down_days": 3,
+    "daily": [
+      {
+        "symbol": "SZ002024",
+        "trade_day": "2022-05-06",
+        "prior_actual_traded_stock_day": "2022-04-29",
+        "prior_unadjusted_close": "3.23",
+        "original_issuer_declared_st_band_percentage": "5%",
+        "derived_limit_up_price_NOT_OFFICIAL": "3.39",
+        "derived_limit_down_price_NOT_OFFICIAL": "3.07",
+        "observed_raw_open": "3.07",
+        "observed_raw_high": "3.07",
+        "observed_raw_low": "3.07",
+        "observed_raw_close": "3.07",
+        "observed_positive_daily_volume_lots": "16452.0",
+        "historical_one_price_down_at_derived_issuer_band": true,
+        "conservative_hypothetical_sell_queue_status": "DO_NOT_ASSUME_NEXT_OPEN_SELL_FILL_QUEUE_UNVERIFIED",
+        "hypothetical_buy_fill_auction_depth_certified": false,
+        "official_exchange_daily_up_down_PRICE_LEVELS_fetched": false,
+        "real_broker_execution_receipt": false
+      },
+      {
+        "symbol": "SZ002024",
+        "trade_day": "2022-05-09",
+        "prior_actual_traded_stock_day": "2022-05-06",
+        "prior_unadjusted_close": "3.07",
+        "original_issuer_declared_st_band_percentage": "5%",
+        "derived_limit_up_price_NOT_OFFICIAL": "3.22",
+        "derived_limit_down_price_NOT_OFFICIAL": "2.92",
+        "observed_raw_open": "2.92",
+        "observed_raw_high": "2.92",
+        "observed_raw_low": "2.92",
+        "observed_raw_close": "2.92",
+        "observed_positive_daily_volume_lots": "35449.0",
+        "historical_one_price_down_at_derived_issuer_band": true,
+        "conservative_hypothetical_sell_queue_status": "DO_NOT_ASSUME_NEXT_OPEN_SELL_FILL_QUEUE_UNVERIFIED",
+        "hypothetical_buy_fill_auction_depth_certified": false,
+        "official_exchange_daily_up_down_PRICE_LEVELS_fetched": false,
+        "real_broker_execution_receipt": false
+      },
+      {
+        "symbol": "SZ002024",
+        "trade_day": "2022-05-10",
+        "prior_actual_traded_stock_day": "2022-05-09",
+        "prior_unadjusted_close": "2.92",
+        "original_issuer_declared_st_band_percentage": "5%",
+        "derived_limit_up_price_NOT_OFFICIAL": "3.07",
+        "derived_limit_down_price_NOT_OFFICIAL": "2.77",
+        "observed_raw_open": "2.77",
+        "observed_raw_high": "2.77",
+        "observed_raw_low": "2.77",
+        "observed_raw_close": "2.77",
+        "observed_positive_daily_volume_lots": "67116.0",
+        "historical_one_price_down_at_derived_issuer_band": true,
+        "conservative_hypothetical_sell_queue_status": "DO_NOT_ASSUME_NEXT_OPEN_SELL_FILL_QUEUE_UNVERIFIED",
+        "hypothetical_buy_fill_auction_depth_certified": false,
+        "official_exchange_daily_up_down_PRICE_LEVELS_fetched": false,
+        "real_broker_execution_receipt": false
+      }
+    ],
+    "derived_price_levels_are_NOT_official_daily_levels": true,
+    "unchanged_model_predictions_and_returns": true,
+    "actual_broker_sell_fill_not_observed": true
+  },
+  "global_limitations": [
+    "No official exchange daily limit price-level export obtained, only original issuer 5% status rule and derived arithmetic bound.",
+    "Positive daily trading volume does not establish opening auction queue allocation or fill of a particular sell order.",
+    "No access to historic stock corporate-action publisher vintage factors and all 393 members' source-grade broker settlements.",
+    "No backtest retraining, date changes or PnL modification occurred.",
+    "No original broker order receipts observed; a sell at the indicative down-limit may fill for some orders, but cannot be ASSUMED to fill without matching execution/queue evidence."
+  ]
+}
