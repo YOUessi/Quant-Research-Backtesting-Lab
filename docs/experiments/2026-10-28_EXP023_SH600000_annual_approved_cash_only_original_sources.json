@@ -1,0 +1,179 @@
+{
+  "kind": "EXP023_SPDB_2020_2021_APPROVED_ANNUAL_CASH_ONLY_PRIMARY_PDF_AUDIT",
+  "parent_original_catalog_sha256": "b29464c49a2e1abc7241d2e8148ccd00bd110e8b55b868726d6810e096873c00",
+  "derived_new_catalog_sha256": "cfd3da37e1c0448807eb569e257f6832bc4155810aa8c037dfaf091f4b7ec606",
+  "original_issuer_implementation_PDFs_whole_sha256_verified": 89,
+  "additional_original_annual_approval_and_final_PDFs_verified": 10,
+  "original_full_rights_before_after": [
+    44,
+    46
+  ],
+  "original_unresolved_rights_before_after": [
+    45,
+    43
+  ],
+  "source_table_zero_bonus_and_transfer_newly_complete": 2,
+  "other_source_event_rows_fully_unchanged": 87,
+  "all_originals_chronology_approved_final": true,
+  "historical_factor_vintage_or_all_amendment_chain_verified": false,
+  "broker_cash_stock_credits_or_executable_trade_verified": false,
+  "past_model_prices_positions_and_returns_unchanged": true,
+  "derived_cash_only_approved_issuer_proofs": [
+    {
+      "symbol": "SH600000",
+      "event_id": "add4bd8b25db659099f2af93",
+      "ex_date": "2021-07-21",
+      "proof_grade": "SOURCE_ANNUAL_TABLE_ZERO_BONUS_AND_TRANSFER_APPROVED_AGM_MATCHED_FINAL",
+      "cash_per_old_share_unchanged": "0.48",
+      "issuer_proposal_approved_zero_bonus": "0",
+      "issuer_proposal_approved_zero_capital_transfer": "0",
+      "source_documents": [
+        {
+          "source_kind": "annual",
+          "original_filename": "2021_2020_annual_original.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-03-27/1209565322.PDF",
+          "whole_sha256": "ae8771ef6f64f06cf1de27e7adb10309b5a1a21c701e2eee4ea4734c56550164",
+          "publication_calendar_day": "2021-03-27",
+          "conservative_usable_exchange_day": "2021-03-29",
+          "pdf_pages": 382,
+          "verified_original_pdf_page_zero_indexed": 52
+        },
+        {
+          "source_kind": "board",
+          "original_filename": "2021_2020_board_profit.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-03-27/1209465959.PDF",
+          "whole_sha256": "cb9a7a73bcdad11f4c0bc410d57e0ebf291bfecc547243acbaef11f886e92851",
+          "publication_calendar_day": "2021-03-27",
+          "conservative_usable_exchange_day": "2021-03-29",
+          "pdf_pages": 2,
+          "verified_original_pdf_page_zero_indexed": 0
+        },
+        {
+          "source_kind": "agm_materials",
+          "original_filename": "2021_2020_AGM_materials.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-06-04/1210160923.PDF",
+          "whole_sha256": "1d2896fda63771e9e73f2e091c8708370a40b515cd70d310cfdd223111570d4a",
+          "publication_calendar_day": "2021-06-04",
+          "conservative_usable_exchange_day": "2021-06-07",
+          "pdf_pages": 41,
+          "verified_original_pdf_page_zero_indexed": 16
+        },
+        {
+          "source_kind": "agm_resolution",
+          "original_filename": "2021_2020_AGM_resolution.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-06-12/1210224472.PDF",
+          "whole_sha256": "86894a63a461d655539c543c3bf520ad82ccbf88f1ec459a25aff6e4f9b09f93",
+          "publication_calendar_day": "2021-06-12",
+          "conservative_usable_exchange_day": "2021-06-15",
+          "pdf_pages": 5,
+          "verified_original_pdf_page_zero_indexed": 2
+        },
+        {
+          "source_kind": "implementation",
+          "original_filename": "2021_2020_implementation.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2021-07-13/1210467899.PDF",
+          "whole_sha256": "fbadb95f0d82ebe980c559cb5bf5b8d4489b2b1e9374f585704a3719c79916ba",
+          "publication_calendar_day": "2021-07-13",
+          "conservative_usable_exchange_day": "2021-07-14",
+          "pdf_pages": 3,
+          "verified_original_pdf_page_zero_indexed": 0
+        }
+      ],
+      "issuer_table_fiscal_year": "2020",
+      "source_row": "2020年-4.80-",
+      "proposal_bonus_per_10": "0_AS_SOURCE_DASH",
+      "proposal_capital_transfer_per_10": "0_AS_SOURCE_DASH",
+      "gross_cash_per_ten_original_table": "4.80",
+      "board_plan_only_until_AGM": true,
+      "not_by_itself_implemented": true,
+      "agm_resolution_approved_same_fiscal_cash_scheme": true,
+      "final_issuer_current_approved_annual_cash_matched": true,
+      "final_actual_issuer_dividend_base": "29352160584",
+      "final_cash_gross_total": "14089037080.32",
+      "share_base_changes_due_to_convertibles_not_used_as_no_bonus_evidence": true,
+      "zero_bonus_and_transfer_source_grade": "SOURCE_ANNUAL_TABLE_ZERO_BONUS_AND_TRANSFER_APPROVED_AGM_MATCHED_FINAL",
+      "complete_corporate_actions_amendment_history_verified": false,
+      "individual_broker_new_shares_or_cash_credited": false,
+      "not_original_historical_factor_vintage_certificate": true,
+      "no_realtime_broker_corporate_credit_verified": true
+    },
+    {
+      "symbol": "SH600000",
+      "event_id": "b3646f7ee0b5840b34523c72",
+      "ex_date": "2022-07-21",
+      "proof_grade": "SOURCE_ANNUAL_TABLE_ZERO_BONUS_AND_TRANSFER_APPROVED_AGM_MATCHED_FINAL",
+      "cash_per_old_share_unchanged": "0.41",
+      "issuer_proposal_approved_zero_bonus": "0",
+      "issuer_proposal_approved_zero_capital_transfer": "0",
+      "source_documents": [
+        {
+          "source_kind": "annual",
+          "original_filename": "2022_2021_annual_original.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-04-28/1213175151.PDF",
+          "whole_sha256": "6bd3d544902c1f4568e9f1336f0585602889e61a69a88afc541f53bfd8091332",
+          "publication_calendar_day": "2022-04-28",
+          "conservative_usable_exchange_day": "2022-04-29",
+          "pdf_pages": 386,
+          "verified_original_pdf_page_zero_indexed": 70
+        },
+        {
+          "source_kind": "board",
+          "original_filename": "2022_2021_board_profit.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-04-28/1213175146.PDF",
+          "whole_sha256": "17dc4c7060082cb0707ac0df27977d661a350e0af53966384788345b1bd5fda8",
+          "publication_calendar_day": "2022-04-28",
+          "conservative_usable_exchange_day": "2022-04-29",
+          "pdf_pages": 3,
+          "verified_original_pdf_page_zero_indexed": 0
+        },
+        {
+          "source_kind": "agm_materials",
+          "original_filename": "2022_2021_AGM_materials.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-06-11/1213677295.PDF",
+          "whole_sha256": "7e8e53ac007c655a3b99ef612c8e944cbe688e85015ba68c96b59fd8769e737a",
+          "publication_calendar_day": "2022-06-11",
+          "conservative_usable_exchange_day": "2022-06-13",
+          "pdf_pages": 153,
+          "verified_original_pdf_page_zero_indexed": 15
+        },
+        {
+          "source_kind": "agm_resolution",
+          "original_filename": "2022_2021_AGM_resolution.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-06-18/1213743642.PDF",
+          "whole_sha256": "348e3024eb528eef3709e973e0593f837391d33d43d71e8d93ab65156bcf47a4",
+          "publication_calendar_day": "2022-06-18",
+          "conservative_usable_exchange_day": "2022-06-20",
+          "pdf_pages": 8,
+          "verified_original_pdf_page_zero_indexed": 2
+        },
+        {
+          "source_kind": "implementation",
+          "original_filename": "2022_2021_implementation.pdf",
+          "url": "https://static.cninfo.com.cn/finalpage/2022-07-13/1214014565.PDF",
+          "whole_sha256": "2698706b68bbd5dbff734617a816fa27dfb72bf63f9e83113b7f78baf0664b92",
+          "publication_calendar_day": "2022-07-13",
+          "conservative_usable_exchange_day": "2022-07-14",
+          "pdf_pages": 3,
+          "verified_original_pdf_page_zero_indexed": 0
+        }
+      ],
+      "issuer_table_fiscal_year": "2021",
+      "source_row": "2021年-4.10-",
+      "proposal_bonus_per_10": "0_AS_SOURCE_DASH",
+      "proposal_capital_transfer_per_10": "0_AS_SOURCE_DASH",
+      "gross_cash_per_ten_original_table": "4.10",
+      "board_plan_only_until_AGM": true,
+      "not_by_itself_implemented": true,
+      "agm_resolution_approved_same_fiscal_cash_scheme": true,
+      "final_issuer_current_approved_annual_cash_matched": true,
+      "final_actual_issuer_dividend_base": "29352173289",
+      "final_cash_gross_total": "12034391048.49",
+      "share_base_changes_due_to_convertibles_not_used_as_no_bonus_evidence": true,
+      "zero_bonus_and_transfer_source_grade": "SOURCE_ANNUAL_TABLE_ZERO_BONUS_AND_TRANSFER_APPROVED_AGM_MATCHED_FINAL",
+      "complete_corporate_actions_amendment_history_verified": false,
+      "individual_broker_new_shares_or_cash_credited": false,
+      "not_original_historical_factor_vintage_certificate": true,
+      "no_realtime_broker_corporate_credit_verified": true
+    }
+  ]
+}
