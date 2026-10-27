@@ -1,0 +1,100 @@
+{
+  "kind": "EXP013_FIVE_ORIGINAL_ISSUER_EXPLICIT_CASH_ONLY_COMPLETIONS",
+  "baseline_catalog_full_sha256": "255756a4e4cfe24c36259dcaf5336da8f93544b6da31419566c8d6c1be95329f",
+  "derived_catalog_full_sha256": "54c3a094fa49614145db2434180a6cf4326ba1c8abf807a9e667fa8b19b8cfcf",
+  "rehashed_original_issuer_PDF_events": 89,
+  "before_complete_and_unresolved": [
+    27,
+    62
+  ],
+  "newly_direct_current_issuer_verified_zero_bonus_and_transfer": 5,
+  "after_complete_and_unresolved": [
+    32,
+    57
+  ],
+  "new_source_fetched_this_run": false,
+  "historical_factor_versions_or_broker_credits_verified": false,
+  "actual_portfolio_orders_or_returns_recomputed": false,
+  "source_proofs": [
+    {
+      "symbol": "SH600703",
+      "ex_date": "2022-07-14",
+      "original_issuer_pdf_sha256": "ea47709e05fe1bddc5693fea5716766f5cfc8f7688dcec7414971b17fcb1c25f",
+      "original_issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-07-08/1213983746.PDF",
+      "issuer_publication_calendar_day": "2022-07-08",
+      "earliest_usable_exchange_day": "2022-07-11",
+      "record_date": "2022-07-13",
+      "scheduled_issuer_payment_day_not_broker_credit": "2022-07-14",
+      "gross_pretax_cash_per_nominal_share": "0.1",
+      "zero_bonus_and_transfer_direct_current_issuer_text": true,
+      "unchanged_circulating_share_ratio_source_literal": true,
+      "new_broker_credited_or_sellable_shares_confirmed": false,
+      "broker_cash_credit_or_actual_fills_confirmed": false,
+      "source_evidence_grade": "DIRECT_CURRENT_IMPLEMENTATION_CASH_ONLY_BOTH_ZERO_EXP013"
+    },
+    {
+      "symbol": "SH600705",
+      "ex_date": "2021-08-05",
+      "original_issuer_pdf_sha256": "02e1a0bad42ae4ed00803c9d0df58df0e50a6ce268b0dc9ddced6e6d0daa65f7",
+      "original_issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2021-07-28/1210580550.PDF",
+      "issuer_publication_calendar_day": "2021-07-28",
+      "earliest_usable_exchange_day": "2021-07-29",
+      "record_date": "2021-08-04",
+      "scheduled_issuer_payment_day_not_broker_credit": "2021-08-05",
+      "gross_pretax_cash_per_nominal_share": "0.112",
+      "zero_bonus_and_transfer_direct_current_issuer_text": true,
+      "unchanged_circulating_share_ratio_source_literal": true,
+      "new_broker_credited_or_sellable_shares_confirmed": false,
+      "broker_cash_credit_or_actual_fills_confirmed": false,
+      "source_evidence_grade": "DIRECT_CURRENT_IMPLEMENTATION_CASH_ONLY_BOTH_ZERO_EXP013"
+    },
+    {
+      "symbol": "SH600705",
+      "ex_date": "2022-07-07",
+      "original_issuer_pdf_sha256": "17250533a9f1da13fd3b51a2e1b19b4659300bcea42f60f3f2985fb328bd2295",
+      "original_issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-29/1213855504.PDF",
+      "issuer_publication_calendar_day": "2022-06-29",
+      "earliest_usable_exchange_day": "2022-06-30",
+      "record_date": "2022-07-06",
+      "scheduled_issuer_payment_day_not_broker_credit": "2022-07-07",
+      "gross_pretax_cash_per_nominal_share": "0.152",
+      "zero_bonus_and_transfer_direct_current_issuer_text": true,
+      "unchanged_circulating_share_ratio_source_literal": true,
+      "new_broker_credited_or_sellable_shares_confirmed": false,
+      "broker_cash_credit_or_actual_fills_confirmed": false,
+      "source_evidence_grade": "DIRECT_CURRENT_IMPLEMENTATION_CASH_ONLY_BOTH_ZERO_EXP013"
+    },
+    {
+      "symbol": "SH601318",
+      "ex_date": "2022-06-20",
+      "original_issuer_pdf_sha256": "c3c7aa1b51962b1441c6d9a2cdafe6c66264323b2f4c39a2e9b30a6c180d0bd3",
+      "original_issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-06-11/1213675462.PDF",
+      "issuer_publication_calendar_day": "2022-06-11",
+      "earliest_usable_exchange_day": "2022-06-13",
+      "record_date": "2022-06-17",
+      "scheduled_issuer_payment_day_not_broker_credit": "2022-06-20",
+      "gross_pretax_cash_per_nominal_share": "1.5",
+      "zero_bonus_and_transfer_direct_current_issuer_text": true,
+      "unchanged_circulating_share_ratio_source_literal": true,
+      "new_broker_credited_or_sellable_shares_confirmed": false,
+      "broker_cash_credit_or_actual_fills_confirmed": false,
+      "source_evidence_grade": "DIRECT_CURRENT_IMPLEMENTATION_CASH_ONLY_BOTH_ZERO_EXP013"
+    },
+    {
+      "symbol": "SH601318",
+      "ex_date": "2022-10-20",
+      "original_issuer_pdf_sha256": "63ba8885c1954203bd16dacb4368fd169e611b3b997756c9c702bf7a275782b8",
+      "original_issuer_pdf_url": "https://static.cninfo.com.cn/finalpage/2022-10-13/1214757273.PDF",
+      "issuer_publication_calendar_day": "2022-10-13",
+      "earliest_usable_exchange_day": "2022-10-14",
+      "record_date": "2022-10-19",
+      "scheduled_issuer_payment_day_not_broker_credit": "2022-10-20",
+      "gross_pretax_cash_per_nominal_share": "0.92",
+      "zero_bonus_and_transfer_direct_current_issuer_text": true,
+      "unchanged_circulating_share_ratio_source_literal": true,
+      "new_broker_credited_or_sellable_shares_confirmed": false,
+      "broker_cash_credit_or_actual_fills_confirmed": false,
+      "source_evidence_grade": "DIRECT_CURRENT_IMPLEMENTATION_CASH_ONLY_BOTH_ZERO_EXP013"
+    }
+  ]
+}
