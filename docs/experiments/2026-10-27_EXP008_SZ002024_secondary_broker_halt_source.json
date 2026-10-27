@@ -1,0 +1,22 @@
+{
+  "kind": "EXP008_SECONDARY_BROKER_HISTORICAL_SUSPENSION_INDICATOR_NOT_COMPLETE_ORIGINAL_RESUME_PROOF",
+  "record_date": "2021-06-30",
+  "broker": "信达证券 / Cinda Securities",
+  "page_title": "标的证券信息提示(2021-6-30)",
+  "source_url": "https://www.cindasc.com/osoa/views/a/20210630/43370.html",
+  "saved_local_broker_page_sha256": "4c29ccffe3feeeded19247c1b0d6d153364d76f4b22928e47d078effe8c9c2ee",
+  "source_ticker": "002024.sz",
+  "source_security": "苏宁易购",
+  "published_table_halt_start": "2021-06-16 09:30:00",
+  "published_table_resume_time": "",
+  "source_table_reason": "临时停牌",
+  "evidence_grade": "THIRD_PARTY_BROKER_DATED_STATUS_TABLE_ONLY",
+  "source_is_original_exchange_resumption_announcement": false,
+  "five_unresolved_2021_06_16_to_06_22_member_days_reclassified_as_official_complete_halt": false,
+  "frozen_EXP008_issuer_original_supported_halt_count": 134,
+  "frozen_QLib_invalid_member_stock_days": 139,
+  "remaining_issuer_original_full_interval_uncertified": 5,
+  "method_note": "Historical dated broker summary corroborates commencement of an issuer halt but provides an empty resume field. It does not by itself certify that a distinct June-16-to-June-22 full interval ended or establish original exchange daily halt files; no additional original-PDF day is claimed.",
+  "broker_source_statement_about_reliance": "Broker page itself says based on exchange public information and users should verify independently.",
+  "not_live_broker_fill_evidence": true
+}
