@@ -63,9 +63,9 @@ import hashlib,json,sys
 from pathlib import Path
 old=Path(sys.argv[1]); root=Path(sys.argv[2])/"exp023"
 p=root/"rights_catalog_exp023.json"
-a=root/"source_audit.json"
+audit_path=root/"source_audit.json"
 old_bytes=old.read_bytes(); child_bytes=p.read_bytes()
-parent=json.loads(old_bytes); result=json.loads(child_bytes); audit=json.loads(a.read_bytes())
+parent=json.loads(old_bytes); result=json.loads(child_bytes); audit=json.loads(audit_path.read_bytes())
 assert audit["parent_original_catalog_sha256"]==hashlib.sha256(old_bytes).hexdigest()
 assert audit["derived_new_catalog_sha256"]==hashlib.sha256(child_bytes).hexdigest()
 assert (audit["original_full_rights_before_after"],
@@ -94,5 +94,5 @@ print("EXP023 VERIFIED: 89 frozen issuer originals + 10 new original approval-ch
 print("EXACT TWO events: SH600000 2021/2022 bonus=0, transfer=0; complete rights 44 -> 46.")
 print("87 original event rows unchanged. No broker cash, fill or as-of factor vintages.")
 print("CATALOG_SHA256",hashlib.sha256(child_bytes).hexdigest())
-print("AUDIT_SHA256",hashlib.sha256(a.read_bytes()).hexdigest())
+print("AUDIT_SHA256",hashlib.sha256(audit_path.read_bytes()).hexdigest())
 PY
