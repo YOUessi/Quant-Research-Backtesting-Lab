@@ -18,6 +18,7 @@ import re
 from pypdf import PdfReader
 
 from .pit_share_distribution import clean
+from .pit_exp020_issuer_identity_gate import validate_original_header
 
 PARENT_SHA256 = "62f50f8294adde17712136108b4e74fd84e18ddbe68ce04d3a5efb9042ba8122"
 PARENT_KIND = "EXP018_SUPPLEMENTAL_TREASURY_EXCLUDED_CASH_ONLY_CATALOG"
@@ -80,6 +81,8 @@ def source_inventory(rows: list[dict], directories: list[Path]) -> tuple[dict[st
             raise ValueError("Original issuer URL/publication-day identity mismatch")
         if not notice < row["earliest_usable_exchange_day"] <= row["record_date"] < row["ex_date"]:
             raise ValueError("Original publication-clock chronology mismatch")
+        # EXP020: first-page A-stock / implementation identity, not bond or H-share label.
+        validate_original_header(row, original.read_bytes())
     return source_map, len(rows)
 
 
